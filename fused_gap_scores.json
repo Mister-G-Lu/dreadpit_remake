@@ -1,0 +1,664 @@
+{
+  "fighters": [
+    {
+      "name": "Mecha Dragon - Champion",
+      "group": "A",
+      "wins": 7,
+      "nn": 0.48264646530151367,
+      "florence_raw": 0.0,
+      "florence_prob": 0.268,
+      "fused": 0.375,
+      "true_winner": true,
+      "florence": "(no caption)",
+      "blip": "a robot with wings and a fire",
+      "hits": []
+    },
+    {
+      "name": "Aion, Where Stars Go to Die",
+      "group": "A",
+      "wins": 7,
+      "nn": 0.495840460062027,
+      "florence_raw": -2.0,
+      "florence_prob": 0.089,
+      "fused": 0.293,
+      "true_winner": true,
+      "florence": "A man is wearing a black outfit. He is holding a large sword in his hand. There is a large tree behind the man.",
+      "blip": "a character from the anime series, the knight of the fallen",
+      "hits": [
+        "outfit:-1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Aurelion, The Last Sovereign",
+      "group": "A",
+      "wins": 7,
+      "nn": 0.4988339841365814,
+      "florence_raw": 2.0,
+      "florence_prob": 0.446,
+      "fused": 0.473,
+      "true_winner": true,
+      "florence": "This is an animated image of a warrior. The warrior is wearing a black and gold outfit. The armor is shiny and gold. There is a large sword in the man's right hand. The sword is long and sharp. The man is holding the sword with both hands. There are three large planet behind the man in the black background.",
+      "blip": "a character in a black suit with a sword",
+      "hits": [
+        "warrior:+0.8",
+        "outfit:-1.2",
+        "armor:+2.0",
+        "gold:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Bone Revenant",
+      "group": "B",
+      "wins": 1,
+      "nn": 1.0,
+      "florence_raw": -2.5,
+      "florence_prob": 0.045,
+      "fused": 0.522,
+      "true_winner": false,
+      "florence": "The image is of a character from a video game. The character is a skeleton. He is holding two large swords. The background is dark.",
+      "blip": "(no BLIP)",
+      "hits": [
+        "skeleton:-2.5"
+      ]
+    },
+    {
+      "name": "Claw Mantis",
+      "group": "B",
+      "wins": 2,
+      "nn": 1.0,
+      "florence_raw": -2.8,
+      "florence_prob": 0.018,
+      "fused": 0.509,
+      "true_winner": false,
+      "florence": "This is an animated image of a grasshopper. The background of the image is black. The insect is yellow, green, and brown. The eyes of the insect are green. The legs are yellow and orange. The wings on the insect have black tips on them.",
+      "blip": "(no BLIP)",
+      "hits": [
+        "grasshopper:-2.0",
+        "insect:-1.8",
+        "wings:+1.0"
+      ]
+    },
+    {
+      "name": "Oth-keth",
+      "group": "B",
+      "wins": 2,
+      "nn": 1.0,
+      "florence_raw": 0.6,
+      "florence_prob": 0.321,
+      "fused": 0.661,
+      "true_winner": false,
+      "florence": "This is an animated image of a blue creature. The creature has sharp sharp horns on its head. The horns are blue with white tips on them. The face of the creature is covered in blue paint. There is a dark background behind the creature.",
+      "blip": "(no BLIP)",
+      "hits": [
+        "creature:+0.6"
+      ]
+    },
+    {
+      "name": "Dark Shadow",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.9739,
+      "florence_raw": -2.0,
+      "florence_prob": 0.089,
+      "fused": 0.532,
+      "true_winner": false,
+      "florence": "A man is standing in front of a city. He is wearing a black outfit with a hood on his head. The man is holding a sword in his hand.",
+      "blip": "(no BLIP)",
+      "hits": [
+        "outfit:-1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Sorn-veth",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.9453,
+      "florence_raw": 0.6,
+      "florence_prob": 0.321,
+      "fused": 0.633,
+      "true_winner": false,
+      "florence": "This is an animated image of a creature. The creature has large, sharp, pointed horns on its head. The head is white with black eyes. The body of the creature is black. The legs and feet are black.",
+      "blip": "(no BLIP)",
+      "hits": [
+        "creature:+0.6"
+      ]
+    },
+    {
+      "name": "It came from Uranus",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.8702043294906616,
+      "florence_raw": 0.6,
+      "florence_prob": 0.321,
+      "fused": 0.596,
+      "true_winner": false,
+      "florence": "This is an animated image of a creature. The creature has sharp sharp teeth and sharp red eyes. The mouth of the creature is open and sharp. There are small droplets of water dripping from the creature's arms. The background of the image is dark blue.",
+      "blip": "a cartoon character with a big mouth and a big grin",
+      "hits": [
+        "creature:+0.6"
+      ]
+    },
+    {
+      "name": "Hellhorn Brute",
+      "group": "B",
+      "wins": 2,
+      "nn": 0.8517799377441406,
+      "florence_raw": 5.4,
+      "florence_prob": 0.75,
+      "fused": 0.801,
+      "true_winner": false,
+      "florence": "This is an animated image of a warrior. The warrior is holding a sword and shield. The man has horns on his head. The horns are black. The armor is black. There is fire under the warrior. There are wings behind the man. The wings are dark. The fire is bright orange and yellow. The arms and legs of the man are hairy.",
+      "blip": "a demon with a sword and a flame",
+      "hits": [
+        "warrior:+0.8",
+        "shield:+1.2",
+        "armor:+2.0",
+        "wings:+1.0",
+        "fire:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Twisted Knight",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.8131,
+      "florence_raw": 4.0,
+      "florence_prob": 0.625,
+      "fused": 0.719,
+      "true_winner": false,
+      "florence": "A statue of a warrior is holding two swords. The swords are long and sharp. The man is wearing armor. The armor is made of metal. There are horns on the head of the man. The horns are sharp and curved. There is a shield on the man's chest. The shield is silver. There's a sword on the ground. The sword has a design on it.",
+      "blip": "(no BLIP)",
+      "hits": [
+        "warrior:+0.8",
+        "shield:+1.2",
+        "statue:-1.0",
+        "armor:+2.0",
+        "metal:+1.8",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Phantom Backstep",
+      "group": "B",
+      "wins": 3,
+      "nn": 0.795085608959198,
+      "florence_raw": -1.6,
+      "florence_prob": 0.125,
+      "fused": 0.46,
+      "true_winner": false,
+      "florence": "A picture of a woman in a silver outfit. The woman is holding a bow and arrow. There is a fire under the woman. There are white clouds behind her.",
+      "blip": "a white archer with a bow and arrows in his hands",
+      "hits": [
+        "outfit:-1.2",
+        "woman:-0.8",
+        "fire:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Porr-Q Pine",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.7898183465003967,
+      "florence_raw": 0.0,
+      "florence_prob": 0.268,
+      "fused": 0.529,
+      "true_winner": false,
+      "florence": "(no caption)",
+      "blip": "a cartoon character with a sword and a demon",
+      "hits": []
+    },
+    {
+      "name": "Song of Aether",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.7867807745933533,
+      "florence_raw": 0.0,
+      "florence_prob": 0.268,
+      "fused": 0.527,
+      "true_winner": false,
+      "florence": "This is an animated image. The background is black. There is a blue figure in the middle of the picture. The figure has horns on their head. The horns are sharp and curved. There are two large guns on either side of the figure. The figures have a long blue cape on their body. The cape is long and hanging down.",
+      "blip": "a character with a sword and a glowing orb",
+      "hits": []
+    },
+    {
+      "name": "demonio sin nombre",
+      "group": "B",
+      "wins": 2,
+      "nn": 0.7794141173362732,
+      "florence_raw": 2.4,
+      "florence_prob": 0.482,
+      "fused": 0.631,
+      "true_winner": false,
+      "florence": "This is an animated image of a warrior. The warrior has horns on his head. The horns are black. The man is holding a large shield. The shield has fire on it. The fire is orange and yellow. There is a moon in the sky. The moon is white. The sky is dark blue. The sun is shining on the man with the horns.",
+      "blip": "a character with a fire and a sword",
+      "hits": [
+        "warrior:+0.8",
+        "shield:+1.2",
+        "fire:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Devastator",
+      "group": "B",
+      "wins": 3,
+      "nn": 0.7626844644546509,
+      "florence_raw": 4.2,
+      "florence_prob": 0.643,
+      "fused": 0.703,
+      "true_winner": false,
+      "florence": "This is an animated image of a warrior. The warrior is holding a sword. The sword is red. The man is wearing a helmet. The helmet is black. The armor is silver. There is a bright light in the middle of the image. The light is white. The background is dark gray. There are wings behind the man. The wings are multicolored.",
+      "blip": "a character with a sword and a lightening",
+      "hits": [
+        "warrior:+0.8",
+        "helmet:+1.2",
+        "armor:+2.0",
+        "wings:+1.0",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Captain Squidd",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.7517226338386536,
+      "florence_raw": 0.9,
+      "florence_prob": 0.348,
+      "fused": 0.55,
+      "true_winner": false,
+      "florence": "A cartoon image of a purple octopus holding a sword and shield. The octopus is wearing a black hat with a white design on it. There is fire behind the octopus.",
+      "blip": "a character in a purple outfit holding a sword and a sword",
+      "hits": [
+        "cartoon:-1.5",
+        "shield:+1.2",
+        "fire:+1.2"
+      ]
+    },
+    {
+      "name": "Dominic",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.7467523217201233,
+      "florence_raw": 3.4,
+      "florence_prob": 0.571,
+      "fused": 0.659,
+      "true_winner": false,
+      "florence": "A robot is standing in front of the moon. The moon is white and round. There are orange flames coming out of the robot.",
+      "blip": "gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam gundam",
+      "hits": [
+        "robot:+2.2",
+        "flame:+1.2"
+      ]
+    },
+    {
+      "name": "Rift Monarch",
+      "group": "B",
+      "wins": 2,
+      "nn": 0.7466498017311096,
+      "florence_raw": 3.0,
+      "florence_prob": 0.536,
+      "fused": 0.641,
+      "true_winner": false,
+      "florence": "This is an animated image of a warrior. The warrior is holding a large sword. The sword is long and sharp. The handle of the sword is red. The man is wearing a armor. The armor is black. There is a bright red circle behind the man. There are wings on the man's back. The wings are spread out around the man with the sword.",
+      "blip": "a character with a sword and a demon",
+      "hits": [
+        "warrior:+0.8",
+        "armor:+2.0",
+        "wings:+1.0",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Abyss",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.6944732069969177,
+      "florence_raw": 2.4,
+      "florence_prob": 0.482,
+      "fused": 0.588,
+      "true_winner": false,
+      "florence": "This is an animated image of a warrior. The warrior is wearing a black outfit with horns on his head. The horns are sharp and pointy. The man is holding a sword in one hand and a shield in the other. The shield has a golden design on it. There are flames coming out of the shield. The background is black.",
+      "blip": "a character with a lightning in his hand",
+      "hits": [
+        "warrior:+0.8",
+        "shield:+1.2",
+        "outfit:-1.2",
+        "flame:+1.2",
+        "gold:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Clifford The Big Red Dog",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.6852615475654602,
+      "florence_raw": 1.2,
+      "florence_prob": 0.375,
+      "fused": 0.53,
+      "true_winner": false,
+      "florence": "This is an animated image of a dog. The dog is holding a gun. The gun is black. There are two dogs behind the dog. One of the dogs is red and the other is brown. The dogs have sharp teeth. There is fire around the dogs. The fire is bright orange and yellow.",
+      "blip": "a cartoon character with a gun and a dog",
+      "hits": [
+        "fire:+1.2"
+      ]
+    },
+    {
+      "name": "Hoon",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.6669663190841675,
+      "florence_raw": 3.6,
+      "florence_prob": 0.589,
+      "fused": 0.628,
+      "true_winner": false,
+      "florence": "This is an animated image of a creature. The creature is a dragon. The dragon has sharp claws. The claws are sharp. The eyes of the creature are glowing orange. There is a moon in the background. The moon is glowing white. There are rays of light coming out of the back of the animal. The animal has large breasts. The arms and legs are muscular.",
+      "blip": "a cartoon character with a big, furry, furry, and big body",
+      "hits": [
+        "creature:+0.6",
+        "glowing:+1.0",
+        "dragon:+2.0"
+      ]
+    },
+    {
+      "name": "TERMINATION PROTOCOL",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.6608511209487915,
+      "florence_raw": 2.2,
+      "florence_prob": 0.464,
+      "fused": 0.563,
+      "true_winner": false,
+      "florence": "This is an animated image of a robot. The robot is holding a gun. The gun is black and silver. There are blue lights on the robot's head. The background is dark. There is a cloud of smoke behind the robot.",
+      "blip": "a robot with a gun in his hand",
+      "hits": [
+        "robot:+2.2"
+      ]
+    },
+    {
+      "name": "GRIM POWER SPEED WINGED REAPER",
+      "group": "B",
+      "wins": 3,
+      "nn": 0.6298208832740784,
+      "florence_raw": 4.4,
+      "florence_prob": 0.661,
+      "fused": 0.645,
+      "true_winner": false,
+      "florence": "This is an animated image of a warrior. The warrior is holding two swords. The swords are silver. The man is wearing a helmet with a face. The helmet is black. The armor is dark gray. There is a fire behind the man. The fire is bright orange and yellow. The background is dark. The ground under the man is gray.",
+      "blip": "a cartoon character in a black suit with two swords",
+      "hits": [
+        "warrior:+0.8",
+        "helmet:+1.2",
+        "armor:+2.0",
+        "fire:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Speed",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.6274933815002441,
+      "florence_raw": 1.2,
+      "florence_prob": 0.375,
+      "fused": 0.501,
+      "true_winner": false,
+      "florence": "This is an animated image of a leopard. The leopard is holding a gun in one hand and a sword in the other. There is fire under the leopard on the ground. The background is black.",
+      "blip": "a cartoon character with a gun and a leopard",
+      "hits": [
+        "fire:+1.2"
+      ]
+    },
+    {
+      "name": "Iron Colossus",
+      "group": "B",
+      "wins": 2,
+      "nn": 0.6192219853401184,
+      "florence_raw": 4.4,
+      "florence_prob": 0.661,
+      "fused": 0.64,
+      "true_winner": false,
+      "florence": "This is an animated image of a robot. The robot is black and has a red face. The eyes are glowing red. There is fire under the robot.",
+      "blip": "a robot with a gun in his hand",
+      "hits": [
+        "glowing:+1.0",
+        "robot:+2.2",
+        "fire:+1.2"
+      ]
+    },
+    {
+      "name": "SIX ARMED REAPER ELDRITCH ",
+      "group": "B",
+      "wins": 2,
+      "nn": 0.6167523860931396,
+      "florence_raw": 4.2,
+      "florence_prob": 0.643,
+      "fused": 0.63,
+      "true_winner": false,
+      "florence": "This is an animated image of a warrior. The warrior is wearing armor. The armor is gray. The man has wings on his back. The wings are white. There are orange flames behind the warrior. There is a shadow of the warrior on the ground. The ground under the warrior is brown. The background is black.",
+      "blip": "a cartoon character with wings and a fire",
+      "hits": [
+        "warrior:+0.8",
+        "armor:+2.0",
+        "wings:+1.0",
+        "flame:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Rider",
+      "group": "B",
+      "wins": 3,
+      "nn": 0.6167523860931396,
+      "florence_raw": 0.4,
+      "florence_prob": 0.304,
+      "fused": 0.46,
+      "true_winner": false,
+      "florence": "This is an animated image of a man. The man is wearing a black jacket and has chains around his waist. The chains are hanging from his wrists. The mans face is covered in fire. The fire is bright orange and yellow. The hands of the man are covered with the chains. There is a sword in the man's right hand. The background is dark.",
+      "blip": "a cartoon character with wings and a blue light",
+      "hits": [
+        "fire:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Electric & Guns",
+      "group": "B",
+      "wins": 3,
+      "nn": 0.6167523860931396,
+      "florence_raw": 0.0,
+      "florence_prob": 0.268,
+      "fused": 0.442,
+      "true_winner": false,
+      "florence": "(no caption)",
+      "blip": "a cartoon character with fire and flames",
+      "hits": []
+    },
+    {
+      "name": "Mushapov",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.6167523860931396,
+      "florence_raw": 2.0,
+      "florence_prob": 0.446,
+      "fused": 0.532,
+      "true_winner": false,
+      "florence": "The image is of a character from a video game. The character is a warrior. He is wearing a black outfit with red and green accents. He has a helmet on his head with green eyes. He also has a belt around his waist. The arms are outstretched and he is holding out his hands. Behind him is a bright orange and yellow fire.",
+      "blip": "a cartoon character with a glowing sword and a glowing fire",
+      "hits": [
+        "warrior:+0.8",
+        "helmet:+1.2",
+        "outfit:-1.2",
+        "fire:+1.2"
+      ]
+    },
+    {
+      "name": "Karma, the Creator",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.6167523860931396,
+      "florence_raw": 1.6,
+      "florence_prob": 0.411,
+      "fused": 0.514,
+      "true_winner": false,
+      "florence": "A picture of a man sitting on fire. The man is holding a sword in his hand. There is a black background behind the man. There are flames under the man on the fire.",
+      "blip": "a cartoon character sitting on a fire",
+      "hits": [
+        "flame:+1.2",
+        "fire:+1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Multi Scythe Reaper of lava",
+      "group": "B",
+      "wins": 2,
+      "nn": 0.6167523860931396,
+      "florence_raw": 8.2,
+      "florence_prob": 1.0,
+      "fused": 0.808,
+      "true_winner": false,
+      "florence": "This is an animated image of a robot. The robot has wings on either side of him. The wings are orange, blue, green, and yellow. There are two weapons in the robot's hands. The weapons are long and sharp. The armor on the robot is made of metal. There is a helmet on the head of the robot.",
+      "blip": "a cartoon character with wings and a fire",
+      "hits": [
+        "helmet:+1.2",
+        "armor:+2.0",
+        "metal:+1.8",
+        "robot:+2.2",
+        "wings:+1.0"
+      ]
+    },
+    {
+      "name": "Eviscerant Overseer",
+      "group": "B",
+      "wins": 2,
+      "nn": 0.5711954832077026,
+      "florence_raw": 1.6,
+      "florence_prob": 0.411,
+      "fused": 0.491,
+      "true_winner": false,
+      "florence": "This is an animated image of a creature. The creature has large wings. The wings are dark red. There are neon green lights on the creature. There is a purple bubble in the creature's body. The purple bubble is round.",
+      "blip": "a cartoon character with two lights and a demon",
+      "hits": [
+        "creature:+0.6",
+        "wings:+1.0"
+      ]
+    },
+    {
+      "name": "Obsidian Tyrant",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.5551263689994812,
+      "florence_raw": 3.9,
+      "florence_prob": 0.616,
+      "fused": 0.586,
+      "true_winner": false,
+      "florence": "The image is of a character from a video game. The character is a demon. The demon has wings. The wings are dark red. The man is holding a sword. The sword has a red design on it. There is a shield on the man's right hand. The shield has black designs on it with white letters. The face of the demon is glowing red.",
+      "blip": "a dark knight with wings and a sword",
+      "hits": [
+        "glowing:+1.0",
+        "shield:+1.2",
+        "demon:+1.5",
+        "wings:+1.0",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Abyssal Presence",
+      "group": "B",
+      "wins": 2,
+      "nn": 0.5399158596992493,
+      "florence_raw": 1.7,
+      "florence_prob": 0.42,
+      "fused": 0.48,
+      "true_winner": false,
+      "florence": "This is an image of a demon. The demon has large horns. The horns are sharp and curved. The man is wearing a mask. The mask is glowing blue. The face of the demon is glowing white. There is a black background behind the demon. There are white clouds behind the man. The figure is standing on a platform. The platform is made of wood.",
+      "blip": "a demon standing on a dock with his arms outstretched",
+      "hits": [
+        "glowing:+1.0",
+        "demon:+1.5",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Twinkle Twinkle Death Star",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.5356041193008423,
+      "florence_raw": -0.5,
+      "florence_prob": 0.223,
+      "fused": 0.379,
+      "true_winner": false,
+      "florence": "The image is of a cartoon character. The character is black. The eyes are large and white. The head of the character is round and orange. There are black spikes sticking out of the sides of the eyes. Above the black head is a blue moon. The moon is glowing. The black background is dark. The face of the cartoon character is angry.",
+      "blip": "a cartoon character with a big eyes and a big smile",
+      "hits": [
+        "glowing:+1.0",
+        "cartoon:-1.5"
+      ]
+    },
+    {
+      "name": "Mountain Giant",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.5249,
+      "florence_raw": -3.0,
+      "florence_prob": 0.0,
+      "fused": 0.262,
+      "true_winner": false,
+      "florence": "A statue of a man holding a sword. The man has a long gray beard and a gray mustache. He is wearing a black outfit with black knee pads. The statue is standing on a wooden platform. There are logs on the platform in front of the statue. The background behind the statue is dark gray.",
+      "blip": "(no BLIP)",
+      "hits": [
+        "statue:-1.0",
+        "outfit:-1.2",
+        "man:-0.8"
+      ]
+    },
+    {
+      "name": "Black Vanguard",
+      "group": "B",
+      "wins": 1,
+      "nn": 0.5130230188369751,
+      "florence_raw": 2.8,
+      "florence_prob": 0.518,
+      "fused": 0.515,
+      "true_winner": false,
+      "florence": "This is an animated image of a warrior. The warrior is wearing a red and black armor. The armor has spikes on it. The sword is long and red. The background is dark gray.",
+      "blip": "a character from the game mobile wars",
+      "hits": [
+        "warrior:+0.8",
+        "armor:+2.0"
+      ]
+    },
+    {
+      "name": "Auroras, the frozen Giant God",
+      "group": "B",
+      "wins": 0,
+      "nn": 0.5111132264137268,
+      "florence_raw": 1.8,
+      "florence_prob": 0.429,
+      "fused": 0.47,
+      "true_winner": false,
+      "florence": "This is an illustration of a creature. The creature is a monster. The monster has large claws. The claws are sharp. The face of the monster is white. The eyes of the creature are white. There is a shadow on the ground. The background is black. The figure has a large stomach. The legs of the figure are muscular.",
+      "blip": "a white demon with a big head and a big body",
+      "hits": [
+        "creature:+0.6",
+        "monster:+1.2"
+      ]
+    }
+  ],
+  "summary": {
+    "n": 39,
+    "nn_acc": 0.0,
+    "florence_acc": 0.6153846153846154,
+    "fused_acc": 0.20512820512820512,
+    "florence_range": [
+      -3.0,
+      8.2
+    ]
+  }
+}

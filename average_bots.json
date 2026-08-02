@@ -1,0 +1,660 @@
+{
+ "floors": {
+  "5": [
+   {
+    "name": "Krix'drex",
+    "wins": 24,
+    "losses": 21,
+    "fights": 45,
+    "win_rate": 0.5333,
+    "dist_50": 0.0333,
+    "id": "f2a690d5-ca28-4672-834f-f87dda4c9ecb"
+   },
+   {
+    "name": "Blood Berserker",
+    "wins": 21,
+    "losses": 23,
+    "fights": 44,
+    "win_rate": 0.4773,
+    "dist_50": 0.0227,
+    "id": "1de923cc-8d61-411c-99d6-0090ccc49c8c"
+   },
+   {
+    "name": "Last Shinobi",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "e134a186-ce7d-4c24-83a5-94e2f0d0e353"
+   },
+   {
+    "name": "Sorn'drex",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "a8d52330-dbb2-4abb-950f-70d9dc6ced9a"
+   },
+   {
+    "name": "Feral Hydra",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "cebce3fe-a7f4-4e93-a315-b4587cacf2b9"
+   },
+   {
+    "name": "Nest Mantis",
+    "wins": 20,
+    "losses": 21,
+    "fights": 41,
+    "win_rate": 0.4878,
+    "dist_50": 0.0122,
+    "id": "07c03bd7-d7b8-434a-9fc0-aee0fcd02812"
+   },
+   {
+    "name": "Null Mage",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "af3e1886-0d7d-40b3-ab87-c369bc00503e"
+   },
+   {
+    "name": "Iron Leviathan",
+    "wins": 18,
+    "losses": 22,
+    "fights": 40,
+    "win_rate": 0.45,
+    "dist_50": 0.05,
+    "id": "a774bde8-3900-472d-bd85-fcc23fe2b12c"
+   }
+  ],
+  "10": [
+   {
+    "name": "Krix'drex",
+    "wins": 24,
+    "losses": 21,
+    "fights": 45,
+    "win_rate": 0.5333,
+    "dist_50": 0.0333,
+    "id": "f2a690d5-ca28-4672-834f-f87dda4c9ecb"
+   },
+   {
+    "name": "Blood Berserker",
+    "wins": 21,
+    "losses": 23,
+    "fights": 44,
+    "win_rate": 0.4773,
+    "dist_50": 0.0227,
+    "id": "1de923cc-8d61-411c-99d6-0090ccc49c8c"
+   },
+   {
+    "name": "Last Shinobi",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "e134a186-ce7d-4c24-83a5-94e2f0d0e353"
+   },
+   {
+    "name": "Sorn'drex",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "a8d52330-dbb2-4abb-950f-70d9dc6ced9a"
+   },
+   {
+    "name": "Feral Hydra",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "cebce3fe-a7f4-4e93-a315-b4587cacf2b9"
+   },
+   {
+    "name": "Nest Mantis",
+    "wins": 20,
+    "losses": 21,
+    "fights": 41,
+    "win_rate": 0.4878,
+    "dist_50": 0.0122,
+    "id": "07c03bd7-d7b8-434a-9fc0-aee0fcd02812"
+   },
+   {
+    "name": "Null Mage",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "af3e1886-0d7d-40b3-ab87-c369bc00503e"
+   },
+   {
+    "name": "Iron Leviathan",
+    "wins": 18,
+    "losses": 22,
+    "fights": 40,
+    "win_rate": 0.45,
+    "dist_50": 0.05,
+    "id": "a774bde8-3900-472d-bd85-fcc23fe2b12c"
+   }
+  ],
+  "15": [
+   {
+    "name": "Krix'drex",
+    "wins": 24,
+    "losses": 21,
+    "fights": 45,
+    "win_rate": 0.5333,
+    "dist_50": 0.0333,
+    "id": "f2a690d5-ca28-4672-834f-f87dda4c9ecb"
+   },
+   {
+    "name": "Blood Berserker",
+    "wins": 21,
+    "losses": 23,
+    "fights": 44,
+    "win_rate": 0.4773,
+    "dist_50": 0.0227,
+    "id": "1de923cc-8d61-411c-99d6-0090ccc49c8c"
+   },
+   {
+    "name": "Last Shinobi",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "e134a186-ce7d-4c24-83a5-94e2f0d0e353"
+   },
+   {
+    "name": "Sorn'drex",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "a8d52330-dbb2-4abb-950f-70d9dc6ced9a"
+   },
+   {
+    "name": "Feral Hydra",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "cebce3fe-a7f4-4e93-a315-b4587cacf2b9"
+   },
+   {
+    "name": "Nest Mantis",
+    "wins": 20,
+    "losses": 21,
+    "fights": 41,
+    "win_rate": 0.4878,
+    "dist_50": 0.0122,
+    "id": "07c03bd7-d7b8-434a-9fc0-aee0fcd02812"
+   },
+   {
+    "name": "Null Mage",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "af3e1886-0d7d-40b3-ab87-c369bc00503e"
+   },
+   {
+    "name": "Iron Leviathan",
+    "wins": 18,
+    "losses": 22,
+    "fights": 40,
+    "win_rate": 0.45,
+    "dist_50": 0.05,
+    "id": "a774bde8-3900-472d-bd85-fcc23fe2b12c"
+   }
+  ],
+  "20": [
+   {
+    "name": "Krix'drex",
+    "wins": 24,
+    "losses": 21,
+    "fights": 45,
+    "win_rate": 0.5333,
+    "dist_50": 0.0333,
+    "id": "f2a690d5-ca28-4672-834f-f87dda4c9ecb"
+   },
+   {
+    "name": "Blood Berserker",
+    "wins": 21,
+    "losses": 23,
+    "fights": 44,
+    "win_rate": 0.4773,
+    "dist_50": 0.0227,
+    "id": "1de923cc-8d61-411c-99d6-0090ccc49c8c"
+   },
+   {
+    "name": "Last Shinobi",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "e134a186-ce7d-4c24-83a5-94e2f0d0e353"
+   },
+   {
+    "name": "Sorn'drex",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "a8d52330-dbb2-4abb-950f-70d9dc6ced9a"
+   },
+   {
+    "name": "Feral Hydra",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "cebce3fe-a7f4-4e93-a315-b4587cacf2b9"
+   },
+   {
+    "name": "Nest Mantis",
+    "wins": 20,
+    "losses": 21,
+    "fights": 41,
+    "win_rate": 0.4878,
+    "dist_50": 0.0122,
+    "id": "07c03bd7-d7b8-434a-9fc0-aee0fcd02812"
+   },
+   {
+    "name": "Null Mage",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "af3e1886-0d7d-40b3-ab87-c369bc00503e"
+   },
+   {
+    "name": "Iron Leviathan",
+    "wins": 18,
+    "losses": 22,
+    "fights": 40,
+    "win_rate": 0.45,
+    "dist_50": 0.05,
+    "id": "a774bde8-3900-472d-bd85-fcc23fe2b12c"
+   }
+  ],
+  "30": [
+   {
+    "name": "Krix'drex",
+    "wins": 24,
+    "losses": 21,
+    "fights": 45,
+    "win_rate": 0.5333,
+    "dist_50": 0.0333,
+    "id": "f2a690d5-ca28-4672-834f-f87dda4c9ecb"
+   },
+   {
+    "name": "Blood Berserker",
+    "wins": 21,
+    "losses": 23,
+    "fights": 44,
+    "win_rate": 0.4773,
+    "dist_50": 0.0227,
+    "id": "1de923cc-8d61-411c-99d6-0090ccc49c8c"
+   },
+   {
+    "name": "Last Shinobi",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "e134a186-ce7d-4c24-83a5-94e2f0d0e353"
+   },
+   {
+    "name": "Sorn'drex",
+    "wins": 23,
+    "losses": 19,
+    "fights": 42,
+    "win_rate": 0.5476,
+    "dist_50": 0.0476,
+    "id": "a8d52330-dbb2-4abb-950f-70d9dc6ced9a"
+   },
+   {
+    "name": "Feral Hydra",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "cebce3fe-a7f4-4e93-a315-b4587cacf2b9"
+   },
+   {
+    "name": "Nest Mantis",
+    "wins": 20,
+    "losses": 21,
+    "fights": 41,
+    "win_rate": 0.4878,
+    "dist_50": 0.0122,
+    "id": "07c03bd7-d7b8-434a-9fc0-aee0fcd02812"
+   },
+   {
+    "name": "Null Mage",
+    "wins": 19,
+    "losses": 22,
+    "fights": 41,
+    "win_rate": 0.4634,
+    "dist_50": 0.0366,
+    "id": "af3e1886-0d7d-40b3-ab87-c369bc00503e"
+   },
+   {
+    "name": "Iron Leviathan",
+    "wins": 18,
+    "losses": 22,
+    "fights": 40,
+    "win_rate": 0.45,
+    "dist_50": 0.05,
+    "id": "a774bde8-3900-472d-bd85-fcc23fe2b12c"
+   }
+  ]
+ },
+ "top_most_fights": [
+  {
+   "name": "Storm Reaper",
+   "wins": 31,
+   "losses": 17,
+   "fights": 48,
+   "win_rate": 0.6458,
+   "id": "c27e57f3-86e7-4ab7-85e5-828c2c957ff5"
+  },
+  {
+   "name": "Abyssal Fiend",
+   "wins": 37,
+   "losses": 9,
+   "fights": 46,
+   "win_rate": 0.8043,
+   "id": "9e1fdb2d-12c6-4996-bdae-29d647fb3c43"
+  },
+  {
+   "name": "Prime Stalker",
+   "wins": 29,
+   "losses": 16,
+   "fights": 45,
+   "win_rate": 0.6444,
+   "id": "e326e7cf-a9c0-49be-bfcf-d796ca1e400b"
+  },
+  {
+   "name": "Krix'drex",
+   "wins": 24,
+   "losses": 21,
+   "fights": 45,
+   "win_rate": 0.5333,
+   "id": "f2a690d5-ca28-4672-834f-f87dda4c9ecb"
+  },
+  {
+   "name": "Scorn Devil",
+   "wins": 34,
+   "losses": 11,
+   "fights": 45,
+   "win_rate": 0.7556,
+   "id": "6708d380-03a3-4049-b385-104337aadd8a"
+  },
+  {
+   "name": "Ancient Entity",
+   "wins": 33,
+   "losses": 11,
+   "fights": 44,
+   "win_rate": 0.75,
+   "id": "e1ea4a84-ea5c-4679-b24d-9141700b5054"
+  },
+  {
+   "name": "Blood Berserker",
+   "wins": 21,
+   "losses": 23,
+   "fights": 44,
+   "win_rate": 0.4773,
+   "id": "1de923cc-8d61-411c-99d6-0090ccc49c8c"
+  },
+  {
+   "name": "Shadow Drake",
+   "wins": 29,
+   "losses": 15,
+   "fights": 44,
+   "win_rate": 0.6591,
+   "id": "9ebe8d2f-bdeb-4668-b418-6a7387923180"
+  },
+  {
+   "name": "Silent Angel",
+   "wins": 25,
+   "losses": 18,
+   "fights": 43,
+   "win_rate": 0.5814,
+   "id": "9cf28747-c208-4e97-9f04-0ad559697a0f"
+  },
+  {
+   "name": "Prime Predator",
+   "wins": 24,
+   "losses": 19,
+   "fights": 43,
+   "win_rate": 0.5581,
+   "id": "fbd3cb97-eef5-4d78-bb38-54f64f11ea39"
+  },
+  {
+   "name": "Last Shinobi",
+   "wins": 23,
+   "losses": 19,
+   "fights": 42,
+   "win_rate": 0.5476,
+   "id": "e134a186-ce7d-4c24-83a5-94e2f0d0e353"
+  },
+  {
+   "name": "Titanic Entity",
+   "wins": 18,
+   "losses": 24,
+   "fights": 42,
+   "win_rate": 0.4286,
+   "id": "1e3df7d7-b410-41da-a291-0b4e7798fd02"
+  },
+  {
+   "name": "Thunder Spirit",
+   "wins": 30,
+   "losses": 12,
+   "fights": 42,
+   "win_rate": 0.7143,
+   "id": "e21f62f3-9d5d-4f68-b4b8-9f642b43a642"
+  },
+  {
+   "name": "Static Enforcer",
+   "wins": 18,
+   "losses": 24,
+   "fights": 42,
+   "win_rate": 0.4286,
+   "id": "66cc0393-bf4b-46e9-9e25-bad290d60fa8"
+  },
+  {
+   "name": "Plague Demon",
+   "wins": 27,
+   "losses": 15,
+   "fights": 42,
+   "win_rate": 0.6429,
+   "id": "e29fedcb-a1a9-4cc1-af9b-3646b34bfa17"
+  }
+ ],
+ "top_average_score": [
+  {
+   "name": "Cursed Revenant",
+   "wins": 20,
+   "losses": 20,
+   "fights": 40,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "a0435742-43da-4fd3-958f-afb183489ff9"
+  },
+  {
+   "name": "Ancient Knight",
+   "wins": 19,
+   "losses": 19,
+   "fights": 38,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "b4df4357-e4bd-4a08-a0eb-83233a9f652b"
+  },
+  {
+   "name": "Sever Psion",
+   "wins": 19,
+   "losses": 19,
+   "fights": 38,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "6664d3f4-cfc4-4c45-a483-2fa1732fac67"
+  },
+  {
+   "name": "Storm Shot",
+   "wins": 18,
+   "losses": 18,
+   "fights": 36,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "942deb07-5859-4e4e-b5ed-24804ca1d2ac"
+  },
+  {
+   "name": "Ghost Merc",
+   "wins": 17,
+   "losses": 17,
+   "fights": 34,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "b1d853fa-3083-4a66-880b-e08d2665f82e"
+  },
+  {
+   "name": "Dark Enforcer",
+   "wins": 17,
+   "losses": 17,
+   "fights": 34,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "808efb6a-df95-47db-88ff-1f01740baa42"
+  },
+  {
+   "name": "Last Demigod",
+   "wins": 14,
+   "losses": 14,
+   "fights": 28,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "04f70089-4f8c-4b35-8ea1-096fb221b624"
+  },
+  {
+   "name": "Quantum Dreadnought",
+   "wins": 13,
+   "losses": 13,
+   "fights": 26,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "131c2500-62c3-4ee8-ba83-a71e5d44c647"
+  },
+  {
+   "name": "Quake Spirit",
+   "wins": 12,
+   "losses": 12,
+   "fights": 24,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "705f751a-9f3f-42e6-9e0e-586b7441ff97"
+  },
+  {
+   "name": "Shadow Warlock",
+   "wins": 6,
+   "losses": 6,
+   "fights": 12,
+   "win_rate": 0.5,
+   "avg_score": 0.0,
+   "id": "2aa93635-008a-49f0-83ee-ec70caf8ae32"
+  }
+ ],
+ "exact_5050": [
+  {
+   "name": "Cursed Revenant",
+   "wins": 20,
+   "losses": 20,
+   "fights": 40,
+   "id": "a0435742-43da-4fd3-958f-afb183489ff9"
+  },
+  {
+   "name": "Ancient Knight",
+   "wins": 19,
+   "losses": 19,
+   "fights": 38,
+   "id": "b4df4357-e4bd-4a08-a0eb-83233a9f652b"
+  },
+  {
+   "name": "Sever Psion",
+   "wins": 19,
+   "losses": 19,
+   "fights": 38,
+   "id": "6664d3f4-cfc4-4c45-a483-2fa1732fac67"
+  },
+  {
+   "name": "Storm Shot",
+   "wins": 18,
+   "losses": 18,
+   "fights": 36,
+   "id": "942deb07-5859-4e4e-b5ed-24804ca1d2ac"
+  },
+  {
+   "name": "Ghost Merc",
+   "wins": 17,
+   "losses": 17,
+   "fights": 34,
+   "id": "b1d853fa-3083-4a66-880b-e08d2665f82e"
+  },
+  {
+   "name": "Dark Enforcer",
+   "wins": 17,
+   "losses": 17,
+   "fights": 34,
+   "id": "808efb6a-df95-47db-88ff-1f01740baa42"
+  },
+  {
+   "name": "Last Demigod",
+   "wins": 14,
+   "losses": 14,
+   "fights": 28,
+   "id": "04f70089-4f8c-4b35-8ea1-096fb221b624"
+  },
+  {
+   "name": "Quantum Dreadnought",
+   "wins": 13,
+   "losses": 13,
+   "fights": 26,
+   "id": "131c2500-62c3-4ee8-ba83-a71e5d44c647"
+  },
+  {
+   "name": "Quake Spirit",
+   "wins": 12,
+   "losses": 12,
+   "fights": 24,
+   "id": "705f751a-9f3f-42e6-9e0e-586b7441ff97"
+  },
+  {
+   "name": "Shadow Warlock",
+   "wins": 6,
+   "losses": 6,
+   "fights": 12,
+   "id": "2aa93635-008a-49f0-83ee-ec70caf8ae32"
+  }
+ ]
+}

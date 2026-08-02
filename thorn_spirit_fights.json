@@ -1,0 +1,298 @@
+[
+  {
+    "id": "c8b08fb4-e385-43b7-ab02-ebc57aeceb80",
+    "opponentId": "653be624-5887-46f5-b1f3-dcab5c1c16a7",
+    "opponentName": "Aethelgard, The End of All Things",
+    "opponentImageUrl": "/api/storage/objects/uploads/f2cd4b96-1f42-42e3-9527-d2c2980b86a3",
+    "won": false,
+    "foughtAt": "2026-06-05T12:00:05.476Z"
+  },
+  {
+    "id": "385a00f4-e4ca-4ac3-bb79-c472742d8b8b",
+    "opponentId": "6ff72bc9-80b8-4814-b96a-d48b521e33cc",
+    "opponentName": "Vex'veth",
+    "opponentImageUrl": "/api/storage/objects/uploads/64f9dfdd-4feb-43c5-af42-7973f255f4e3",
+    "won": true,
+    "foughtAt": "2026-06-04T12:00:08.713Z"
+  },
+  {
+    "id": "6eca3511-a7b2-451a-a3aa-73738d971351",
+    "opponentId": "fbd3cb97-eef5-4d78-bb38-54f64f11ea39",
+    "opponentName": "Prime Predator",
+    "opponentImageUrl": "/api/storage/objects/uploads/195481ed-85f4-4482-8f70-b7c75456e5f1",
+    "won": true,
+    "foughtAt": "2026-06-03T12:00:11.677Z"
+  },
+  {
+    "id": "1750cd43-02af-4e76-88a5-26498bd3c81a",
+    "opponentId": "cebce3fe-a7f4-4e93-a315-b4587cacf2b9",
+    "opponentName": "Feral Hydra",
+    "opponentImageUrl": "/api/storage/objects/uploads/33c8582b-8ece-4ae4-901d-53326888a82c",
+    "won": true,
+    "foughtAt": "2026-06-02T12:00:11.268Z"
+  },
+  {
+    "id": "638e722c-fb0f-4015-b68b-dd69273b02c5",
+    "opponentId": "9e1fdb2d-12c6-4996-bdae-29d647fb3c43",
+    "opponentName": "Abyssal Fiend",
+    "opponentImageUrl": "/api/storage/objects/uploads/dbe72ffd-3108-4525-b206-f9ffae42e692",
+    "won": true,
+    "foughtAt": "2026-06-01T12:00:15.146Z"
+  },
+  {
+    "id": "b95459e8-d64c-41d4-b5f7-0bee0da29cb0",
+    "opponentId": "10186ebe-a7bd-46a8-aa84-37d936c74c7e",
+    "opponentName": "Null Arrow",
+    "opponentImageUrl": "/api/storage/objects/uploads/4aa9d7fc-ca9e-4aa0-9908-9557bb43b532",
+    "won": true,
+    "foughtAt": "2026-05-31T12:00:32.016Z"
+  },
+  {
+    "id": "cde4f0d5-3830-4fce-b055-b86ab73ea716",
+    "opponentId": "3acba823-b587-4ab0-995b-ef15da014e17",
+    "opponentName": "Threx'veth",
+    "opponentImageUrl": "/api/storage/objects/uploads/bef4a550-be77-4877-babc-bf28e0efe402",
+    "won": true,
+    "foughtAt": "2026-05-28T12:03:49.549Z"
+  },
+  {
+    "id": "9d01ed75-3876-464d-9256-d757f1fd0e9e",
+    "opponentId": "e8e305e6-10fe-41f9-8759-88272ded389a",
+    "opponentName": "Thornwood Grove",
+    "opponentImageUrl": "/api/storage/objects/uploads/6c9943c8-f63b-4a37-a7f0-ab3a8c95cc20",
+    "won": true,
+    "foughtAt": "2026-05-27T12:00:56.586Z"
+  },
+  {
+    "id": "cb1ede4c-f55a-4ab5-9122-35c503d611ea",
+    "opponentId": "afbddef0-0bc9-4845-b133-3f4a087afa17",
+    "opponentName": "Scarred Operator",
+    "opponentImageUrl": "/api/storage/objects/uploads/15574998-1342-43a4-aa6f-7452df0d8f24",
+    "won": true,
+    "foughtAt": "2026-05-26T12:00:45.945Z"
+  },
+  {
+    "id": "dd71228e-357a-4ead-9def-dd531ec76232",
+    "opponentId": "ececf1b9-7cb3-46de-8c78-bd827532e1e2",
+    "opponentName": "Wretched Bearer",
+    "opponentImageUrl": "/api/storage/objects/uploads/23a53e52-b783-494f-8704-00a0273159aa",
+    "won": true,
+    "foughtAt": "2026-05-25T12:00:41.708Z"
+  },
+  {
+    "id": "81923cb7-8179-458a-becb-b00328d84a82",
+    "opponentId": "5cd31530-e324-4387-a967-8824135df98e",
+    "opponentName": "Wretched Wraith",
+    "opponentImageUrl": "/api/storage/objects/uploads/69cf43db-d06e-4b9b-8b24-b2bc013db641",
+    "won": true,
+    "foughtAt": "2026-05-24T16:06:04.622Z"
+  },
+  {
+    "id": "6603554e-3398-40d0-a118-2ac048bf9ad3",
+    "opponentId": "b4df4357-e4bd-4a08-a0eb-83233a9f652b",
+    "opponentName": "Ancient Knight",
+    "opponentImageUrl": "/api/storage/objects/uploads/eed8080c-7545-404a-a2ed-2669378d5643",
+    "won": true,
+    "foughtAt": "2026-05-24T12:00:14.939Z"
+  },
+  {
+    "id": "faf754a0-2863-4dda-a66e-3e645c411e58",
+    "opponentId": "5022aef3-6909-444e-9e4b-bb4c069f30a3",
+    "opponentName": "Ember Arrow",
+    "opponentImageUrl": "/api/storage/objects/uploads/ae1cccdb-b36c-4d6c-bbe4-b31b2a66612c",
+    "won": true,
+    "foughtAt": "2026-05-23T23:56:37.699Z"
+  },
+  {
+    "id": "3324d170-e238-4672-a83d-0833ebd85c49",
+    "opponentId": "e039db5f-f9ee-4cc9-ac9f-f6279d03e96c",
+    "opponentName": "Frost Elemental",
+    "opponentImageUrl": "/api/storage/objects/uploads/f490261f-a784-4ce5-8788-c243041f97ed",
+    "won": true,
+    "foughtAt": "2026-05-22T12:00:37.417Z"
+  },
+  {
+    "id": "58276cf4-0f2d-43af-9780-7a2ac52e6b90",
+    "opponentId": "a774bde8-3900-472d-bd85-fcc23fe2b12c",
+    "opponentName": "Iron Leviathan",
+    "opponentImageUrl": "/api/storage/objects/uploads/ccd2b3fc-849a-4f91-b79a-e59dd0b4f803",
+    "won": true,
+    "foughtAt": "2026-05-21T21:54:04.360Z"
+  },
+  {
+    "id": "7992b02f-af8d-4d12-b01c-443c096b14c6",
+    "opponentId": "35c6022f-e407-4d9c-bbc7-f3f1aee455ed",
+    "opponentName": "Gnarlwood Hydra",
+    "opponentImageUrl": "/api/storage/objects/uploads/6b16d6b9-5e34-41af-8660-b34fb7757868",
+    "won": true,
+    "foughtAt": "2026-05-21T21:51:03.766Z"
+  },
+  {
+    "id": "beb7dfea-cd69-4abb-b5c1-be4a46b3c47e",
+    "opponentId": "9e26d228-8a0d-433e-829b-45ddb9a63da6",
+    "opponentName": "Cybergon",
+    "opponentImageUrl": "/api/storage/objects/uploads/1728a157-7547-4351-b856-a08742746578",
+    "won": false,
+    "foughtAt": "2026-05-21T12:01:25.503Z"
+  },
+  {
+    "id": "1e8548dc-cc31-44c3-a83f-3865ed9c7432",
+    "opponentId": "e29fedcb-a1a9-4cc1-af9b-3646b34bfa17",
+    "opponentName": "Plague Demon",
+    "opponentImageUrl": "/api/storage/objects/uploads/f11831a2-f617-4e27-91e1-234dfc570a16",
+    "won": false,
+    "foughtAt": "2026-05-20T12:00:22.579Z"
+  },
+  {
+    "id": "b8c05c22-9200-4bec-865b-3015ce4c0edc",
+    "opponentId": "cd4a6f3b-9823-48e1-9c32-d9a6c58a3ce8",
+    "opponentName": "Void Demon",
+    "opponentImageUrl": "/api/storage/objects/uploads/7492b0c1-2563-4b36-9b74-2043c3312c71",
+    "won": true,
+    "foughtAt": "2026-05-19T15:08:14.851Z"
+  },
+  {
+    "id": "cd4dfebb-caeb-4cd2-a4e4-3a2e520116df",
+    "opponentId": "705f751a-9f3f-42e6-9e0e-586b7441ff97",
+    "opponentName": "Quake Spirit",
+    "opponentImageUrl": "/api/storage/objects/uploads/3a5df381-2eb0-43c6-97b2-79b3f61e02ed",
+    "won": true,
+    "foughtAt": "2026-05-19T12:08:02.067Z"
+  },
+  {
+    "id": "01040a22-02ca-4d84-9ade-14ad59736909",
+    "opponentId": "5ceb736e-c7ef-46e9-99e3-55c7099276e9",
+    "opponentName": "Blind Angel",
+    "opponentImageUrl": "/api/storage/objects/uploads/571620fe-9291-4ef1-b6e0-89e211a72829",
+    "won": true,
+    "foughtAt": "2026-05-18T12:05:16.116Z"
+  },
+  {
+    "id": "c6e914a7-3e26-4d83-87cb-d2627c4cd4f6",
+    "opponentId": "ed3e9a48-0bb9-42b5-9265-a0b3ed10c1ff",
+    "opponentName": "Venom Shot",
+    "opponentImageUrl": "/api/storage/objects/uploads/62fae86a-d7f5-4ef5-b8e5-a5304f15a0f3",
+    "won": true,
+    "foughtAt": "2026-05-17T19:18:57.374Z"
+  },
+  {
+    "id": "229436e4-5de0-4dd7-ad47-01196ecc7d27",
+    "opponentId": "3551511f-49bf-4377-82e0-706e35602380",
+    "opponentName": "Stubborn Warrior",
+    "opponentImageUrl": "/api/storage/objects/uploads/1a15e7a7-9db7-44ff-8864-3638235aa4e9",
+    "won": true,
+    "foughtAt": "2026-05-17T12:00:12.626Z"
+  },
+  {
+    "id": "cd8a9ca8-8025-4243-a38d-b32fab37637c",
+    "opponentId": "a774bde8-3900-472d-bd85-fcc23fe2b12c",
+    "opponentName": "Iron Leviathan",
+    "opponentImageUrl": "/api/storage/objects/uploads/ccd2b3fc-849a-4f91-b79a-e59dd0b4f803",
+    "won": true,
+    "foughtAt": "2026-05-16T22:12:02.323Z"
+  },
+  {
+    "id": "b707bc42-7fea-4a01-bfe3-a8956c27ceaa",
+    "opponentId": "03d8aa7d-96f1-4a27-acb8-3cb5bd959074",
+    "opponentName": "Claw Scorpion",
+    "opponentImageUrl": "/api/storage/objects/uploads/1134cbe4-10e4-4375-8983-196911087d14",
+    "won": true,
+    "foughtAt": "2026-05-16T20:10:22.480Z"
+  },
+  {
+    "id": "4b06f013-e000-412d-85c3-1c200c2c78f1",
+    "opponentId": "9aafecb4-828b-4b3b-9803-ab139365433e",
+    "opponentName": "Void Horror",
+    "opponentImageUrl": "/api/storage/objects/uploads/997c5101-ce64-4ff3-aa46-f5874ee3602c",
+    "won": false,
+    "foughtAt": "2026-05-16T20:05:37.222Z"
+  },
+  {
+    "id": "9627e30c-c347-42c3-bb94-8376cb27e6b1",
+    "opponentId": "a0f3143b-f699-4b4e-b866-adbf9d080f6b",
+    "opponentName": "Shadow Monk",
+    "opponentImageUrl": "/api/storage/objects/uploads/8d468b70-35ce-4627-91ca-53f670915ab5",
+    "won": false,
+    "foughtAt": "2026-05-16T20:02:36.462Z"
+  },
+  {
+    "id": "b886e5c9-4405-4a0a-b136-2b6ed24c102f",
+    "opponentId": "bb592103-a073-4b50-b4fd-a4c9b43c01f5",
+    "opponentName": "Eldritch Horror",
+    "opponentImageUrl": "/api/storage/objects/uploads/aed2860e-1c08-488c-8cf0-7150755a23c9",
+    "won": false,
+    "foughtAt": "2026-05-16T20:02:03.991Z"
+  },
+  {
+    "id": "6e4aa59c-7f9a-4b3c-bb1a-535f7264ecd0",
+    "opponentId": "fd9b6f0d-f31a-4fd2-a78a-7a11214e22e0",
+    "opponentName": "Void Telepath",
+    "opponentImageUrl": "/api/storage/objects/uploads/a0a44ca8-100a-4e85-a513-0dfbabdd5502",
+    "won": true,
+    "foughtAt": "2026-05-16T20:01:26.971Z"
+  },
+  {
+    "id": "ec02cf40-748d-444b-906d-f68e72f19661",
+    "opponentId": "9358b20f-2282-459d-b4f2-83ad1b26e066",
+    "opponentName": "Chitin Spider",
+    "opponentImageUrl": "/api/storage/objects/uploads/a33ca04c-006d-4d46-aa88-d79ae6ed3a19",
+    "won": false,
+    "foughtAt": "2026-05-16T20:00:07.546Z"
+  },
+  {
+    "id": "9ac17cea-2dd8-49d7-bc46-c9328b222dc7",
+    "opponentId": "ed3e9a48-0bb9-42b5-9265-a0b3ed10c1ff",
+    "opponentName": "Venom Shot",
+    "opponentImageUrl": "/api/storage/objects/uploads/62fae86a-d7f5-4ef5-b8e5-a5304f15a0f3",
+    "won": false,
+    "foughtAt": "2026-05-16T17:17:26.545Z"
+  },
+  {
+    "id": "53635110-bb6c-4976-a2a4-c8645f03cb38",
+    "opponentId": "faca8172-7081-4240-b99c-c91c9867eeec",
+    "opponentName": "Holy Archon",
+    "opponentImageUrl": "/api/storage/objects/uploads/db5c939a-f346-4d58-9bf1-7fd14620f57d",
+    "won": true,
+    "foughtAt": "2026-05-16T16:31:14.872Z"
+  },
+  {
+    "id": "b8b8b6d9-68f6-45a6-9ed0-90d198813c8e",
+    "opponentId": "6e9f4085-bd08-4a6b-86f2-e3d04f67fa05",
+    "opponentName": "Storm Shinobi",
+    "opponentImageUrl": "/api/storage/objects/uploads/b1f83fa1-a778-4b2c-9365-59890e3b5204",
+    "won": false,
+    "foughtAt": "2026-05-16T15:48:10.950Z"
+  },
+  {
+    "id": "462cdc2f-f1f6-4375-8e2b-65750f2784a4",
+    "opponentId": "e8e305e6-10fe-41f9-8759-88272ded389a",
+    "opponentName": "Thornwood Grove",
+    "opponentImageUrl": "/api/storage/objects/uploads/6c9943c8-f63b-4a37-a7f0-ab3a8c95cc20",
+    "won": true,
+    "foughtAt": "2026-05-16T15:35:59.725Z"
+  },
+  {
+    "id": "827ce7a4-d6cd-4b32-8a8b-1b7ec6f439b0",
+    "opponentId": "a774bde8-3900-472d-bd85-fcc23fe2b12c",
+    "opponentName": "Iron Leviathan",
+    "opponentImageUrl": "/api/storage/objects/uploads/ccd2b3fc-849a-4f91-b79a-e59dd0b4f803",
+    "won": false,
+    "foughtAt": "2026-05-16T15:30:18.383Z"
+  },
+  {
+    "id": "3dd60d94-507b-47d9-95d2-0adf9852fb29",
+    "opponentId": "b4df4357-e4bd-4a08-a0eb-83233a9f652b",
+    "opponentName": "Ancient Knight",
+    "opponentImageUrl": "/api/storage/objects/uploads/eed8080c-7545-404a-a2ed-2669378d5643",
+    "won": true,
+    "foughtAt": "2026-05-16T15:25:08.755Z"
+  },
+  {
+    "id": "62906f35-3b1a-4635-8ff3-ee6383e4bdca",
+    "opponentId": "9095144f-6dcf-48b1-9c00-71d0c7af7d76",
+    "opponentName": "Umbral Shadow",
+    "opponentImageUrl": "/api/storage/objects/uploads/e99cb9d3-54b1-4079-9dbb-cf21df107b1f",
+    "won": false,
+    "foughtAt": "2026-05-16T12:00:56.475Z"
+  }
+]

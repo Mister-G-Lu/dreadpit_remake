@@ -1,0 +1,36 @@
+{
+  "portraits": {
+    "forge_colossus": {
+      "prompt": "Black iron furnace giant. Chest bars open to white-hot molten core. Each hand drags an anvil-headed hammer glowing orange. Shoulder coal cannon. Flat iron mask with orange eye slits. No skin. No dragon. No god. Just forge.",
+      "file": "forge_colossus_portrait.jpg",
+      "success": true
+    },
+    "the_hook": {
+      "prompt": "Gaunt hunter draped in monster pelts. Hooked chain between both hands. Backpack holds severed dragon claws protruding over head. Scarred face with one glowing eye. Iron hook replaces one hand. No armor. Only trophies.",
+      "file": "the_hook_portrait.jpg",
+      "success": true
+    },
+    "vatican_gun": {
+      "prompt": "Hooded executioner in black leather duster. Carries a massive six-barrel rotary cannon with holy water drums. Belt of exorcised silver bullets. Crucifix bolted to cannon stock. Gas mask with red lenses. No armor.",
+      "file": "vatican_gun_portrait.jpg",
+      "success": true
+    }
+  },
+  "battles": {
+    "forge_colossus": {
+      "prompt": "Massive black iron furnace giant fighting a demonic armored god riding a cyber dragon. The forge giant's anvil hammer smashes into the dragon. Sparks and molten metal flying. Epic battle destruction fantasy art.",
+      "file": "forge_colossus_vs_cybergod.jpg",
+      "success": true
+    },
+    "the_hook": {
+      "prompt": "Gaunt monster hunter with hooked chain fighting an armored god riding a cyber dragon. The hunter's hook grabs the dragon's neck, pulling the god off. Dragon claws on backpack. Epic battle fantasy art.",
+      "file": "the_hook_vs_cybergod.jpg",
+      "success": true
+    },
+    "vatican_gun": {
+      "prompt": "Hooded executioner with massive rotary cannon firing holy water bullets at an armored god riding a cyber dragon. Crucifix on cannon. Smoke and light beams. Religious war in hell. Epic fantasy art.",
+      "file": "vatican_gun_vs_cybergod.jpg",
+      "success": true
+    }
+  }
+}

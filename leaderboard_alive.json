@@ -1,0 +1,902 @@
+[
+ {
+  "rank": 1,
+  "fighter": {
+   "id": "3beb8248-dfa4-455e-9754-30c23edb23b0",
+   "name": "Eldritch armord god on cyberdragon",
+   "imageUrl": "/api/storage/objects/uploads/6c98c9c7-f696-46af-a3b6-974ec87e7d24",
+   "wins": 23,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-05T23:09:49.323Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Alerdene",
+   "ownerIsMember": true,
+   "daysAlive": 23
+  }
+ },
+ {
+  "rank": 2,
+  "fighter": {
+   "id": "df481a15-7f69-432d-a19d-95b882eff311",
+   "name": "messi slayer ",
+   "imageUrl": "/api/storage/objects/uploads/5618299e-274c-48d1-9794-8d161e022879",
+   "wins": 7,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-22T21:01:36.988Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "heavyarms",
+   "ownerIsMember": false,
+   "daysAlive": 6
+  }
+ },
+ {
+  "rank": 3,
+  "fighter": {
+   "id": "6a67b8a1-ed8d-43d9-a811-d83a892412df",
+   "name": "Felix",
+   "imageUrl": "/api/storage/objects/uploads/346baaa5-ac5e-414a-aada-77265c28570a",
+   "wins": 7,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-23T07:15:28.610Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Rvsz",
+   "ownerIsMember": false,
+   "daysAlive": 6
+  }
+ },
+ {
+  "rank": 4,
+  "fighter": {
+   "id": "4a5ac530-88e6-447c-8ec4-293f79c7ae98",
+   "name": "Mecha Dragon - Weapon S",
+   "imageUrl": "/api/storage/objects/uploads/7762c906-fd2d-4f59-883e-df896b5e6f1c",
+   "wins": 6,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-23T12:45:28.570Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Nightscream89",
+   "ownerIsMember": false,
+   "daysAlive": 6
+  }
+ },
+ {
+  "rank": 5,
+  "fighter": {
+   "id": "ba4a462e-1699-4734-9f71-de04055f0ddf",
+   "name": "Infernal Demon",
+   "imageUrl": "/api/storage/objects/uploads/027f1212-92f0-473b-b208-b246f363879c",
+   "wins": 5,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:51:21.999Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Roadking",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 6,
+  "fighter": {
+   "id": "63a63214-d241-425d-8b7f-87bfddeebe58",
+   "name": "Relentless Cesar Grist",
+   "imageUrl": "/api/storage/objects/uploads/9960f0e6-e063-4b3c-b749-38e7cfa9e0f3",
+   "wins": 5,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-24T12:13:08.058Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "9spaceking",
+   "ownerIsMember": true,
+   "daysAlive": 5
+  }
+ },
+ {
+  "rank": 7,
+  "fighter": {
+   "id": "201ef310-8b14-4b2e-8d5e-8feeb8864132",
+   "name": "Kekkeb the Crab Lord",
+   "imageUrl": "/api/storage/objects/uploads/41ee2398-56bc-429b-86b9-c1d2a35e020e",
+   "wins": 5,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-24T15:50:19.067Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Khorne",
+   "ownerIsMember": false,
+   "daysAlive": 4
+  }
+ },
+ {
+  "rank": 8,
+  "fighter": {
+   "id": "dd572288-0efc-4d72-9003-69020118e4d0",
+   "name": "ChainLord Fang",
+   "imageUrl": "/api/storage/objects/uploads/9146c116-4173-4071-a10d-9a2f520b133a",
+   "wins": 5,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-24T17:11:39.709Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Admin",
+   "ownerIsMember": false,
+   "daysAlive": 4
+  }
+ },
+ {
+  "rank": 9,
+  "fighter": {
+   "id": "6b0a415d-8d6f-4ca1-9556-a74df867ef43",
+   "name": "Hellfire Demon",
+   "imageUrl": "/api/storage/objects/uploads/8a174e4c-10e2-4508-b88d-1c79826f029c",
+   "wins": 4,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:49:32.534Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Lockik",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 10,
+  "fighter": {
+   "id": "cae9aa0f-d301-4f52-b4a5-9e11109724e8",
+   "name": "Vex-keth",
+   "imageUrl": "/api/storage/objects/uploads/a7fc215c-d9cf-40f5-a73b-e0ef198173ed",
+   "wins": 4,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:51:41.155Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Halfwind",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 11,
+  "fighter": {
+   "id": "a4af77e2-17ae-4a2e-862a-73d331fc18dc",
+   "name": "Fallen God",
+   "imageUrl": "/api/storage/objects/uploads/bb78588d-293e-4a68-84af-54f08c682a51",
+   "wins": 4,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:52:24.605Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Wreckflare",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 12,
+  "fighter": {
+   "id": "8023ee5b-55c3-41c6-86aa-4cb8b36af462",
+   "name": "Prime Reaper",
+   "imageUrl": "/api/storage/objects/uploads/89627136-79c2-4b80-bc20-980d31a780bf",
+   "wins": 4,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:53:12.918Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Redbelt",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 13,
+  "fighter": {
+   "id": "7a5d600a-026f-4e5b-9e97-b0f2dbb688f5",
+   "name": "Drunken Master Oni",
+   "imageUrl": "/api/storage/objects/uploads/04f5e440-0d42-484c-82e5-b7a4775823e2",
+   "wins": 4,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-25T12:48:06.837Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "9spaceking",
+   "ownerIsMember": true,
+   "daysAlive": 4
+  }
+ },
+ {
+  "rank": 14,
+  "fighter": {
+   "id": "2c26c168-e82f-42bf-b5d4-ece0d80c225c",
+   "name": "God of Cyberdragons",
+   "imageUrl": "/api/storage/objects/uploads/913963e4-ead6-436b-bddc-c57e3f213a48",
+   "wins": 4,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-25T20:05:30.555Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Erlandir",
+   "ownerIsMember": false,
+   "daysAlive": 3
+  }
+ },
+ {
+  "rank": 15,
+  "fighter": {
+   "id": "7f1ad5a7-11e5-4371-8c0d-1184d99c0b4f",
+   "name": "Yvonus Haveron",
+   "imageUrl": "/api/storage/objects/uploads/e5900055-cafe-4692-81eb-ae41ddfbd275",
+   "wins": 4,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-26T00:15:04.498Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Retsel",
+   "ownerIsMember": false,
+   "daysAlive": 3
+  }
+ },
+ {
+  "rank": 16,
+  "fighter": {
+   "id": "c216186e-6b23-4447-8c09-4363577ce305",
+   "name": "Vortex Teleporter",
+   "imageUrl": "/api/storage/objects/uploads/4a886239-1552-454e-be8a-5b2b7fe9e721",
+   "wins": 4,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-26T10:30:46.193Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Admin",
+   "ownerIsMember": false,
+   "daysAlive": 3
+  }
+ },
+ {
+  "rank": 17,
+  "fighter": {
+   "id": "dbb2ab50-04cb-4082-9c5a-0f2812b30f42",
+   "name": "Silent Arrow",
+   "imageUrl": "/api/storage/objects/uploads/f12a783d-f2b7-422d-8309-f149c78d7995",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:49:15.393Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Scrapor",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 18,
+  "fighter": {
+   "id": "c4a891f3-1838-47db-a533-92ddc540cd64",
+   "name": "Ash Spirit",
+   "imageUrl": "/api/storage/objects/uploads/b2f4ffc4-8f66-4ec9-a55c-006f66151afc",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:49:43.806Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Dustward",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 19,
+  "fighter": {
+   "id": "c592324d-6d52-4289-8478-1cc78cbf0c2b",
+   "name": "Ruin Demon",
+   "imageUrl": "/api/storage/objects/uploads/5729360a-e58d-41ed-82e6-92a7879fb242",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:50:26.672Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Dust15",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 20,
+  "fighter": {
+   "id": "0ec77502-df57-4c22-b779-8d433f734a51",
+   "name": "Ancient Paladin",
+   "imageUrl": "/api/storage/objects/uploads/91c28d10-1f11-4e28-9976-eab2457d9cc6",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:51:24.928Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Slowgrit66",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 21,
+  "fighter": {
+   "id": "1de923cc-8d61-411c-99d6-0090ccc49c8c",
+   "name": "Blood Berserker",
+   "imageUrl": "/api/storage/objects/uploads/294e390f-58a2-43d3-bc2c-5abab1077a91",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:51:27.598Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Murkforge94",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 22,
+  "fighter": {
+   "id": "d3972288-9224-435f-bde2-8eb6dadfd187",
+   "name": "Blind Crusader",
+   "imageUrl": "/api/storage/objects/uploads/9bc807b5-2639-46f2-b290-b99e15659082",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:52:02.702Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Nullsnap99",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 23,
+  "fighter": {
+   "id": "e7a4e37f-ed9a-4f9c-99c9-4b47d3822daa",
+   "name": "Thornhide Drake",
+   "imageUrl": "/api/storage/objects/uploads/0604023d-6fc7-4ff0-96ba-e8eb0e5e0f5b",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:52:24.605Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Blackbrick",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 24,
+  "fighter": {
+   "id": "231100e9-9a9b-4583-8955-9ebccbee44e0",
+   "name": "Fallen Crusader",
+   "imageUrl": "/api/storage/objects/uploads/1a69fff5-1b29-48f3-a0a3-0d2026e05bea",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:52:59.537Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Clatterway93",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 25,
+  "fighter": {
+   "id": "1dfc23bb-eadc-42b4-ae99-1a24c6dcb0c3",
+   "name": "Void Kraken",
+   "imageUrl": "/api/storage/objects/uploads/36d577d9-4582-41f6-953d-ce4409c176c0",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:53:10.178Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Ashar",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 26,
+  "fighter": {
+   "id": "9560b13b-fce6-406b-b4ec-b135fb5e42b4",
+   "name": "Broken Soldier",
+   "imageUrl": "/api/storage/objects/uploads/e14729d0-f569-4752-b678-d60468cbe087",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:53:26.555Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Hexcrow",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 27,
+  "fighter": {
+   "id": "2a111a2d-d3f9-4a45-b873-8c5b224756ac",
+   "name": "Supermech Abomination",
+   "imageUrl": "/api/storage/objects/uploads/7314bc2e-5e63-47a3-9a91-333b1ceadff2",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-26T12:16:16.390Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Erlandir",
+   "ownerIsMember": false,
+   "daysAlive": 3
+  }
+ },
+ {
+  "rank": 28,
+  "fighter": {
+   "id": "cd6f9522-9e87-4437-8328-c9ce26944212",
+   "name": "Phantom Backstep",
+   "imageUrl": "/api/storage/objects/uploads/a3221982-80e0-4c7b-83f6-38b1f9a6626b",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-26T12:29:27.926Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "9spaceking",
+   "ownerIsMember": true,
+   "daysAlive": 3
+  }
+ },
+ {
+  "rank": 29,
+  "fighter": {
+   "id": "0aa1b166-0352-4c04-918f-08c887f65b96",
+   "name": "Vortexica the Unknown Menace",
+   "imageUrl": "/api/storage/objects/uploads/d74f3bb1-7f08-404d-adf4-f18b1b7d5c08",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-26T13:01:14.478Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Admin",
+   "ownerIsMember": false,
+   "daysAlive": 3
+  }
+ },
+ {
+  "rank": 30,
+  "fighter": {
+   "id": "68e7f02f-cf39-4843-bddb-f09709b2bcf6",
+   "name": "Kevin",
+   "imageUrl": "/api/storage/objects/uploads/226dcbe8-7692-4a3c-bed6-4450e416500c",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-26T17:26:53.291Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Rvsz",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 31,
+  "fighter": {
+   "id": "83e63c30-a9b1-4378-95a0-b983551fd7e6",
+   "name": "Bandito astrid a dragon",
+   "imageUrl": "/api/storage/objects/uploads/3474b35d-88d9-46e6-8393-431c439b547a",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T00:15:21.036Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Axehole",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 32,
+  "fighter": {
+   "id": "805df0a1-0452-45fd-a207-3827f1ae0e07",
+   "name": "Ckarros",
+   "imageUrl": "/api/storage/objects/uploads/1408c3b7-e549-41dc-890b-1809e16afbaa",
+   "wins": 3,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T03:02:23.035Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "MpJuna",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 33,
+  "fighter": {
+   "id": "4a4608c1-d72c-4fd7-9563-b8051ae9c06d",
+   "name": "Abyssal Demon",
+   "imageUrl": "/api/storage/objects/uploads/fbe35e72-3402-428e-9849-d6186cdc19a0",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:51:46.606Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Clatterburn",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 34,
+  "fighter": {
+   "id": "60974e4e-8d35-4e42-9c05-071be2c71e9f",
+   "name": "Weeping Angel",
+   "imageUrl": "/api/storage/objects/uploads/5285165f-e38d-4fc7-86c4-ecf5a0e7b37a",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:52:16.328Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Voidor",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 35,
+  "fighter": {
+   "id": "8c9b6175-0981-4026-a1d6-d045db830c2f",
+   "name": "Abyssal Presence",
+   "imageUrl": "/api/storage/objects/uploads/32ef04bd-4447-4477-b46d-cfeb4f56d95d",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": true,
+   "bornAt": "2026-05-15T23:53:15.610Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Meator",
+   "ownerIsMember": false,
+   "daysAlive": 74
+  }
+ },
+ {
+  "rank": 36,
+  "fighter": {
+   "id": "833e7051-c8de-4f85-8c84-2226c89e2b13",
+   "name": "Portal to Void",
+   "imageUrl": "/api/storage/objects/uploads/5fa953e0-be16-4c00-a14d-91c30ccb2a0f",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T12:32:39.293Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Lostguy03",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 37,
+  "fighter": {
+   "id": "5c7c930a-10d8-41d3-8855-bc21d9175167",
+   "name": "It Came From The Vortex 2",
+   "imageUrl": "/api/storage/objects/uploads/0634dfad-3877-4453-a6e9-6d891d10521e",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T12:40:08.282Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Admin",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 38,
+  "fighter": {
+   "id": "f428be45-7c8e-46e7-a59d-cceb3d4a8045",
+   "name": "demonio sin nombre",
+   "imageUrl": "/api/storage/objects/uploads/299edfdf-33e0-4413-9ee2-58ba65eda6f8",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T12:42:37.312Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "salchipapas",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 39,
+  "fighter": {
+   "id": "adcb000c-b812-4069-8f00-5c5b5620bf50",
+   "name": "Lightning and fire Ronin",
+   "imageUrl": "/api/storage/objects/uploads/c5f1084e-9ef1-4378-9971-5bb36c0be2f1",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T12:43:34.103Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Lostguy03",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 40,
+  "fighter": {
+   "id": "38719ef6-a991-46a3-8d94-dbde773e8eb4",
+   "name": "Running outta ideas now",
+   "imageUrl": "/api/storage/objects/uploads/2c570cd9-45b2-47a2-be52-b403126e4b24",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T13:02:30.726Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Dread",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 41,
+  "fighter": {
+   "id": "07a974ae-29a3-417f-9e54-e461249a64de",
+   "name": "Storm Sovereign",
+   "imageUrl": "/api/storage/objects/uploads/da5591a1-3246-49a9-b48f-41368be90925",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T13:11:43.228Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Lostguy03",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 42,
+  "fighter": {
+   "id": "5b3093d4-cd3a-4cd5-80b7-3fb64d92996a",
+   "name": "Eldritch Cyberdragon",
+   "imageUrl": "/api/storage/objects/uploads/fa33601d-9f62-4bcc-86f0-a3d64d79b9c7",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T13:29:04.560Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Erlandir",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 43,
+  "fighter": {
+   "id": "34f7223d-3b76-4c9a-ab8e-4deec5a36e33",
+   "name": "Blackest Entity",
+   "imageUrl": "/api/storage/objects/uploads/7c6678e3-7dad-4373-a5db-ae491f96e3c5",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T13:43:28.568Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Erlandir",
+   "ownerIsMember": false,
+   "daysAlive": 2
+  }
+ },
+ {
+  "rank": 44,
+  "fighter": {
+   "id": "1e96fb5b-9a74-4099-aeee-8b4440e2d9ea",
+   "name": "The 8 Primordial Flames - God TIER",
+   "imageUrl": "/api/storage/objects/uploads/80cbddc7-b894-4074-b039-d744e793bf98",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T14:58:21.167Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Billion",
+   "ownerIsMember": false,
+   "daysAlive": 1
+  }
+ },
+ {
+  "rank": 45,
+  "fighter": {
+   "id": "d77a538c-cbbd-42df-90ce-caf7c8bb809a",
+   "name": "Hellhorn Brute",
+   "imageUrl": "/api/storage/objects/uploads/5d70d3a6-200c-45a2-a618-13f4f651f498",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T17:10:06.270Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Annabelle_Nocturne",
+   "ownerIsMember": true,
+   "daysAlive": 1
+  }
+ },
+ {
+  "rank": 46,
+  "fighter": {
+   "id": "1e454e01-6d28-45bf-8eac-c8a1b21d2715",
+   "name": "Crimson Dragonkin",
+   "imageUrl": "/api/storage/objects/uploads/518c3e47-c095-4ce3-a14a-74359511d093",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T17:14:28.523Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Annabelle_Nocturne",
+   "ownerIsMember": true,
+   "daysAlive": 1
+  }
+ },
+ {
+  "rank": 47,
+  "fighter": {
+   "id": "7533d3b2-b834-4c08-82a3-9693040bd09c",
+   "name": "Purple lipase yay",
+   "imageUrl": "/api/storage/objects/uploads/a0492247-2116-464c-89b7-a1e6ac655b18",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T17:53:52.982Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "3wheelmotion",
+   "ownerIsMember": false,
+   "daysAlive": 1
+  }
+ },
+ {
+  "rank": 48,
+  "fighter": {
+   "id": "657b51cb-ed40-4aab-8363-74c580277238",
+   "name": "KROPER ZIE DOPER",
+   "imageUrl": "/api/storage/objects/uploads/e42479e8-7db7-4a83-892a-54c1aff14878",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T17:54:35.702Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "White_devillus",
+   "ownerIsMember": false,
+   "daysAlive": 1
+  }
+ },
+ {
+  "rank": 49,
+  "fighter": {
+   "id": "5ef485ba-b632-48a9-be63-b2a8b7e7c117",
+   "name": "Dennis",
+   "imageUrl": "/api/storage/objects/uploads/77a9ed58-f9f5-4bdc-87e4-a0851a713772",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T17:58:28.350Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Rvsz",
+   "ownerIsMember": false,
+   "daysAlive": 1
+  }
+ },
+ {
+  "rank": 50,
+  "fighter": {
+   "id": "ca52f9f3-f1b1-45fb-8b88-f1bcd44e905a",
+   "name": "Amorphous digesting slime blob",
+   "imageUrl": "/api/storage/objects/uploads/ab1b6524-ecc8-40c0-be49-1b86148444a5",
+   "wins": 2,
+   "isAlive": true,
+   "isBot": false,
+   "bornAt": "2026-07-27T18:01:17.533Z",
+   "diedAt": null,
+   "killedById": null,
+   "killedByName": null,
+   "ownerDisplayName": "Alerdene",
+   "ownerIsMember": true,
+   "daysAlive": 1
+  }
+ }
+]

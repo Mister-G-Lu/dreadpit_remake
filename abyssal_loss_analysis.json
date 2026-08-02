@@ -1,0 +1,80 @@
+{
+  "Thorn Spirit": {
+    "blip": "a character in the game mobile legend",
+    "pixel": {
+      "brightness": 39.4,
+      "warmth": -25.3,
+      "avg_r": 26.8,
+      "avg_g": 39.1,
+      "avg_b": 52.2
+    },
+    "kws": [
+      "human"
+    ],
+    "fights": 37,
+    "wins": 26
+  },
+  "Indestructa": {
+    "blip": "a cartoon character with a big mouth and two swords",
+    "pixel": {
+      "brightness": 23.4,
+      "warmth": 11.0,
+      "avg_r": 30.4,
+      "avg_g": 20.6,
+      "avg_b": 19.4
+    },
+    "kws": [
+      "sword",
+      "human"
+    ],
+    "fights": 2,
+    "wins": 1
+  },
+  "Quantum Dreadnought": {
+    "blip": "a robot with a red light on its face",
+    "pixel": {
+      "brightness": 25.9,
+      "warmth": 1.5,
+      "avg_r": 26.8,
+      "avg_g": 25.5,
+      "avg_b": 25.3
+    },
+    "kws": [
+      "robot",
+      "red"
+    ],
+    "fights": 26,
+    "wins": 13
+  },
+  "Echo Psion": {
+    "blip": "a character in the game, with a sword",
+    "pixel": {
+      "brightness": 33.7,
+      "warmth": -18.7,
+      "avg_r": 27.7,
+      "avg_g": 27.1,
+      "avg_b": 46.3
+    },
+    "kws": [
+      "sword",
+      "human"
+    ],
+    "fights": 27,
+    "wins": 15
+  },
+  "Quiet Fighter": {
+    "blip": "a cartoon character with a fist in his hand",
+    "pixel": {
+      "brightness": 43.8,
+      "warmth": 13.0,
+      "avg_r": 50.4,
+      "avg_g": 43.4,
+      "avg_b": 37.4
+    },
+    "kws": [
+      "human"
+    ],
+    "fights": 32,
+    "wins": 13
+  }
+}

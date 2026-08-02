@@ -1,0 +1,36 @@
+{
+  "portraits": {
+    "forge_colossus": {
+      "prompt": "Giant walking furnace made of black iron. White-hot molten core visible through chest bars. Massive anvil-headed hammer in each hand, glowing red. Flat iron mask with orange eye slits. Heat waves distort air around body. No flesh. Just forge.",
+      "file": "forge_colossus_portrait_v3.jpg",
+      "success": true
+    },
+    "the_hook": {
+      "prompt": "Monster hunter wielding a giant steel harpoon on a thick chain. The harpoon tip is barbed and huge, clearly designed to pierce dragons. Worn grey pelts draped over body. Scarred face, one glowing yellow eye. Iron claw replaces hand.",
+      "file": "the_hook_portrait_v3.jpg",
+      "success": true
+    },
+    "vatican_gun": {
+      "prompt": "Hooded executioner in black leather duster. Carries a massive six-barrel gatling cannon, barrels clearly visible spinning. Holy water drums marked with crosses on each side. Gas mask with red glowing eyes. Silver bullets across chest. Crucifix on gun.",
+      "file": "vatican_gun_portrait_v3.jpg",
+      "success": true
+    }
+  },
+  "battles": {
+    "forge_colossus": {
+      "prompt": "A colossal walking furnace of black iron swings a glowing anvil hammer at an armored god riding a cyber dragon. Molten metal sprays from the impact. The furnace giant's chest glows white-hot. Epic destruction battle. Dark sky orange flames.",
+      "file": "forge_colossus_vs_cybergod_v3.jpg",
+      "success": true
+    },
+    "the_hook": {
+      "prompt": "A scarred monster hunter hurls a giant barbed harpoon on a chain at an armored god on a cyber dragon. The harpoon pierces the dragon's wing. Hunter pulls the chain. Dragon claws on his back. Epic monster hunter fight.",
+      "file": "the_hook_vs_cybergod_v3.jpg",
+      "success": true
+    },
+    "vatican_gun": {
+      "prompt": "A hooded executioner fires a six-barrel gatling cannon at an armored god riding a cyber dragon. Crosses on the cannon. Holy water blasts through the air. Dark clouds and light beams. Religious war. Epic dark fantasy.",
+      "file": "vatican_gun_vs_cybergod_v3.jpg",
+      "success": true
+    }
+  }
+}

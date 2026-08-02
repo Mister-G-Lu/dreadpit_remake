@@ -1,0 +1,185 @@
+{
+  "cyber_god": {
+    "nn_score": 0.6880300045013428,
+    "stats": {
+      "blip": "a demonic dragon with a sword and a fire",
+      "warmth": 18.6,
+      "red_ratio": 0.407,
+      "brightness": 65.0,
+      "kws": {
+        "sword": true,
+        "monster": true,
+        "fire": true
+      }
+    }
+  },
+  "fighters": {
+    "forge_colossus": {
+      "name": "Forge Colossus",
+      "prompt": "Giant walking furnace made of black iron. White-hot molten core visible through chest bars. Massive anvil-headed hammer in each hand, glowing red. Flat iron mask with orange eye slits. Heat waves distort air around body. No flesh. Just forge.",
+      "total_battles": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate_pct": 0.0,
+      "avg_nn_score": 0,
+      "avg_margin": 0,
+      "results": []
+    },
+    "wrath_infernal": {
+      "name": "Wrath Infernal",
+      "prompt": "Demonic winged entity wreathed in black orange flames, fiery wings spread wide, obsidian skull burning orange eyes, horns twisted iron, claws molten rock, body ash ember, wrath made fire",
+      "total_battles": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate_pct": 100.0,
+      "avg_nn_score": 0.9937,
+      "avg_margin": 0.3056,
+      "results": [
+        {
+          "seed": 2832,
+          "blip": "a demonic demon in flames",
+          "pixel": {
+            "brightness": 55.8,
+            "warmth": 56.8,
+            "red_ratio": 0.516,
+            "avg_r": 86.3,
+            "avg_g": 51.6,
+            "avg_b": 29.5
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": true,
+            "robot": false,
+            "fire": true,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "nn_score": 0.9936785101890564,
+          "margin": 0.3056485056877136,
+          "winner": "Wrath Infernal"
+        }
+      ]
+    },
+    "vatican_gun": {
+      "name": "Vatican Gun",
+      "prompt": "Hooded executioner in black leather duster. Carries a massive six-barrel gatling cannon, barrels clearly visible spinning. Holy water drums marked with crosses on each side. Gas mask with red glowing eyes. Silver bullets across chest. Crucifix on gun.",
+      "total_battles": 3,
+      "wins": 1,
+      "losses": 2,
+      "win_rate_pct": 33.3,
+      "avg_nn_score": 0.2592,
+      "avg_margin": -0.4289,
+      "results": [
+        {
+          "seed": 5078,
+          "blip": "a man in a black outfit holding a gun",
+          "pixel": {
+            "brightness": 52.5,
+            "warmth": 10.0,
+            "red_ratio": 0.358,
+            "avg_r": 56.3,
+            "avg_g": 54.8,
+            "avg_b": 46.3
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": true,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": true,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "nn_score": 0.006635298486799002,
+          "margin": -0.6813947060145438,
+          "winner": "Cyber God"
+        },
+        {
+          "seed": 4149,
+          "blip": "a man in a black suit holding a rifle",
+          "pixel": {
+            "brightness": 44.4,
+            "warmth": 5.3,
+            "red_ratio": 0.348,
+            "avg_r": 46.4,
+            "avg_g": 45.7,
+            "avg_b": 41.1
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": true,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": true,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "nn_score": 0.038179412484169006,
+          "margin": -0.6498505920171738,
+          "winner": "Cyber God"
+        },
+        {
+          "seed": 8691,
+          "blip": "a man in a gas mask holding a weapon",
+          "pixel": {
+            "brightness": 43.9,
+            "warmth": 4.8,
+            "red_ratio": 0.345,
+            "avg_r": 45.4,
+            "avg_g": 45.6,
+            "avg_b": 40.7
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "nn_score": 0.732649564743042,
+          "margin": 0.04461956024169922,
+          "winner": "Vatican Gun"
+        }
+      ]
+    }
+  }
+}

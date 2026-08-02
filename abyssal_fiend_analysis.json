@@ -1,0 +1,20 @@
+{
+  "name": "Abyssal Fiend",
+  "id": "9e1fdb2d-12c6-4996-bdae-29d647fb3c43",
+  "isBot": true,
+  "wins": 8,
+  "blip": "a demon with red flames on his face",
+  "pixel": {
+    "brightness": 35.3,
+    "warmth": 26.5,
+    "avg_r": 53.5,
+    "avg_g": 25.4,
+    "avg_b": 27.0
+  },
+  "kws": [
+    "monster",
+    "fire",
+    "red"
+  ],
+  "imageFile": "abyssal_fiend.png"
+}

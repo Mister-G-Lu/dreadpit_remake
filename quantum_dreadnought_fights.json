@@ -1,0 +1,210 @@
+[
+  {
+    "id": "24aa1414-c390-4f6c-849b-6bfcc4bddc84",
+    "opponentId": "07ae5d24-1731-4d76-9293-22b7f14e5fca",
+    "opponentName": "Ancient Chimera",
+    "opponentImageUrl": "/api/storage/objects/uploads/5bb0a1ce-6cb7-437d-96e0-252010bf1e09",
+    "won": false,
+    "foughtAt": "2026-07-06T12:00:30.090Z"
+  },
+  {
+    "id": "73324388-037e-4f9c-91c6-9a9a4de0b676",
+    "opponentId": "dea22119-485e-4909-98dd-3014ac21c2b6",
+    "opponentName": "Master of Time",
+    "opponentImageUrl": "/api/storage/objects/uploads/6884341a-fb0b-42a6-bc53-b52a01bdb9f0",
+    "won": true,
+    "foughtAt": "2026-07-05T12:00:38.960Z"
+  },
+  {
+    "id": "ae65291f-9538-48af-835c-4ffca8f096b3",
+    "opponentId": "52524fd2-525d-4b17-8345-3eacbc4cbddc",
+    "opponentName": "Stabby McStabbyFace",
+    "opponentImageUrl": "/api/storage/objects/uploads/49fda55a-8b45-4229-ac20-b3da1291399f",
+    "won": false,
+    "foughtAt": "2026-05-28T12:04:10.247Z"
+  },
+  {
+    "id": "930cf1ce-aaba-4392-8aad-42c8f0d57005",
+    "opponentId": "6ff72bc9-80b8-4814-b96a-d48b521e33cc",
+    "opponentName": "Vex'veth",
+    "opponentImageUrl": "/api/storage/objects/uploads/64f9dfdd-4feb-43c5-af42-7973f255f4e3",
+    "won": false,
+    "foughtAt": "2026-05-27T12:02:35.386Z"
+  },
+  {
+    "id": "b53f77ba-cb44-44a1-a430-e537c9c4cd98",
+    "opponentId": "03d8aa7d-96f1-4a27-acb8-3cb5bd959074",
+    "opponentName": "Claw Scorpion",
+    "opponentImageUrl": "/api/storage/objects/uploads/1134cbe4-10e4-4375-8983-196911087d14",
+    "won": false,
+    "foughtAt": "2026-05-26T12:01:18.024Z"
+  },
+  {
+    "id": "a0c008fd-4e5a-4a5c-b12a-e3b838f42f8f",
+    "opponentId": "a774bde8-3900-472d-bd85-fcc23fe2b12c",
+    "opponentName": "Iron Leviathan",
+    "opponentImageUrl": "/api/storage/objects/uploads/ccd2b3fc-849a-4f91-b79a-e59dd0b4f803",
+    "won": false,
+    "foughtAt": "2026-05-25T12:01:34.774Z"
+  },
+  {
+    "id": "7138105e-a0a2-48c3-8dce-3e74ff2e932d",
+    "opponentId": "b8abb1e3-f300-4d7c-a2f0-3a5182bd2822",
+    "opponentName": "Outer Presence",
+    "opponentImageUrl": "/api/storage/objects/uploads/7e8556dd-5822-4995-ad36-5e43a0b03492",
+    "won": false,
+    "foughtAt": "2026-05-24T16:06:23.281Z"
+  },
+  {
+    "id": "1da82b2c-1c6b-4320-b91b-d93400f7f43f",
+    "opponentId": "7cc322bf-1918-4bda-a1cb-916c06097e9e",
+    "opponentName": "Ironroot Grove",
+    "opponentImageUrl": "/api/storage/objects/uploads/26c7a290-bb37-4c7c-a128-d66f6f069342",
+    "won": false,
+    "foughtAt": "2026-05-24T12:00:24.341Z"
+  },
+  {
+    "id": "9fb225d6-be20-4e6f-a67a-63a147a5315c",
+    "opponentId": "515c6402-7615-41ec-90cd-ba52921581c0",
+    "opponentName": "Binary Dreadnought",
+    "opponentImageUrl": "/api/storage/objects/uploads/ea739ebe-a288-442a-924c-ec804f4d7cba",
+    "won": false,
+    "foughtAt": "2026-05-23T23:56:22.027Z"
+  },
+  {
+    "id": "0babf0da-42a2-4d19-87b8-0df46846dbc1",
+    "opponentId": "76113aee-ed41-4743-945d-7f38fd160b43",
+    "opponentName": "Broken Giant",
+    "opponentImageUrl": "/api/storage/objects/uploads/6057b4bf-34d0-411d-b87d-ee1fba9b0470",
+    "won": true,
+    "foughtAt": "2026-05-22T12:00:33.215Z"
+  },
+  {
+    "id": "b77a9926-ccbe-41c0-b8f5-fb4f470a0680",
+    "opponentId": "491ee918-f808-4db2-ab88-ddbcff00ac05",
+    "opponentName": "Void Elemental",
+    "opponentImageUrl": "/api/storage/objects/uploads/5f2ec594-dea1-4592-8c03-b72a372efcbd",
+    "won": true,
+    "foughtAt": "2026-05-21T21:54:02.557Z"
+  },
+  {
+    "id": "97597dad-0b78-4c28-9bdc-ddfce3164abe",
+    "opponentId": "50c94c59-6d32-4fff-90e9-45e00334da63",
+    "opponentName": "Plague Chimera",
+    "opponentImageUrl": "/api/storage/objects/uploads/7194cd43-b68d-4488-b9ed-c1b86ca28026",
+    "won": true,
+    "foughtAt": "2026-05-21T21:50:58.188Z"
+  },
+  {
+    "id": "7cb8a033-4bee-44c1-9545-f8a4a66b53ed",
+    "opponentId": "9bb2e049-61c6-44d0-b64a-e6d7a2c181ef",
+    "opponentName": "Neon Runner",
+    "opponentImageUrl": "/api/storage/objects/uploads/1fbdec82-9be8-4d42-ba10-e94519708787",
+    "won": true,
+    "foughtAt": "2026-05-21T12:01:34.933Z"
+  },
+  {
+    "id": "a4754763-4ced-4d1b-8787-77f277b7f6a6",
+    "opponentId": "0d27b230-5b4d-45af-8136-86893e4c12f0",
+    "opponentName": "Quantum Reaper",
+    "opponentImageUrl": "/api/storage/objects/uploads/30b11f6b-2f46-4512-ad06-15f887f3e718",
+    "won": false,
+    "foughtAt": "2026-05-20T12:00:27.790Z"
+  },
+  {
+    "id": "0c7ce63f-52e5-4ffc-b44c-2eddd10a373b",
+    "opponentId": "95bf30d3-a0a1-42dd-8026-9f48012f1270",
+    "opponentName": "Chrome Dreadnought",
+    "opponentImageUrl": "/api/storage/objects/uploads/5f8d7003-b7bf-48db-8bda-bf90d9d77f1d",
+    "won": true,
+    "foughtAt": "2026-05-19T15:08:20.728Z"
+  },
+  {
+    "id": "6429064c-fdec-46d3-aef0-62b7f92834c6",
+    "opponentId": "bdd98036-8a0d-4dfd-8568-3eef2615ed28",
+    "opponentName": "Blood Demon",
+    "opponentImageUrl": "/api/storage/objects/uploads/616f306e-f107-4a3d-9f0e-883988f2fa3e",
+    "won": true,
+    "foughtAt": "2026-05-19T12:07:59.966Z"
+  },
+  {
+    "id": "c302f2d5-14e2-4509-a979-673b85512a00",
+    "opponentId": "9e1fdb2d-12c6-4996-bdae-29d647fb3c43",
+    "opponentName": "Abyssal Fiend",
+    "opponentImageUrl": "/api/storage/objects/uploads/dbe72ffd-3108-4525-b206-f9ffae42e692",
+    "won": true,
+    "foughtAt": "2026-05-18T12:05:16.291Z"
+  },
+  {
+    "id": "52b91207-0c16-472e-887e-fdb565dfad56",
+    "opponentId": "acd27a64-d683-48c7-b982-830156807b35",
+    "opponentName": "Famine Bearer",
+    "opponentImageUrl": "/api/storage/objects/uploads/c61802ca-f6ae-4c88-b97f-73f13a2401cf",
+    "won": true,
+    "foughtAt": "2026-05-17T19:18:57.927Z"
+  },
+  {
+    "id": "bdfd4d48-3157-404e-b8b0-ca1811e69eca",
+    "opponentId": "2bd0836f-b64f-4368-9b7e-53588c2b7919",
+    "opponentName": "Feral Skinwalker",
+    "opponentImageUrl": "/api/storage/objects/uploads/560eafa4-a8ab-44d4-87bb-16295fd6622c",
+    "won": true,
+    "foughtAt": "2026-05-17T12:00:12.576Z"
+  },
+  {
+    "id": "0e62f97a-c444-4ab0-af47-346f72fa76ae",
+    "opponentId": "fbb1c819-61a4-454f-9bc7-e6e27d4ee8d2",
+    "opponentName": "Dead Buccaneer",
+    "opponentImageUrl": "/api/storage/objects/uploads/ab82c972-0e34-46a2-81ad-e09c3b57ccca",
+    "won": true,
+    "foughtAt": "2026-05-16T22:12:06.058Z"
+  },
+  {
+    "id": "7623ab07-cbf7-42b8-9c65-ec827738f25f",
+    "opponentId": "301a5353-88a2-4646-8b3d-4af296c80dbe",
+    "opponentName": "Tide Spirit",
+    "opponentImageUrl": "/api/storage/objects/uploads/79487890-17cd-4082-bfc1-caaeb8180dd7",
+    "won": false,
+    "foughtAt": "2026-05-16T20:10:19.882Z"
+  },
+  {
+    "id": "139df5ee-7932-4acc-a489-81359dcc1c5d",
+    "opponentId": "c71a5616-8037-4d00-9b41-d92663510d34",
+    "opponentName": "Twisted Chimera",
+    "opponentImageUrl": "/api/storage/objects/uploads/375259e3-025b-499b-8a3e-dc49a03289a1",
+    "won": true,
+    "foughtAt": "2026-05-16T20:05:36.759Z"
+  },
+  {
+    "id": "1fa6103f-2627-4a3b-a0d9-7354398d29ed",
+    "opponentId": "848fbe68-dfec-4088-90af-3f188c9b37ef",
+    "opponentName": "Iron Hydra",
+    "opponentImageUrl": "/api/storage/objects/uploads/1f944279-2228-4119-b220-6aba521f84d8",
+    "won": false,
+    "foughtAt": "2026-05-16T20:02:36.843Z"
+  },
+  {
+    "id": "445a7e99-4def-4676-9306-0806cdca1ff2",
+    "opponentId": "a5a31780-3659-418a-962b-219a7ea26d87",
+    "opponentName": "Abyssal Leviathan",
+    "opponentImageUrl": "/api/storage/objects/uploads/3bade8ab-6c58-42f5-bc9d-b6533b806d5b",
+    "won": true,
+    "foughtAt": "2026-05-16T20:02:07.472Z"
+  },
+  {
+    "id": "767227ca-43ef-4c42-849d-9c187e554193",
+    "opponentId": "8c26b238-0c77-4e8f-b6ff-d5cb4d7fa774",
+    "opponentName": "Steel Arrow",
+    "opponentImageUrl": "/api/storage/objects/uploads/d6a3670c-c095-433b-8dd8-e34f7dec1587",
+    "won": false,
+    "foughtAt": "2026-05-16T20:01:27.912Z"
+  },
+  {
+    "id": "196cebfb-72a0-428e-af60-edb04b687c2c",
+    "opponentId": "02be10f0-e3b7-4aa2-85c8-03664414cf77",
+    "opponentName": "Hollow Corsair",
+    "opponentImageUrl": "/api/storage/objects/uploads/58eb2cca-9f1f-4393-920c-d60610154159",
+    "won": false,
+    "foughtAt": "2026-05-15T23:56:22.334Z"
+  }
+]

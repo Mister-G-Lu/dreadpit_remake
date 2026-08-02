@@ -1,0 +1,218 @@
+[
+  {
+    "id": "466c45a5-1841-4b92-bb55-649d56cab971",
+    "opponentId": "301a5353-88a2-4646-8b3d-4af296c80dbe",
+    "opponentName": "Tide Spirit",
+    "opponentImageUrl": "/api/storage/objects/uploads/79487890-17cd-4082-bfc1-caaeb8180dd7",
+    "won": false,
+    "foughtAt": "2026-06-03T12:00:11.551Z"
+  },
+  {
+    "id": "be02de4d-c46b-4c70-bd3a-37df9cf81e94",
+    "opponentId": "515c6402-7615-41ec-90cd-ba52921581c0",
+    "opponentName": "Binary Dreadnought",
+    "opponentImageUrl": "/api/storage/objects/uploads/ea739ebe-a288-442a-924c-ec804f4d7cba",
+    "won": true,
+    "foughtAt": "2026-06-02T12:00:16.415Z"
+  },
+  {
+    "id": "6a3254e6-fa0d-44f2-9281-f470ce101452",
+    "opponentId": "651b6c72-3798-4198-974c-806078e4b5db",
+    "opponentName": "Void Reaper",
+    "opponentImageUrl": "/api/storage/objects/uploads/76c7e2ae-bedc-423b-95d6-aa5671531154",
+    "won": true,
+    "foughtAt": "2026-06-01T12:00:37.879Z"
+  },
+  {
+    "id": "d6e2b060-1d0e-44e7-8286-1921be39b1d5",
+    "opponentId": "0ec9076c-3aa9-44a5-9830-9706b24f0753",
+    "opponentName": "Damned Lich",
+    "opponentImageUrl": "/api/storage/objects/uploads/7a26ab64-29bd-4f30-93a4-a273605da72e",
+    "won": false,
+    "foughtAt": "2026-05-31T12:00:23.565Z"
+  },
+  {
+    "id": "56148c0c-9db5-4aa6-9fea-68ceab38588f",
+    "opponentId": "283721a5-e95f-445a-8592-74a061a1c63d",
+    "opponentName": "Void Monk",
+    "opponentImageUrl": "/api/storage/objects/uploads/7c37e52e-43c5-4dfd-be41-007fecc1f60f",
+    "won": true,
+    "foughtAt": "2026-05-30T12:00:44.914Z"
+  },
+  {
+    "id": "3f960bda-9cb9-4ebd-88ff-db02e90e3d77",
+    "opponentId": "d9f13f30-edeb-4ca7-a93d-b23803035d7a",
+    "opponentName": "Gnash Werewolf",
+    "opponentImageUrl": "/api/storage/objects/uploads/65c5f9b1-8869-4730-a6f0-9fac83287896",
+    "won": false,
+    "foughtAt": "2026-05-29T12:00:06.093Z"
+  },
+  {
+    "id": "89ab4bcc-a3e6-4074-afc5-2d9c978c4339",
+    "opponentId": "b800ff79-4d63-4e72-92f5-425708f7fe22",
+    "opponentName": "Iron Soldier",
+    "opponentImageUrl": "/api/storage/objects/uploads/317728c7-f1a4-4fec-9cec-09b14e7a68b5",
+    "won": true,
+    "foughtAt": "2026-05-28T12:03:54.550Z"
+  },
+  {
+    "id": "66d93a79-1cf3-4eca-9319-ac1f5b41be25",
+    "opponentId": "19da9148-87a3-4476-9334-b7dd7ffa7f79",
+    "opponentName": "Shell Mantis",
+    "opponentImageUrl": "/api/storage/objects/uploads/9dd893c0-54d4-4da6-a8a7-f35f07876a26",
+    "won": true,
+    "foughtAt": "2026-05-27T12:02:06.346Z"
+  },
+  {
+    "id": "b0787cfb-ed49-4b06-b96c-1264fc909dc0",
+    "opponentId": "27b17741-6bb8-4faf-bc93-b397fc3f64e7",
+    "opponentName": "Tenebrous Shadow",
+    "opponentImageUrl": "/api/storage/objects/uploads/fad9ded8-985f-4c49-9998-c4c75f21379c",
+    "won": false,
+    "foughtAt": "2026-05-26T12:00:38.743Z"
+  },
+  {
+    "id": "4824e2f6-0eb3-4d3b-9e33-04c3acc8fb33",
+    "opponentId": "3349d97e-42b5-44f1-ac0c-31ca058d8d9a",
+    "opponentName": "Ash Warlock",
+    "opponentImageUrl": "/api/storage/objects/uploads/639b1474-30c6-4731-9afe-ab91d078dc85",
+    "won": true,
+    "foughtAt": "2026-05-25T12:00:41.210Z"
+  },
+  {
+    "id": "b5b4b855-7120-4ddf-93d1-2e501242c9d3",
+    "opponentId": "bb59cb2b-ca91-406e-9639-61f96c45aa20",
+    "opponentName": "Void Wraith",
+    "opponentImageUrl": "/api/storage/objects/uploads/5d717608-d9a2-4550-8d15-a03d97734bad",
+    "won": true,
+    "foughtAt": "2026-05-24T16:06:05.489Z"
+  },
+  {
+    "id": "7693bb4e-10fc-4703-9d87-903ba2400721",
+    "opponentId": "f9d01282-e510-4aba-91d3-3e5e23b88125",
+    "opponentName": "Blind Giant",
+    "opponentImageUrl": "/api/storage/objects/uploads/2a60a0b3-f58c-4b11-89bf-21d24c61dcf4",
+    "won": true,
+    "foughtAt": "2026-05-24T12:00:10.922Z"
+  },
+  {
+    "id": "561c98a6-0200-4403-97c3-182a174b2e3a",
+    "opponentId": "d2dd2f28-84ac-4859-bf58-837327068582",
+    "opponentName": "Stone Knight",
+    "opponentImageUrl": "/api/storage/objects/uploads/7e61b572-19c2-43f2-8e10-914e8e7f324c",
+    "won": true,
+    "foughtAt": "2026-05-23T23:56:25.771Z"
+  },
+  {
+    "id": "677cc58e-6461-4964-b331-1d5ff629b81a",
+    "opponentId": "9b7b47f9-2850-47cb-a21b-2972b6b048a7",
+    "opponentName": "Sleeping Horror",
+    "opponentImageUrl": "/api/storage/objects/uploads/377cec56-c048-47a7-8a66-5507ba053c70",
+    "won": false,
+    "foughtAt": "2026-05-22T12:00:54.902Z"
+  },
+  {
+    "id": "a8ca0097-4a08-4afd-9503-ce296b49a4f2",
+    "opponentId": "0ead7a24-1a94-4955-a3bf-596ad9c09c40",
+    "opponentName": "Gale Captain",
+    "opponentImageUrl": "/api/storage/objects/uploads/8cc6a446-e6d6-4953-9918-dc644e31c8c9",
+    "won": true,
+    "foughtAt": "2026-05-21T21:54:16.022Z"
+  },
+  {
+    "id": "b4156306-cd89-424d-a1ef-d52b8fce5f6e",
+    "opponentId": "07c03bd7-d7b8-434a-9fc0-aee0fcd02812",
+    "opponentName": "Nest Mantis",
+    "opponentImageUrl": "/api/storage/objects/uploads/118c2301-3a6d-4d1c-aeb8-1c8baa027576",
+    "won": false,
+    "foughtAt": "2026-05-21T21:50:55.390Z"
+  },
+  {
+    "id": "08cbeae8-199b-43b7-b0a2-88d9258fb37e",
+    "opponentId": "1f6029ac-6c83-4945-b1d9-6383ae9fe64f",
+    "opponentName": "Cold Wraith",
+    "opponentImageUrl": "/api/storage/objects/uploads/8878668c-6f1e-4b69-8945-bc47fd393308",
+    "won": true,
+    "foughtAt": "2026-05-21T12:01:27.634Z"
+  },
+  {
+    "id": "314490a6-4f12-4759-9b1c-acee5a522208",
+    "opponentId": "7ac8e6df-9ff0-4dbf-b280-e44ab1978440",
+    "opponentName": "Hollow Revenant",
+    "opponentImageUrl": "/api/storage/objects/uploads/50378972-5965-4a41-a546-e491089ece58",
+    "won": false,
+    "foughtAt": "2026-05-20T12:00:22.649Z"
+  },
+  {
+    "id": "232b8556-7643-49d5-8485-eaaacc30c283",
+    "opponentId": "291bec13-6527-4851-948e-0e6eaacd48a5",
+    "opponentName": "Cursed Shifter",
+    "opponentImageUrl": "/api/storage/objects/uploads/ddb32c88-01be-459e-8684-582dce7b3c8f",
+    "won": true,
+    "foughtAt": "2026-05-19T15:08:30.524Z"
+  },
+  {
+    "id": "c9c6adb8-6fa6-4d37-b2bf-a51827f1bb1e",
+    "opponentId": "c1da8341-e652-4745-b14b-8c71310f8859",
+    "opponentName": "Iron Corsair",
+    "opponentImageUrl": "/api/storage/objects/uploads/61bb113c-f2f1-4067-aeef-aba40d09c170",
+    "won": true,
+    "foughtAt": "2026-05-19T12:10:17.513Z"
+  },
+  {
+    "id": "bdafe39f-b44c-4bc3-9936-a718c551133f",
+    "opponentId": "c1279d9b-1123-4f03-8c5f-fcb72fb9043b",
+    "opponentName": "Razorfin Drake",
+    "opponentImageUrl": "/api/storage/objects/uploads/1efd8135-37af-467a-8220-3e0168d92289",
+    "won": false,
+    "foughtAt": "2026-05-18T12:05:07.426Z"
+  },
+  {
+    "id": "a79a56af-1741-4f99-bea4-b88d53ac98b1",
+    "opponentId": "0d27b230-5b4d-45af-8136-86893e4c12f0",
+    "opponentName": "Quantum Reaper",
+    "opponentImageUrl": "/api/storage/objects/uploads/30b11f6b-2f46-4512-ad06-15f887f3e718",
+    "won": false,
+    "foughtAt": "2026-05-17T19:18:58.361Z"
+  },
+  {
+    "id": "0b91316d-2e9c-4a0a-94e6-ac087fdfe657",
+    "opponentId": "c1da8341-e652-4745-b14b-8c71310f8859",
+    "opponentName": "Iron Corsair",
+    "opponentImageUrl": "/api/storage/objects/uploads/61bb113c-f2f1-4067-aeef-aba40d09c170",
+    "won": true,
+    "foughtAt": "2026-05-17T12:00:12.291Z"
+  },
+  {
+    "id": "9542db93-c801-44fb-93d9-762cfcf9576f",
+    "opponentId": "a67ec0ee-5054-46ca-b64c-dd9ffbdc61b3",
+    "opponentName": "Tidal Captain",
+    "opponentImageUrl": "/api/storage/objects/uploads/8a6a0b34-2769-434c-a569-3c06fcc8cd2a",
+    "won": false,
+    "foughtAt": "2026-05-16T22:12:02.038Z"
+  },
+  {
+    "id": "e94005b3-8663-49d8-8381-b65cb2084738",
+    "opponentId": "9e1fdb2d-12c6-4996-bdae-29d647fb3c43",
+    "opponentName": "Abyssal Fiend",
+    "opponentImageUrl": "/api/storage/objects/uploads/dbe72ffd-3108-4525-b206-f9ffae42e692",
+    "won": true,
+    "foughtAt": "2026-05-16T20:10:21.565Z"
+  },
+  {
+    "id": "b8ccd775-2700-4991-9773-fc2ec5c0436b",
+    "opponentId": "bdd98036-8a0d-4dfd-8568-3eef2615ed28",
+    "opponentName": "Blood Demon",
+    "opponentImageUrl": "/api/storage/objects/uploads/616f306e-f107-4a3d-9f0e-883988f2fa3e",
+    "won": false,
+    "foughtAt": "2026-05-16T20:05:33.331Z"
+  },
+  {
+    "id": "57a6a3bf-7e1f-4227-a3d0-95a3b5f86be2",
+    "opponentId": "3c3b6ae3-e952-42b2-9e98-2796622cc3de",
+    "opponentName": "Plague Mage",
+    "opponentImageUrl": "/api/storage/objects/uploads/b1c31b1d-dbcb-4f94-a1aa-be6bef100ed8",
+    "won": false,
+    "foughtAt": "2026-05-16T12:00:35.805Z"
+  }
+]

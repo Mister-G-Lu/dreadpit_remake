@@ -1,0 +1,372 @@
+{
+  "undead_skeleton_lich": {
+    "why": "Never truly seen: 'Undead archmage' is a cartoon dino rider; no real skeleton/lich in arena. Gemini knows lich = necromancy, can't-die, soul magic.",
+    "variants": [
+      {
+        "variant": 1,
+        "prompt": "Ancient lich king, white bone skeleton body, tattered royal purple robe, golden crown, green soul flames in eye sockets, bone staff with skull, green necrotic aura",
+        "chars": 163,
+        "descriptions": [
+          "a dark knight with a green light on his face",
+          "a skeleton with two torches in his hands",
+          "a skeleton wearing a crown and holding a green light"
+        ],
+        "warmth_mean": -22.3,
+        "warmth_stdev": 9.9,
+        "warmth_range": "-33.7--16.2",
+        "target_kws": [
+          "skeleton",
+          "bone",
+          "skull",
+          "undead",
+          "lich",
+          "death",
+          "corpse"
+        ],
+        "arch_render_pct": 67,
+        "arch_rendered": true
+      },
+      {
+        "variant": 2,
+        "prompt": "Skeleton death god, polished white bone armor, glowing green eye sockets, black royal crown, bone scythe, tattered dark cloak, green soul fire around body",
+        "chars": 154,
+        "descriptions": [
+          "a skeleton with green eyes and a black hood",
+          "a skeleton with green eyes and a black robe",
+          "a skeleton with a hood on it ' s head"
+        ],
+        "warmth_mean": -15.7,
+        "warmth_stdev": 7.5,
+        "warmth_range": "-23.7--8.9",
+        "target_kws": [
+          "skeleton",
+          "bone",
+          "skull",
+          "undead",
+          "lich",
+          "death",
+          "corpse"
+        ],
+        "arch_render_pct": 100,
+        "arch_rendered": true
+      }
+    ],
+    "best": {
+      "variant": 2,
+      "prompt": "Skeleton death god, polished white bone armor, glowing green eye sockets, black royal crown, bone scythe, tattered dark cloak, green soul fire around body",
+      "chars": 154,
+      "descriptions": [
+        "a skeleton with green eyes and a black hood",
+        "a skeleton with green eyes and a black robe",
+        "a skeleton with a hood on it ' s head"
+      ],
+      "warmth_mean": -15.7,
+      "warmth_stdev": 7.5,
+      "warmth_range": "-23.7--8.9",
+      "target_kws": [
+        "skeleton",
+        "bone",
+        "skull",
+        "undead",
+        "lich",
+        "death",
+        "corpse"
+      ],
+      "arch_render_pct": 100,
+      "arch_rendered": true
+    }
+  },
+  "ice_frost_titan": {
+    "why": "No true ice/frost fighter with 5+ wins. Frost Void Wraith (5w) renders as a hooded knife-man, not ice. Polar opposite of the fire meta.",
+    "variants": [
+      {
+        "variant": 1,
+        "prompt": "Frost titan of living glacier ice, cracked frozen blue armor, ice crystal shards floating, pale blue glow, frozen crown, glacier greatsword of solid ice",
+        "chars": 152,
+        "descriptions": [
+          "the ice king in the frozen forest",
+          "a man in a white outfit holding a sword",
+          "a man in a blue dress standing on ice"
+        ],
+        "warmth_mean": -137.3,
+        "warmth_stdev": 19.4,
+        "warmth_range": "-151.8--115.2",
+        "target_kws": [
+          "ice",
+          "frost",
+          "glacier",
+          "snow",
+          "frozen",
+          "cold"
+        ],
+        "arch_render_pct": 67,
+        "arch_rendered": true
+      },
+      {
+        "variant": 2,
+        "prompt": "Ice golem colossus, translucent blue frozen body, frost spikes on shoulders, cold mist aura, glowing pale blue core chest, jagged ice sword hand",
+        "chars": 144,
+        "descriptions": [
+          "a blue man with a glowing body and arms",
+          "a man standing in the middle of a body with a sword",
+          "a blue man standing in the middle of a room"
+        ],
+        "warmth_mean": -118.5,
+        "warmth_stdev": 14.8,
+        "warmth_range": "-134.1--104.7",
+        "target_kws": [
+          "ice",
+          "frost",
+          "glacier",
+          "snow",
+          "frozen",
+          "cold"
+        ],
+        "arch_render_pct": 0,
+        "arch_rendered": false
+      }
+    ],
+    "best": {
+      "variant": 1,
+      "prompt": "Frost titan of living glacier ice, cracked frozen blue armor, ice crystal shards floating, pale blue glow, frozen crown, glacier greatsword of solid ice",
+      "chars": 152,
+      "descriptions": [
+        "the ice king in the frozen forest",
+        "a man in a white outfit holding a sword",
+        "a man in a blue dress standing on ice"
+      ],
+      "warmth_mean": -137.3,
+      "warmth_stdev": 19.4,
+      "warmth_range": "-151.8--115.2",
+      "target_kws": [
+        "ice",
+        "frost",
+        "glacier",
+        "snow",
+        "frozen",
+        "cold"
+      ],
+      "arch_render_pct": 67,
+      "arch_rendered": true
+    }
+  },
+  "egyptian_anubis": {
+    "why": "ZERO egyptian/anubis/mummy fighters in 348. Dense archetype (like Tigran) - Gemini fills in death magic, judgment, soul-weighing.",
+    "variants": [
+      {
+        "variant": 1,
+        "prompt": "Black jackal-headed god, golden armor, pharaoh collar, long staff with ankh tip, burning scale hanging from belt, one pan blue flame, wraith cloak",
+        "chars": 146,
+        "descriptions": [
+          "a man in a black cloak with a sword",
+          "a man in a black robe with flames around his shoulders",
+          "a man in armor with flames on his face"
+        ],
+        "warmth_mean": 34.7,
+        "warmth_stdev": 5.3,
+        "warmth_range": "29.9-40.4",
+        "target_kws": [
+          "dog",
+          "jackal",
+          "anubis",
+          "egypt",
+          "pharaoh",
+          "head"
+        ],
+        "arch_render_pct": 0,
+        "arch_rendered": false
+      },
+      {
+        "variant": 2,
+        "prompt": "Anubis death god, jackal head, black and gold armor, was-scepter staff, glowing blue scale of judgment in left hand, dark sand aura, standing calm",
+        "chars": 146,
+        "descriptions": [
+          "a dark knight with a sword and a glowing halo",
+          "a character in the game diablo",
+          "a character in the game, person"
+        ],
+        "warmth_mean": -5.8,
+        "warmth_stdev": 3.7,
+        "warmth_range": "-9.9--2.6",
+        "target_kws": [
+          "dog",
+          "jackal",
+          "anubis",
+          "egypt",
+          "pharaoh",
+          "head"
+        ],
+        "arch_render_pct": 0,
+        "arch_rendered": false
+      }
+    ],
+    "best": {
+      "variant": 2,
+      "prompt": "Anubis death god, jackal head, black and gold armor, was-scepter staff, glowing blue scale of judgment in left hand, dark sand aura, standing calm",
+      "chars": 146,
+      "descriptions": [
+        "a dark knight with a sword and a glowing halo",
+        "a character in the game diablo",
+        "a character in the game, person"
+      ],
+      "warmth_mean": -5.8,
+      "warmth_stdev": 3.7,
+      "warmth_range": "-9.9--2.6",
+      "target_kws": [
+        "dog",
+        "jackal",
+        "anubis",
+        "egypt",
+        "pharaoh",
+        "head"
+      ],
+      "arch_render_pct": 0,
+      "arch_rendered": false
+    }
+  },
+  "mirror_glass_entity": {
+    "why": "No mirror/glass fighter. Dirumath 'Mirrored Anguish' is actually a blue dragon. Abstract but high curiosity value.",
+    "variants": [
+      {
+        "variant": 1,
+        "prompt": "Entity of living mirror glass, body of reflective silver shards, fractured mirror face, light refracting rainbow, floating glass shards orbit, silver white",
+        "chars": 155,
+        "descriptions": [
+          "a girl with a white hair and blue eyes",
+          "a girl with white hair and blue eyes",
+          "a diamond in the dark"
+        ],
+        "warmth_mean": -34.8,
+        "warmth_stdev": 5.6,
+        "warmth_range": "-40.3--29.2",
+        "target_kws": [
+          "mirror",
+          "glass",
+          "reflect",
+          "shard",
+          "prism"
+        ],
+        "arch_render_pct": 0,
+        "arch_rendered": false
+      },
+      {
+        "variant": 2,
+        "prompt": "Glass golem, body made of cracked mirrors, reflections on every surface, jagged glass claw hands, prismatic light shards floating around, pale silver",
+        "chars": 149,
+        "descriptions": [
+          "a dark blue and white image of a humanoid with wings",
+          "a woman in a blue dress standing on a dark surface",
+          "a woman in a futuristic suit standing in the dark"
+        ],
+        "warmth_mean": -43.7,
+        "warmth_stdev": 6.9,
+        "warmth_range": "-50.4--36.7",
+        "target_kws": [
+          "mirror",
+          "glass",
+          "reflect",
+          "shard",
+          "prism"
+        ],
+        "arch_render_pct": 0,
+        "arch_rendered": false
+      }
+    ],
+    "best": {
+      "variant": 1,
+      "prompt": "Entity of living mirror glass, body of reflective silver shards, fractured mirror face, light refracting rainbow, floating glass shards orbit, silver white",
+      "chars": 155,
+      "descriptions": [
+        "a girl with a white hair and blue eyes",
+        "a girl with white hair and blue eyes",
+        "a diamond in the dark"
+      ],
+      "warmth_mean": -34.8,
+      "warmth_stdev": 5.6,
+      "warmth_range": "-40.3--29.2",
+      "target_kws": [
+        "mirror",
+        "glass",
+        "reflect",
+        "shard",
+        "prism"
+      ],
+      "arch_render_pct": 0,
+      "arch_rendered": false
+    }
+  },
+  "nature_fungal": {
+    "why": "Nature/plant/fungus never proven. 'Rotting Carrier' (3w) is closest. Fungal horror is esoteric + distinct from fire meta.",
+    "variants": [
+      {
+        "variant": 1,
+        "prompt": "Fungal plague titan, giant mushroom crown, orange spotted cap, spore cloud aura, moss covered body, glowing green spores, vine wrapped arms, rotting wood",
+        "chars": 153,
+        "descriptions": [
+          "a mushroom with moss growing on it",
+          "a mushroom with green lights on it",
+          "a mushroom with moss growing on it"
+        ],
+        "warmth_mean": 16.3,
+        "warmth_stdev": 6.0,
+        "warmth_range": "11.6-23.1",
+        "target_kws": [
+          "mushroom",
+          "fungus",
+          "moss",
+          "plant",
+          "tree",
+          "rot"
+        ],
+        "arch_render_pct": 100,
+        "arch_rendered": true
+      },
+      {
+        "variant": 2,
+        "prompt": "Forest rot god, ancient tree body, giant glowing mushroom cap head, glowing green spores drifting, roots for legs, moss and fungus covering, dark wood",
+        "chars": 150,
+        "descriptions": [
+          "a mushroom in the forest with a green light",
+          "a tree with a glowing green mushroom on it",
+          "a green mushroom with glowing eyes in the forest"
+        ],
+        "warmth_mean": 2.9,
+        "warmth_stdev": 2.7,
+        "warmth_range": "0.8-6.0",
+        "target_kws": [
+          "mushroom",
+          "fungus",
+          "moss",
+          "plant",
+          "tree",
+          "rot"
+        ],
+        "arch_render_pct": 100,
+        "arch_rendered": true
+      }
+    ],
+    "best": {
+      "variant": 2,
+      "prompt": "Forest rot god, ancient tree body, giant glowing mushroom cap head, glowing green spores drifting, roots for legs, moss and fungus covering, dark wood",
+      "chars": 150,
+      "descriptions": [
+        "a mushroom in the forest with a green light",
+        "a tree with a glowing green mushroom on it",
+        "a green mushroom with glowing eyes in the forest"
+      ],
+      "warmth_mean": 2.9,
+      "warmth_stdev": 2.7,
+      "warmth_range": "0.8-6.0",
+      "target_kws": [
+        "mushroom",
+        "fungus",
+        "moss",
+        "plant",
+        "tree",
+        "rot"
+      ],
+      "arch_render_pct": 100,
+      "arch_rendered": true
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "candidates": {
+    "v1_subtle_man": {
+      "prompt": "Man in dark grey tactical suit and full helmet, subtle green armor trim, faint purple visor glow, standing in darkness, moody",
+      "renders": [
+        {
+          "seed": 42,
+          "metrics": {
+            "brightness": 35.5,
+            "warmth": -14.1,
+            "rgb": [
+              28.1,
+              36.4,
+              42.2
+            ],
+            "dark_pct": 66.2,
+            "glow_pct": 0.2,
+            "green_pct": 0.1,
+            "purple_pct": 0.2,
+            "visor_glow_pct": 2.3,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a man in a suit with red eyes"
+        },
+        {
+          "seed": 777,
+          "metrics": {
+            "brightness": 41.4,
+            "warmth": -14.1,
+            "rgb": [
+              33.9,
+              42.3,
+              48.0
+            ],
+            "dark_pct": 58.2,
+            "glow_pct": 0.2,
+            "green_pct": 0.2,
+            "purple_pct": 0.0,
+            "visor_glow_pct": 3.8,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a man in a green suit and helmet"
+        },
+        {
+          "seed": 2024,
+          "metrics": {
+            "brightness": 38.5,
+            "warmth": -13.7,
+            "rgb": [
+              31.5,
+              38.8,
+              45.2
+            ],
+            "dark_pct": 59.3,
+            "glow_pct": 0.2,
+            "green_pct": 0.0,
+            "purple_pct": 0.2,
+            "visor_glow_pct": 4.5,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a man in a helmet and a suit"
+        }
+      ]
+    },
+    "v2_grey_green": {
+      "prompt": "Slim man in grey and green combat suit, full helmet, small glowing purple visor, subtle green plating, dim light, black background",
+      "renders": [
+        {
+          "seed": 42,
+          "metrics": {
+            "brightness": 39.7,
+            "warmth": -11.8,
+            "rgb": [
+              32.5,
+              42.2,
+              44.3
+            ],
+            "dark_pct": 56.7,
+            "glow_pct": 0.4,
+            "green_pct": 15.6,
+            "purple_pct": 0.5,
+            "visor_glow_pct": 14.8,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a man in a green helmet and goggles"
+        },
+        {
+          "seed": 777,
+          "metrics": {
+            "brightness": 43.1,
+            "warmth": -8.1,
+            "rgb": [
+              37.8,
+              45.5,
+              45.9
+            ],
+            "dark_pct": 45.1,
+            "glow_pct": 0.2,
+            "green_pct": 5.7,
+            "purple_pct": 0.0,
+            "visor_glow_pct": 0.5,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a green lanterner in a suit with glowing eyes"
+        },
+        {
+          "seed": 2024,
+          "metrics": {
+            "brightness": 48.5,
+            "warmth": -4.0,
+            "rgb": [
+              45.2,
+              50.9,
+              49.3
+            ],
+            "dark_pct": 48.4,
+            "glow_pct": 0.0,
+            "green_pct": 6.5,
+            "purple_pct": 0.0,
+            "visor_glow_pct": 0.2,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a man in a green suit and helmet"
+        }
+      ]
+    },
+    "v3_original_guess": {
+      "prompt": "Dark cybernetic enforcer, sleek grey and green tech armor, full helmet with glowing purple visor, subtle purple energy glow from gauntlet, lean stance, standing in darkness",
+      "renders": [
+        {
+          "seed": 42,
+          "metrics": {
+            "brightness": 52.0,
+            "warmth": -36.3,
+            "rgb": [
+              36.5,
+              46.8,
+              72.8
+            ],
+            "dark_pct": 39.4,
+            "glow_pct": 2.2,
+            "green_pct": 0.0,
+            "purple_pct": 0.2,
+            "visor_glow_pct": 12.3,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a robot with purple eyes and a purple helmet"
+        },
+        {
+          "seed": 777,
+          "metrics": {
+            "brightness": 61.2,
+            "warmth": -33.1,
+            "rgb": [
+              46.6,
+              57.4,
+              79.7
+            ],
+            "dark_pct": 46.1,
+            "glow_pct": 5.6,
+            "green_pct": 0.7,
+            "purple_pct": 0.0,
+            "visor_glow_pct": 4.5,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a character in the halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo halo"
+        },
+        {
+          "seed": 2024,
+          "metrics": {
+            "brightness": 61.6,
+            "warmth": -27.6,
+            "rgb": [
+              50.1,
+              57.0,
+              77.7
+            ],
+            "dark_pct": 46.9,
+            "glow_pct": 0.9,
+            "green_pct": 0.0,
+            "purple_pct": 3.2,
+            "visor_glow_pct": 14.9,
+            "size": [
+              768,
+              768
+            ]
+          },
+          "blip": "a purple and black robot with a purple light on it"
+        }
+      ]
+    }
+  },
+  "original": {
+    "brightness": 17.6,
+    "warmth": -4.8,
+    "rgb": [
+      15.8,
+      16.4,
+      20.6
+    ],
+    "dark_pct": 83.1,
+    "glow_pct": 0.3,
+    "green_pct": 1.4,
+    "purple_pct": 2.2,
+    "visor_glow_pct": 5.0,
+    "size": [
+      512,
+      640
+    ]
+  },
+  "best": "v1_subtle_man"
+}

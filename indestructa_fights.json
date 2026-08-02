@@ -1,0 +1,18 @@
+[
+  {
+    "id": "195c75e8-c6db-4ff8-8e4b-872b74ba30a8",
+    "opponentId": "7c9a2509-e6e5-4250-80c5-16da502ddba7",
+    "opponentName": "ZomDrake",
+    "opponentImageUrl": "/api/storage/objects/uploads/299e8f8a-f9bd-4234-9be8-281f0347fa29",
+    "won": false,
+    "foughtAt": "2026-05-19T15:08:31.458Z"
+  },
+  {
+    "id": "b6937c08-08c7-4f4f-9a09-525d1c118a73",
+    "opponentId": "9e1fdb2d-12c6-4996-bdae-29d647fb3c43",
+    "opponentName": "Abyssal Fiend",
+    "opponentImageUrl": "/api/storage/objects/uploads/dbe72ffd-3108-4525-b206-f9ffae42e692",
+    "won": true,
+    "foughtAt": "2026-05-19T12:08:05.167Z"
+  }
+]

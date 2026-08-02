@@ -1,0 +1,201 @@
+{
+  "gap_a": [
+    {
+      "name": "Mecha Dragon - Champion",
+      "wins": 7,
+      "nn_score": 0.48264646530151367
+    },
+    {
+      "name": "Aion, Where Stars Go to Die",
+      "wins": 7,
+      "nn_score": 0.495840460062027
+    },
+    {
+      "name": "Aurelion, The Last Sovereign",
+      "wins": 7,
+      "nn_score": 0.4988339841365814
+    }
+  ],
+  "gap_b": [
+    {
+      "name": "Bone Revenant",
+      "wins": 1,
+      "nn_score": 1.0
+    },
+    {
+      "name": "Claw Mantis",
+      "wins": 2,
+      "nn_score": 1.0
+    },
+    {
+      "name": "Oth-keth",
+      "wins": 2,
+      "nn_score": 1.0
+    },
+    {
+      "name": "Dark Shadow",
+      "wins": 1,
+      "nn_score": 0.9739
+    },
+    {
+      "name": "Sorn-veth",
+      "wins": 1,
+      "nn_score": 0.9453
+    },
+    {
+      "name": "It came from Uranus",
+      "wins": 0,
+      "nn_score": 0.8702043294906616
+    },
+    {
+      "name": "Hellhorn Brute",
+      "wins": 2,
+      "nn_score": 0.8517799377441406
+    },
+    {
+      "name": "Twisted Knight",
+      "wins": 1,
+      "nn_score": 0.8131
+    },
+    {
+      "name": "Phantom Backstep",
+      "wins": 3,
+      "nn_score": 0.795085608959198
+    },
+    {
+      "name": "Porr-Q Pine",
+      "wins": 0,
+      "nn_score": 0.7898183465003967
+    },
+    {
+      "name": "Song of Aether",
+      "wins": 1,
+      "nn_score": 0.7867807745933533
+    },
+    {
+      "name": "demonio sin nombre",
+      "wins": 2,
+      "nn_score": 0.7794141173362732
+    },
+    {
+      "name": "Devastator",
+      "wins": 3,
+      "nn_score": 0.7626844644546509
+    },
+    {
+      "name": "Captain Squidd",
+      "wins": 0,
+      "nn_score": 0.7517226338386536
+    },
+    {
+      "name": "Dominic",
+      "wins": 1,
+      "nn_score": 0.7467523217201233
+    },
+    {
+      "name": "Rift Monarch",
+      "wins": 2,
+      "nn_score": 0.7466498017311096
+    },
+    {
+      "name": "Abyss",
+      "wins": 1,
+      "nn_score": 0.6944732069969177
+    },
+    {
+      "name": "Clifford The Big Red Dog",
+      "wins": 1,
+      "nn_score": 0.6852615475654602
+    },
+    {
+      "name": "Hoon",
+      "wins": 0,
+      "nn_score": 0.6669663190841675
+    },
+    {
+      "name": "TERMINATION PROTOCOL",
+      "wins": 0,
+      "nn_score": 0.6608511209487915
+    },
+    {
+      "name": "GRIM POWER SPEED WINGED REAPER",
+      "wins": 3,
+      "nn_score": 0.6298208832740784
+    },
+    {
+      "name": "Speed",
+      "wins": 0,
+      "nn_score": 0.6274933815002441
+    },
+    {
+      "name": "Iron Colossus",
+      "wins": 2,
+      "nn_score": 0.6192219853401184
+    },
+    {
+      "name": "SIX ARMED REAPER ELDRITCH ",
+      "wins": 2,
+      "nn_score": 0.6167523860931396
+    },
+    {
+      "name": "Rider",
+      "wins": 3,
+      "nn_score": 0.6167523860931396
+    },
+    {
+      "name": "Electric & Guns",
+      "wins": 3,
+      "nn_score": 0.6167523860931396
+    },
+    {
+      "name": "Mushapov",
+      "wins": 0,
+      "nn_score": 0.6167523860931396
+    },
+    {
+      "name": "Karma, the Creator",
+      "wins": 1,
+      "nn_score": 0.6167523860931396
+    },
+    {
+      "name": "Multi Scythe Reaper of lava",
+      "wins": 2,
+      "nn_score": 0.6167523860931396
+    },
+    {
+      "name": "Eviscerant Overseer",
+      "wins": 2,
+      "nn_score": 0.5711954832077026
+    },
+    {
+      "name": "Obsidian Tyrant",
+      "wins": 0,
+      "nn_score": 0.5551263689994812
+    },
+    {
+      "name": "Abyssal Presence",
+      "wins": 2,
+      "nn_score": 0.5399158596992493
+    },
+    {
+      "name": "Twinkle Twinkle Death Star",
+      "wins": 0,
+      "nn_score": 0.5356041193008423
+    },
+    {
+      "name": "Mountain Giant",
+      "wins": 0,
+      "nn_score": 0.5249
+    },
+    {
+      "name": "Black Vanguard",
+      "wins": 1,
+      "nn_score": 0.5130230188369751
+    },
+    {
+      "name": "Auroras, the frozen Giant God",
+      "wins": 0,
+      "nn_score": 0.5111132264137268
+    }
+  ]
+}

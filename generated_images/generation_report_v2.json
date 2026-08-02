@@ -1,0 +1,36 @@
+{
+  "portraits": {
+    "forge_colossus": {
+      "prompt": "Walking furnace construct made of black iron. No skin no face no organs. Chest bars open to white-hot molten core. Each hand drags a giant anvil-headed hammer glowing red. Coal cannon on shoulder. Flat iron mask with orange slits.",
+      "file": "forge_colossus_portrait_v2.jpg",
+      "success": true
+    },
+    "the_hook": {
+      "prompt": "Monster hunter wielding a massive iron hook on a heavy chain. The hook weapon is barbed and oversized, clearly not a tool but a weapon. Gaunt face scarred, one glowing eye. Draped in grey monster pelts. Iron hook hand. No armor.",
+      "file": "the_hook_portrait_v2.jpg",
+      "success": true
+    },
+    "vatican_gun": {
+      "prompt": "Hooded executioner in black leather duster. Carries a massive six-barrel rotary cannon, each barrel visible. Holy water drums strapped to the cannon sides marked with crosses. Gas mask with glowing red lenses. Crucifix on gun stock. Silver bullet bandolier.",
+      "file": "vatican_gun_portrait_v2.jpg",
+      "success": true
+    }
+  },
+  "battles": {
+    "forge_colossus": {
+      "prompt": "A massive iron walking furnace giant swings an anvil hammer at an armored god riding a cyber dragon. The dragon breathes fire. Molten metal flying everywhere. Epic fantasy battle destruction. Dark sky with orange glow.",
+      "file": "forge_colossus_vs_cybergod_v2.jpg",
+      "success": true
+    },
+    "the_hook": {
+      "prompt": "A scarred monster hunter throws a giant hooked chain at an armored god riding a cyber dragon. The hook wraps around the dragon's neck. Hunter pulls. Dragon claws protrude from hunter's backpack. Epic fantasy confrontation.",
+      "file": "the_hook_vs_cybergod_v2.jpg",
+      "success": true
+    },
+    "vatican_gun": {
+      "prompt": "A hooded executioner in black leather fires a massive six-barrel rotary cannon at an armored god on a cyber dragon. The cannon has a crucifix on it. Holy water and light beams pierce through dark clouds. Epic religious fantasy battle.",
+      "file": "vatican_gun_vs_cybergod_v2.jpg",
+      "success": true
+    }
+  }
+}

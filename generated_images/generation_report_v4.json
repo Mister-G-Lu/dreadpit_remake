@@ -1,0 +1,20 @@
+{
+  "forge_colossus": {
+    "name": "Forge Colossus v4",
+    "prompt": "Giant walking furnace black iron, white-hot core visible through chest bars, massive anvil hammer each hand glowing orange, flat iron mask orange eye slits, heat waves distort air around body",
+    "file": "forge_colossus_portrait_v4.jpg",
+    "success": true
+  },
+  "the_reclaimer": {
+    "name": "The Reclaimer (replaces The Hook)",
+    "prompt": "Gaunt dragon hunter grey monster pelts, massive steel crossbow taller than body, severed dragon claws protruding from backpack, scarred face one glowing yellow eye, iron claw hand",
+    "file": "the_reclaimer_portrait_v4.jpg",
+    "success": true
+  },
+  "vatican_gun": {
+    "name": "Vatican Gun v4",
+    "prompt": "Hooded executioner black leather duster, massive six-barrel gatling cannon barrels spinning visible, holy water drums crosses each side, gas mask red glowing eyes, silver bullets across chest, crucifix bolted to gun stock",
+    "file": "vatican_gun_portrait_v4.jpg",
+    "success": true
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "B3v3": {
+    "name": "Living Shield Being v3",
+    "prompt": "Giant living tower shield, single massive steel shield as whole body, small glowing eyes on shield face, steel rim, standing upright, battle-scarred",
+    "chars": 148,
+    "category": "B",
+    "seeds": [
+      {
+        "seed": 42,
+        "blip": "a man in armor stands on a rocky beach",
+        "pixel": {
+          "brightness": 46.7,
+          "warmth": -9.8,
+          "red_ratio": 0.294,
+          "avg_r": 41.3,
+          "avg_g": 47.9,
+          "avg_b": 51.1
+        },
+        "kws": [
+          "armor",
+          "human"
+        ]
+      },
+      {
+        "seed": 777,
+        "blip": "a man in armor holding a sword and shield",
+        "pixel": {
+          "brightness": 52.2,
+          "warmth": -14.8,
+          "red_ratio": 0.285,
+          "avg_r": 44.7,
+          "avg_g": 52.5,
+          "avg_b": 59.5
+        },
+        "kws": [
+          "sword",
+          "armor",
+          "human",
+          "shield"
+        ]
+      },
+      {
+        "seed": 2024,
+        "blip": "a man in armor stands on a rocky hill",
+        "pixel": {
+          "brightness": 47.7,
+          "warmth": 4.1,
+          "red_ratio": 0.348,
+          "avg_r": 49.7,
+          "avg_g": 47.8,
+          "avg_b": 45.6
+        },
+        "kws": [
+          "armor",
+          "human"
+        ]
+      }
+    ],
+    "summary": {
+      "warmth_mean": -6.8,
+      "warmth_stdev": 9.8,
+      "brightness_mean": 48.9,
+      "shared_kws": [
+        "armor",
+        "human"
+      ],
+      "kw_overlap_pct": 50,
+      "descriptions": [
+        "a man in armor stands on a rocky beach",
+        "a man in armor holding a sword and shield",
+        "a man in armor stands on a rocky hill"
+      ]
+    }
+  },
+  "C5v3": {
+    "name": "Undead Mummy v3",
+    "prompt": "Undead mummy warrior, shriveled grey corpse skin, bandaged arms and legs, glowing green eyes, gold amulet on chest, ancient tomb",
+    "chars": 128,
+    "category": "C",
+    "seeds": [
+      {
+        "seed": 42,
+        "blip": "a woman with a green light on her chest",
+        "pixel": {
+          "brightness": 44.4,
+          "warmth": 5.0,
+          "red_ratio": 0.331,
+          "avg_r": 44.1,
+          "avg_g": 49.9,
+          "avg_b": 39.1
+        },
+        "kws": [
+          "human"
+        ]
+      },
+      {
+        "seed": 777,
+        "blip": "a woman in a green outfit and a black hood",
+        "pixel": {
+          "brightness": 52.4,
+          "warmth": 1.6,
+          "red_ratio": 0.321,
+          "avg_r": 50.5,
+          "avg_g": 57.7,
+          "avg_b": 48.9
+        },
+        "kws": [
+          "human",
+          "dark"
+        ]
+      },
+      {
+        "seed": 2024,
+        "blip": "a woman with a white head and a green veil",
+        "pixel": {
+          "brightness": 51.2,
+          "warmth": 2.9,
+          "red_ratio": 0.329,
+          "avg_r": 50.6,
+          "avg_g": 55.3,
+          "avg_b": 47.7
+        },
+        "kws": [
+          "human"
+        ]
+      }
+    ],
+    "summary": {
+      "warmth_mean": 3.2,
+      "warmth_stdev": 1.7,
+      "brightness_mean": 49.3,
+      "shared_kws": [
+        "human"
+      ],
+      "kw_overlap_pct": 50,
+      "descriptions": [
+        "a woman with a green light on her chest",
+        "a woman in a green outfit and a black hood",
+        "a woman with a white head and a green veil"
+      ]
+    }
+  }
+}

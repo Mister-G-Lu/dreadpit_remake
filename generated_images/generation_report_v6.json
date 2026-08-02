@@ -1,0 +1,26 @@
+{
+  "forge_colossus": {
+    "name": "Forge Colossus v6",
+    "prompt": "Giant walking furnace made of black iron. White-hot molten core visible through chest bars. Massive anvil-headed hammer in each hand, glowing red hot. Flat iron mask with orange eye slits. Flames erupt from cracks in iron body. Heat waves distort air around body. No flesh. Just forge.",
+    "chars": 285,
+    "file": "forge_colossus_portrait_v6.jpg",
+    "seed": 50,
+    "success": true
+  },
+  "vatican_gun": {
+    "name": "Vatican Gun v6",
+    "prompt": "Hooded executioner in black leather duster. Carries a massive six-barrel gatling cannon, barrels glowing from sustained fire. Holy water drums marked with crosses on each side. Gas mask with red glowing eyes. Muzzle flash illuminates the dark. Silver bullets across chest. Crucifix on gun.",
+    "chars": 289,
+    "file": "vatican_gun_portrait_v6.jpg",
+    "seed": 51,
+    "success": true
+  },
+  "wrath_infernal": {
+    "name": "Wrath Infernal v6",
+    "prompt": "Demonic winged entity wreathed in black orange flames. Fiery wings spread wide burning bright. Obsidian skull face with burning orange eye sockets. Horns of twisted iron. Claws of molten rock. Body of ash and ember. Wrath made of fire.",
+    "chars": 235,
+    "file": "wrath_infernal_portrait_v6.jpg",
+    "seed": 52,
+    "success": true
+  }
+}

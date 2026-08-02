@@ -1,0 +1,139 @@
+{
+  "forge_colossus": {
+    "forge_colossus_v3_bright": {
+      "chars": 196,
+      "prompt": "Bright white-hot forge core blazing inside giant black iron furnace body, anvil hammer each hand orange-glowing intensely, flat iron mask orange eye slits, intense heat shimmer, pure walking forge",
+      "descriptions": [
+        "a fire in a brick oven",
+        "a large iron pot with a fire inside",
+        "a large iron casting furnace in a foundry"
+      ],
+      "warmths": [
+        77.0,
+        20.3,
+        61.4
+      ],
+      "warmth_stdev": 29.3,
+      "shared_kws": [],
+      "kw_overlap_pct": 0,
+      "pass": false,
+      "pass_char": true,
+      "pass_warmth": false,
+      "pass_kw": false
+    },
+    "forge_colossus_v1b": {
+      "chars": 195,
+      "prompt": "Extremely bright white-hot forge core glowing intensely through black iron chest bars, giant walking furnace, anvil hammers both hands orange, flat iron mask orange eye slits, heat shimmer bright",
+      "descriptions": [
+        "a large metal furnace with a glowing face",
+        "a furnace with flames coming out of it",
+        "a man in a mask is working on a furnace"
+      ],
+      "warmths": [
+        74.2,
+        24.8,
+        54.6
+      ],
+      "warmth_stdev": 24.9,
+      "shared_kws": [],
+      "kw_overlap_pct": 0,
+      "pass": false,
+      "pass_char": true,
+      "pass_warmth": false,
+      "pass_kw": false
+    }
+  },
+  "wrath_infernal": {
+    "wrath_infernal_v3_bright": {
+      "chars": 200,
+      "prompt": "Large dragon demon wreathed bright orange intense flames, huge leathery fiery wings spread wide, burning bright orange skull eyes, twisted iron horns, molten rock claws, bright intense fire everywhere",
+      "descriptions": [
+        "a dragon in flames",
+        "a demonic dragon with flames in the background",
+        "a dragon in flames"
+      ],
+      "warmths": [
+        111.9,
+        79.3,
+        104.5
+      ],
+      "warmth_stdev": 17.1,
+      "shared_kws": [
+        "fire",
+        "monster"
+      ],
+      "kw_overlap_pct": 100,
+      "pass": false,
+      "pass_char": true,
+      "pass_warmth": false,
+      "pass_kw": true
+    },
+    "wrath_infernal_v2b": {
+      "chars": 185,
+      "prompt": "Dragon demon wreathed in extremely bright orange flames, huge leathery wings spread wide, burning orange skull eyes, twisted iron horns, molten rock claws, very bright flames everywhere",
+      "descriptions": [
+        "the cover of the game diablo",
+        "a demonic dragon with flames in the background",
+        "a dragon in flames"
+      ],
+      "warmths": [
+        116.5,
+        83.8,
+        108.1
+      ],
+      "warmth_stdev": 17.0,
+      "shared_kws": [],
+      "kw_overlap_pct": 0,
+      "pass": false,
+      "pass_char": true,
+      "pass_warmth": false,
+      "pass_kw": false
+    }
+  },
+  "vatican_gun": {
+    "vatican_gun_v3_explicit": {
+      "chars": 222,
+      "prompt": "Hooded gas mask executioner, massive six-barrel gatling cannon rotating, holy water canisters marked crosses on both sides, red glowing eyes through mask, silver bullet bandolier across chest, crucifix mounted on gun stock",
+      "descriptions": [
+        "a soldier with a gun in his hand",
+        "a man in a gas mask holding a gun",
+        "a soldier with a gun in his hand"
+      ],
+      "warmths": [
+        25.4,
+        2.7,
+        13.3
+      ],
+      "warmth_stdev": 11.4,
+      "shared_kws": [
+        "gun"
+      ],
+      "kw_overlap_pct": 50,
+      "pass": false,
+      "pass_char": false,
+      "pass_warmth": false,
+      "pass_kw": true
+    },
+    "vatican_gun_v1b": {
+      "chars": 193,
+      "prompt": "Gas mask executioner holding massive six-barrel gatling cannon barrels rotating, holy water canisters crosses both sides, red glowing eyes, silver bullets bandolier chest, crucifix on gun stock",
+      "descriptions": [
+        "a soldier with a gun in his hand",
+        "a man in a gas mask holding two pistols",
+        "a character with two guns and a gas mask"
+      ],
+      "warmths": [
+        33.9,
+        5.4,
+        17.2
+      ],
+      "warmth_stdev": 14.3,
+      "shared_kws": [],
+      "kw_overlap_pct": 0,
+      "pass": false,
+      "pass_char": true,
+      "pass_warmth": false,
+      "pass_kw": false
+    }
+  }
+}

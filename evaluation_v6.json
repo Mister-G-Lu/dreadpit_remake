@@ -1,0 +1,104 @@
+{
+  "results": {
+    "forge_colossus": {
+      "file": "forge_colossus_portrait_v6.jpg",
+      "blip": "a man in a suit standing in front of a fire",
+      "pixel": {
+        "brightness": 57.5,
+        "warmth": 62.2,
+        "red_ratio": 0.532,
+        "avg_r": 91.8,
+        "avg_g": 51.2,
+        "avg_b": 29.6
+      },
+      "kws": {
+        "sword": false,
+        "axe_hammer": false,
+        "gun": false,
+        "armor": false,
+        "helmet": false,
+        "human": true,
+        "monster": false,
+        "robot": false,
+        "fire": true,
+        "dark": false,
+        "red": false,
+        "blue": false,
+        "metal": false,
+        "wings": false,
+        "shield": false,
+        "cape": false
+      }
+    },
+    "vatican_gun": {
+      "file": "vatican_gun_portrait_v6.jpg",
+      "blip": "a man in a black coat holding a gun",
+      "pixel": {
+        "brightness": 34.7,
+        "warmth": 5.0,
+        "red_ratio": 0.354,
+        "avg_r": 36.8,
+        "avg_g": 35.5,
+        "avg_b": 31.8
+      },
+      "kws": {
+        "sword": false,
+        "axe_hammer": false,
+        "gun": true,
+        "armor": false,
+        "helmet": false,
+        "human": true,
+        "monster": false,
+        "robot": false,
+        "fire": false,
+        "dark": true,
+        "red": false,
+        "blue": false,
+        "metal": false,
+        "wings": false,
+        "shield": false,
+        "cape": false
+      }
+    },
+    "wrath_infernal": {
+      "file": "wrath_infernal_portrait_v6.jpg",
+      "blip": "a demonic dragon with fiery flames in the background",
+      "pixel": {
+        "brightness": 52.1,
+        "warmth": 54.5,
+        "red_ratio": 0.523,
+        "avg_r": 81.6,
+        "avg_g": 47.5,
+        "avg_b": 27.1
+      },
+      "kws": {
+        "sword": false,
+        "axe_hammer": false,
+        "gun": false,
+        "armor": false,
+        "helmet": false,
+        "human": false,
+        "monster": true,
+        "robot": false,
+        "fire": true,
+        "dark": false,
+        "red": false,
+        "blue": false,
+        "metal": false,
+        "wings": false,
+        "shield": false,
+        "cape": false
+      }
+    }
+  },
+  "v3_baseline": {
+    "forge_colossus": {
+      "blip": "a robot standing in front of a fire",
+      "warmth": 59.4
+    },
+    "vatican_gun": {
+      "blip": "a man in a gas mask holding a gun",
+      "warmth": 8.8
+    }
+  }
+}

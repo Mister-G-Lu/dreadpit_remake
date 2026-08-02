@@ -1,0 +1,151 @@
+{
+  "forge_colossus": [
+    {
+      "seed": 42,
+      "blip": "a robot standing in front of a fire",
+      "pixel": {
+        "brightness": 63.6,
+        "warmth": 58.1,
+        "red_ratio": 0.5,
+        "avg_r": 95.4,
+        "avg_g": 58.0,
+        "avg_b": 37.3
+      },
+      "active_kws": [
+        "robot",
+        "fire"
+      ]
+    },
+    {
+      "seed": 777,
+      "blip": "a robot standing in front of a fire",
+      "pixel": {
+        "brightness": 68.9,
+        "warmth": 10.9,
+        "red_ratio": 0.366,
+        "avg_r": 75.7,
+        "avg_g": 66.4,
+        "avg_b": 64.8
+      },
+      "active_kws": [
+        "robot",
+        "fire"
+      ]
+    },
+    {
+      "seed": 2024,
+      "blip": "a giant robot standing on top of a pile of fire",
+      "pixel": {
+        "brightness": 87.9,
+        "warmth": 41.2,
+        "red_ratio": 0.42,
+        "avg_r": 110.8,
+        "avg_g": 83.4,
+        "avg_b": 69.6
+      },
+      "active_kws": [
+        "robot",
+        "fire"
+      ]
+    }
+  ],
+  "wrath_infernal": [
+    {
+      "seed": 42,
+      "blip": "diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo",
+      "pixel": {
+        "brightness": 56.6,
+        "warmth": 71.0,
+        "red_ratio": 0.562,
+        "avg_r": 95.4,
+        "avg_g": 50.0,
+        "avg_b": 24.4
+      },
+      "active_kws": []
+    },
+    {
+      "seed": 777,
+      "blip": "a demonic demon with fiery wings and flames",
+      "pixel": {
+        "brightness": 57.1,
+        "warmth": 44.3,
+        "red_ratio": 0.471,
+        "avg_r": 80.6,
+        "avg_g": 54.4,
+        "avg_b": 36.3
+      },
+      "active_kws": [
+        "monster",
+        "fire",
+        "wings"
+      ]
+    },
+    {
+      "seed": 2024,
+      "blip": "a demonic demon with fiery wings and a large head",
+      "pixel": {
+        "brightness": 59.4,
+        "warmth": 62.6,
+        "red_ratio": 0.527,
+        "avg_r": 93.9,
+        "avg_g": 52.9,
+        "avg_b": 31.3
+      },
+      "active_kws": [
+        "monster",
+        "wings"
+      ]
+    }
+  ],
+  "vatican_gun": [
+    {
+      "seed": 42,
+      "blip": "a man in a gas mask holding a gun",
+      "pixel": {
+        "brightness": 51.7,
+        "warmth": 10.9,
+        "red_ratio": 0.364,
+        "avg_r": 56.5,
+        "avg_g": 53.1,
+        "avg_b": 45.6
+      },
+      "active_kws": [
+        "gun",
+        "human"
+      ]
+    },
+    {
+      "seed": 777,
+      "blip": "a man in a gas mask holding a gun",
+      "pixel": {
+        "brightness": 50.5,
+        "warmth": 2.6,
+        "red_ratio": 0.339,
+        "avg_r": 51.4,
+        "avg_g": 51.2,
+        "avg_b": 48.8
+      },
+      "active_kws": [
+        "gun",
+        "human"
+      ]
+    },
+    {
+      "seed": 2024,
+      "blip": "a man in a black suit holding a gun",
+      "pixel": {
+        "brightness": 85.3,
+        "warmth": 7.6,
+        "red_ratio": 0.347,
+        "avg_r": 88.8,
+        "avg_g": 86.0,
+        "avg_b": 81.1
+      },
+      "active_kws": [
+        "gun",
+        "human",
+        "dark"
+      ]
+    }
+  ]
+}

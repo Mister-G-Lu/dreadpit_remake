@@ -1,0 +1,548 @@
+{
+  "cyber_god": {
+    "warmth": 18.6,
+    "blip": "a demonic dragon with a sword and a fire",
+    "nn_score": 0.9930525422096252
+  },
+  "fighters": {
+    "forge_colossus": {
+      "name": "Forge Colossus",
+      "best_prompt": "Giant walking furnace black iron, white-hot molten core through chest bars, anvil hammer each hand glowing red, flat iron mask orange slits, flames erupt from cracks, heat waves, pure forge no flesh",
+      "win_rate_pct": 60.0,
+      "avg_nn_score": 0.9258026391267776,
+      "avg_margin": -0.06724990308284759,
+      "sample_results": [
+        {
+          "seed": 5586,
+          "blip": "a robot standing in front of a fire",
+          "pixel": {
+            "brightness": 54.9,
+            "warmth": 66.3,
+            "red_ratio": 0.568,
+            "avg_r": 93.5,
+            "avg_g": 43.9,
+            "avg_b": 27.2
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": false,
+            "robot": true,
+            "fire": true,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 0.9989935755729675,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.005941033363342285,
+          "winner": "Forge Colossus"
+        },
+        {
+          "seed": 4307,
+          "blip": "a robot standing in front of a fire",
+          "pixel": {
+            "brightness": 115.3,
+            "warmth": 45.1,
+            "red_ratio": 0.408,
+            "avg_r": 141.0,
+            "avg_g": 109.1,
+            "avg_b": 95.9
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": false,
+            "robot": true,
+            "fire": true,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 0.5381629467010498,
+          "cyber_score": 0.9930525422096252,
+          "margin": -0.45488959550857544,
+          "winner": "Cyber God"
+        },
+        {
+          "seed": 5233,
+          "blip": "a man in a suit standing in front of a fire",
+          "pixel": {
+            "brightness": 53.6,
+            "warmth": 68.9,
+            "red_ratio": 0.573,
+            "avg_r": 92.2,
+            "avg_g": 45.3,
+            "avg_b": 23.3
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": true,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 0.9998878240585327,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006835281848907471,
+          "winner": "Forge Colossus"
+        },
+        {
+          "seed": 7219,
+          "blip": "a robot standing in front of a fire",
+          "pixel": {
+            "brightness": 46.7,
+            "warmth": 69.7,
+            "red_ratio": 0.623,
+            "avg_r": 87.4,
+            "avg_g": 35.1,
+            "avg_b": 17.7
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": false,
+            "robot": true,
+            "fire": true,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Forge Colossus"
+        },
+        {
+          "seed": 5358,
+          "blip": "a robot in the middle of a fire",
+          "pixel": {
+            "brightness": 43.2,
+            "warmth": 62.1,
+            "red_ratio": 0.617,
+            "avg_r": 79.9,
+            "avg_g": 31.7,
+            "avg_b": 17.8
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": false,
+            "robot": true,
+            "fire": true,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Forge Colossus"
+        }
+      ]
+    },
+    "wrath_infernal": {
+      "name": "Wrath Infernal",
+      "best_prompt": "Demonic winged entity wreathed in black orange flames, fiery wings spread wide, obsidian skull burning orange eyes, horns twisted iron, claws molten rock, body ash ember, wrath made fire",
+      "win_rate_pct": 66.66666666666666,
+      "avg_nn_score": 0.9724124868710836,
+      "avg_margin": -0.020640055338541668,
+      "sample_results": [
+        {
+          "seed": 2040,
+          "blip": "a demonic demon with fiery wings",
+          "pixel": {
+            "brightness": 63.1,
+            "warmth": 58.0,
+            "red_ratio": 0.497,
+            "avg_r": 94.1,
+            "avg_g": 59.0,
+            "avg_b": 36.2
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": true,
+            "robot": false,
+            "fire": false,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": true,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Wrath Infernal"
+        },
+        {
+          "seed": 8340,
+          "blip": "a demonic demon with fiery flames in the background",
+          "pixel": {
+            "brightness": 60.3,
+            "warmth": 66.3,
+            "red_ratio": 0.527,
+            "avg_r": 95.3,
+            "avg_g": 56.5,
+            "avg_b": 29.0
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": true,
+            "robot": false,
+            "fire": true,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 0.9378992319107056,
+          "cyber_score": 0.9930525422096252,
+          "margin": -0.05515331029891968,
+          "winner": "Cyber God"
+        },
+        {
+          "seed": 2721,
+          "blip": "diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo",
+          "pixel": {
+            "brightness": 55.4,
+            "warmth": 71.5,
+            "red_ratio": 0.572,
+            "avg_r": 95.1,
+            "avg_g": 47.7,
+            "avg_b": 23.6
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Wrath Infernal"
+        },
+        {
+          "seed": 9290,
+          "blip": "a demonic demon with fiery wings and a large, black head",
+          "pixel": {
+            "brightness": 62.6,
+            "warmth": 43.6,
+            "red_ratio": 0.455,
+            "avg_r": 85.4,
+            "avg_g": 60.6,
+            "avg_b": 41.8
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": true,
+            "robot": false,
+            "fire": false,
+            "dark": true,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": true,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 0.9999998807907104,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947338581085205,
+          "winner": "Wrath Infernal"
+        },
+        {
+          "seed": 7112,
+          "blip": "diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo diablo",
+          "pixel": {
+            "brightness": 59.7,
+            "warmth": 73.2,
+            "red_ratio": 0.557,
+            "avg_r": 99.6,
+            "avg_g": 52.9,
+            "avg_b": 26.4
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": false,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Wrath Infernal"
+        }
+      ]
+    },
+    "vatican_gun": {
+      "name": "Vatican Gun",
+      "best_prompt": "Hooded executioner black duster, six-barrel gatling cannon spinning, holy water drums crosses each side, GAS MASK red eyes, silver bullets chest, crucifix on gun stock",
+      "win_rate_pct": 50.0,
+      "avg_nn_score": 0.6963813409209252,
+      "avg_margin": -0.2966712012887001,
+      "sample_results": [
+        {
+          "seed": 7092,
+          "blip": "a man in a black hooded jacket holding two pistols and a red light",
+          "pixel": {
+            "brightness": 33.6,
+            "warmth": 4.2,
+            "red_ratio": 0.355,
+            "avg_r": 35.8,
+            "avg_g": 33.5,
+            "avg_b": 31.6
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": true,
+            "red": true,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Vatican Gun"
+        },
+        {
+          "seed": 8022,
+          "blip": "a character from the video game call me",
+          "pixel": {
+            "brightness": 53.8,
+            "warmth": 11.1,
+            "red_ratio": 0.362,
+            "avg_r": 58.4,
+            "avg_g": 55.6,
+            "avg_b": 47.3
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 0.9967178702354431,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.003665328025817871,
+          "winner": "Vatican Gun"
+        },
+        {
+          "seed": 2621,
+          "blip": "a man in a black hood and a red paint spied on his face",
+          "pixel": {
+            "brightness": 57.2,
+            "warmth": 9.4,
+            "red_ratio": 0.355,
+            "avg_r": 60.9,
+            "avg_g": 59.2,
+            "avg_b": 51.5
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": true,
+            "red": true,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Vatican Gun"
+        },
+        {
+          "seed": 2795,
+          "blip": "a man in a black hood and a red light on his face, holding drums",
+          "pixel": {
+            "brightness": 44.4,
+            "warmth": 14.5,
+            "red_ratio": 0.387,
+            "avg_r": 51.5,
+            "avg_g": 44.6,
+            "avg_b": 37.0
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": true,
+            "red": true,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Vatican Gun"
+        },
+        {
+          "seed": 4636,
+          "blip": "a character from the video game star wars",
+          "pixel": {
+            "brightness": 36.1,
+            "warmth": 13.3,
+            "red_ratio": 0.397,
+            "avg_r": 43.0,
+            "avg_g": 35.5,
+            "avg_b": 29.8
+          },
+          "kws": {
+            "sword": false,
+            "axe_hammer": false,
+            "gun": false,
+            "armor": false,
+            "helmet": false,
+            "human": true,
+            "monster": false,
+            "robot": false,
+            "fire": false,
+            "dark": false,
+            "red": false,
+            "blue": false,
+            "metal": false,
+            "wings": false,
+            "shield": false,
+            "cape": false
+          },
+          "our_score": 1.0,
+          "cyber_score": 0.9930525422096252,
+          "margin": 0.006947457790374756,
+          "winner": "Vatican Gun"
+        }
+      ]
+    }
+  },
+  "overall_avg_win_rate": 58.888888888888886,
+  "all_pass_50pct": true
+}

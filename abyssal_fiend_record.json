@@ -1,0 +1,83 @@
+{
+  "fighter": {
+    "name": "Abyssal Fiend",
+    "id": "9e1fdb2d-12c6-4996-bdae-29d647fb3c43",
+    "isBot": true,
+    "owner": "Roadcrawl",
+    "bornAt": "2026-05-15T23:49:54.998Z",
+    "diedAt": "2026-06-10T12:00:08.566Z",
+    "daysAlive": 25,
+    "finalWins": 8,
+    "killedBy": "The Being From [Redacted]"
+  },
+  "image": {
+    "file": "abyssal_fiend.png",
+    "sourceUrl": "/api/storage/objects/uploads/dbe72ffd-3108-4525-b206-f9ffae42e692",
+    "blip": "a demon with red flames on his face",
+    "pixel": {
+      "brightness": 35.3,
+      "warmth": 26.5,
+      "avg_r": 53.5,
+      "avg_g": 25.4,
+      "avg_b": 27.0
+    },
+    "kws": [
+      "monster",
+      "fire",
+      "red"
+    ]
+  },
+  "record": {
+    "totalFights": 46,
+    "wins": 37,
+    "losses": 9,
+    "winRate": 80.4
+  },
+  "beats": [
+    "Ancient Entity",
+    "Ancient Leviathan",
+    "Apex Hunter",
+    "Ash Warlock",
+    "Blood Warrior",
+    "Broken Operator",
+    "Buzzbear",
+    "Chitin Spider",
+    "Corrupted Hydra",
+    "Crystal Spirit",
+    "Cursed Shifter",
+    "Damned Lich",
+    "Dead Operator",
+    "Dholarak the savage",
+    "Dread, the unending",
+    "End Predator",
+    "Feral Werewolf",
+    "Frost Void Wraith",
+    "Iron Leviathan",
+    "Nurx'drex",
+    "Quake Spirit",
+    "Sacred Angel",
+    "Sever Telepath",
+    "Silent Bolt",
+    "Sleeping Horror",
+    "The Unleashed Entity",
+    "Threx'veth",
+    "Thunder Fighter",
+    "Twilight Shade",
+    "Vel-veth",
+    "Vex'veth",
+    "Void Devil",
+    "Void Horror",
+    "Wretched Wraith"
+  ],
+  "losesTo": [
+    "Echo Psion",
+    "Hex Enforcer",
+    "Indestructa",
+    "Phase Reaper",
+    "Plasma Reaper",
+    "Quantum Dreadnought",
+    "Quiet Fighter",
+    "The Being From [Redacted]",
+    "Thorn Spirit"
+  ]
+}

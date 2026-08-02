@@ -1,0 +1,20 @@
+{
+  "forge_colossus": {
+    "name": "Forge Colossus v5",
+    "prompt": "Giant walking furnace black iron, white-hot core through chest bars open, anvil hammer each hand glowing orange, flat iron mask orange eye slits, pure metal construct zero organic parts",
+    "file": "forge_colossus_portrait_v5.jpg",
+    "success": true
+  },
+  "the_reclaimer": {
+    "name": "The Reclaimer v5",
+    "prompt": "Gaunt dragon hunter grey monster pelts, giant crossbow weapon taller than body, crossbow string drawn ready to fire, severed dragon claws from backpack, scarred face one glowing yellow eye",
+    "file": "the_reclaimer_portrait_v5.jpg",
+    "success": true
+  },
+  "vatican_gun": {
+    "name": "Vatican Gun v5",
+    "prompt": "Hooded executioner black leather duster, six-barrel gatling cannon spinning barrels, holy water drums crosses on each side, gas mask red eyes, silver bullets bandolier across chest, crucifix bolted to gun stock",
+    "file": "vatican_gun_portrait_v5.jpg",
+    "success": true
+  }
+}
