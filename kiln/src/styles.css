@@ -197,24 +197,18 @@ h2 { font-family: var(--font-display); letter-spacing: 0.14em; text-transform: u
   position: relative;
 }
 .hero .lede { text-align: center; }
-.halo {
+.forgefire {
   position: absolute;
-  width: min(520px, 80vw);
-  height: min(520px, 80vw);
-  top: -40px;
-  border-radius: 50%;
-  border: 1px solid rgba(227, 148, 74, 0.28);
-  box-shadow: 0 0 80px rgba(255, 90, 18, 0.12), inset 0 0 80px rgba(255, 90, 18, 0.08);
-  animation: spin 28s linear infinite;
+  width: min(680px, 96vw);
+  height: min(520px, 82vw);
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
   pointer-events: none;
-}
-.halo::after {
-  content: "";
-  position: absolute;
-  inset: 18px;
-  border-radius: 50%;
-  border: 1px dashed rgba(227, 148, 74, 0.35);
-  animation: spin 16s linear infinite reverse;
+  mix-blend-mode: screen;
+  opacity: 0.92;
+  -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 58%, #000 48%, transparent 76%);
+  mask-image: radial-gradient(ellipse 62% 58% at 50% 58%, #000 48%, transparent 76%);
 }
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
 
