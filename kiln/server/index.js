@@ -1,19 +1,22 @@
 import express from "express";
 import { createServer } from "node:http";
 import { existsSync, readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   admittedToday,
+  botPoolStats,
   bumpSparks,
   currentRound,
   dead,
   gate,
+  imageUrl,
   living,
   MAX_ROSTER,
   nowIso,
   openDb,
   publicFighter,
+  REPO_ROOT,
   roundMatches,
   SPARKS_PER_DAY,
   sparksToday,
@@ -247,6 +250,7 @@ app.get("/api/state", (req, res) => {
         }
       : null,
     matches: matches.map(publicMatch),
+    bots: botPoolStats(db),
   });
 });
 
@@ -265,13 +269,13 @@ function publicMatch(m) {
     left: {
       id: m.left_id,
       name: m.left_name,
-      image: `/uploads/${m.left_file}`,
+      image: imageUrl(m.left_file),
       wins: m.left_wins,
     },
     right: {
       id: m.right_id,
       name: m.right_name,
-      image: `/uploads/${m.right_file}`,
+      image: imageUrl(m.right_file),
       wins: m.right_wins,
     },
   };
@@ -320,8 +324,8 @@ app.get("/api/fighters/:id", (req, res) => {
         winnerId: m.winner_id,
         foughtAt: m.judged_at,
         opponent: opponentIsRight
-          ? { id: m.right_id, name: m.right_name, image: `/uploads/${m.right_file}` }
-          : { id: m.left_id, name: m.left_name, image: `/uploads/${m.left_file}` },
+          ? { id: m.right_id, name: m.right_name, image: imageUrl(m.right_file) }
+          : { id: m.left_id, name: m.left_name, image: imageUrl(m.left_file) },
       };
     }),
   });
@@ -358,6 +362,18 @@ app.post("/api/round/tick", requireUser, async (_req, res) => {
 });
 
 app.use("/uploads", express.static(UPLOADS, { maxAge: "7d", fallthrough: false }));
+
+// Founding-dead portraits live in the repo (catalogued by bot_images_manifest.json),
+// not in kiln/data/uploads. Only these three folders are ever served.
+const BOT_FOLDERS = new Set(["big_portraits", "bot_losers", "portraits"]);
+app.get("/bots/:folder/:file", (req, res) => {
+  const { folder, file } = req.params;
+  if (!BOT_FOLDERS.has(folder)) return res.status(404).end();
+  const safe = basename(file);
+  res.sendFile(join(REPO_ROOT, folder, safe), { maxAge: "7d" }, (err) => {
+    if (err && !res.headersSent) res.status(404).end();
+  });
+});
 
 const PORT = Number(process.env.PORT || 3000);
 const HOST = process.env.HOST || "0.0.0.0";

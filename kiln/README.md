@@ -19,6 +19,8 @@ npm run dev            # http://0.0.0.0:3000
 | `BATCH_INTERVAL_MS` | `3600000` | Delay after a successful batch. First batch of a round fires immediately. |
 | `MAX_ROSTER` | `256` | Living stack size **and** new fighters admitted per UTC day. |
 | `SPARKS_PER_DAY` | `10` | Image generations per user per UTC day. |
+| `KILN_BOTS` | `1` | Set `0` to disable the founding-dead bot pool. |
+| `BOT_COOLDOWN_DAYS` | `1` | Days a dead bot rests in the pool before it may revive. |
 | `VITE_POLLINATIONS_APP_KEY` | (none) | Optional `pk_…` so the BYOP consent screen names this app. |
 
 ## How a night works
@@ -30,6 +32,25 @@ npm run dev            # http://0.0.0.0:3000
 5. Matches 1–10 judge immediately. 11–20 wait an hour, and so on. A Gemini 429 parks the round for 10 minutes and retries (stutter). Losers go to Ash; waiting fighters fill empty slots.
 
 Sight-only judging: the 200-character prompt is **not** sent to Gemini.
+
+## The founding dead (rotating bot pool)
+
+308 real DreadPit portraits (catalogued in `../bot_images_manifest.json`, files in
+`../big_portraits`, `../portraits`, `../bot_losers`) form a rotating bot pool:
+
+- When the gate queue cannot fill the stack to `MAX_ROSTER`, the pool deploys its
+  longest-resting vessels. A revived bot enters as a fresh fighter carrying its
+  legend (`base_wins` from its scraped career).
+- Bots die like anything else — Ash, sealed prompt, graveyard. On death their pool
+  row rests for `BOT_COOLDOWN_DAYS`, then returns to `available` for a later
+  revival. If even resting bots run short, the pit drafts the longest-resting
+  anyway: **the stack never starves.**
+- Gate users always get slots before bots. Bots never count against the daily
+  admission cap.
+- Portraits are served from the repo via `/bots/<folder>/<file>` (folder allowlist,
+  `basename`-sanitized), and the Gemini judge reads them through the same
+  `@bot/`-prefix path resolution as uploads.
+- Set `KILN_BOTS=0` to run a humans-only pit.
 
 ## GitHub Pages
 
