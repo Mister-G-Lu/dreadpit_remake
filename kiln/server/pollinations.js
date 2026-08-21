@@ -20,7 +20,7 @@ export function sparkUrl(prompt, seed, apiKey) {
 
 export async function generateSpark(prompt, seed, apiKey) {
   const url = sparkUrl(prompt, seed, apiKey);
-  let lastErr = "generation failed";
+  let lastErr = "Image generation failed. Please try again.";
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const ctrl = new AbortController();
@@ -31,18 +31,18 @@ export async function generateSpark(prompt, seed, apiKey) {
       });
       clearTimeout(t);
       if (res.status === 429) {
-        lastErr = "rate limited";
+        lastErr = "Image generation is rate-limited. Please wait a minute and try again.";
         await sleep(8000 * attempt);
         continue;
       }
       if (!res.ok) {
-        lastErr = `pollinations ${res.status}`;
+        lastErr = `Image generation failed (${res.status}). Please try again.`;
         await sleep(3000 * attempt);
         continue;
       }
       const buf = Buffer.from(await res.arrayBuffer());
       if (buf.length < 2000) {
-        lastErr = "empty image";
+        lastErr = "The image service returned an empty file. Please try again.";
         await sleep(2000);
         continue;
       }
@@ -51,11 +51,14 @@ export async function generateSpark(prompt, seed, apiKey) {
       writeFileSync(join(UPLOADS, filename), buf);
       return { id: sparkId, filename, seed, bytes: buf.length };
     } catch (err) {
-      lastErr = err.name === "AbortError" ? "timed out" : err.message;
+      lastErr =
+        err.name === "AbortError"
+          ? "Image generation timed out. Please try again."
+          : err.message || "Image generation failed. Please try again.";
       await sleep(1200 * attempt);
     }
   }
-  if (lastErr === "rate limited") {
+  if (/rate-limited/i.test(lastErr)) {
     const error = new Error(lastErr);
     error.status = 429;
     throw error;

@@ -21,11 +21,11 @@ export default function Forge() {
   if (!me) {
     return (
       <div className="narrow cinematic">
-        <p className="eyebrow">Account required</p>
-        <h1>Login to forge</h1>
-        <p className="lede">Log in, then generate up to ten portraits today. Keep one fighter for the stack.</p>
+        <p className="eyebrow">Forge</p>
+        <h1>Log in to use the forge</h1>
+        <p className="lede">Create an account or log in to generate up to 10 fighter portraits a day.</p>
         <Link className="btn copper" to="/enter">
-          Login
+          Log in
         </Link>
       </div>
     );
@@ -39,7 +39,7 @@ export default function Forge() {
     e.preventDefault();
     setErr("");
     if (prompt.trim().length < 8) {
-      setErr("Describe the fighter in at least 8 characters (max 200).");
+      setErr("Please write at least 8 characters (200 max).");
       return;
     }
     setBusy(true);
@@ -50,7 +50,7 @@ export default function Forge() {
       setPicked(next.id);
       setState((st) => (st ? { ...st, me: { ...st.me, sparksUsed: spark.sparksUsed } } : st));
     } catch (ex) {
-      setErr(ex.message);
+      setErr(ex.message || "Image generation failed. Please try again.");
     } finally {
       setBusy(false);
     }
@@ -58,15 +58,15 @@ export default function Forge() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    if (!picked) return setErr("Pick a portrait.");
-    if (name.trim().length < 2) return setErr("Name the fighter.");
+    if (!picked) return setErr("Select an image first.");
+    if (name.trim().length < 2) return setErr("Please enter a fighter name (at least 2 characters).");
     setBusy(true);
     setErr("");
     try {
       const res = await submitVessel(name.trim(), picked);
       nav(res.queued ? "/stack" : `/vessel/${res.fighter.id}`);
     } catch (ex) {
-      setErr(ex.message);
+      setErr(ex.message || "Couldn't save that fighter. Please try again.");
     } finally {
       setBusy(false);
     }
@@ -142,7 +142,11 @@ export default function Forge() {
           </form>
         </>
       )}
-      {err && <p className="error">{err}</p>}
+      {err && (
+        <p className="error" role="alert">
+          {err}
+        </p>
+      )}
     </div>
   );
 }

@@ -16,7 +16,12 @@ export default function Home() {
       .catch((e) => setErr(e.message));
   }, []);
 
-  if (err) return <p className="error">{err}</p>;
+  if (err)
+    return (
+      <p className="error" role="alert">
+        {err}
+      </p>
+    );
   if (!state)
     return (
       <div className="boot">
@@ -78,7 +83,11 @@ export default function Home() {
             Connect Pollinations
           </Link>
         </div>
-        {state.static && <p className="hint gallery-note">Gallery preview — browse the stack and its archived verdicts.</p>}
+        {state.static && (
+          <p className="hint gallery-note">
+            Running in your browser — accounts and fighters you create are saved on this device.
+          </p>
+        )}
       </section>
 
       <section className="panel pit-panel">

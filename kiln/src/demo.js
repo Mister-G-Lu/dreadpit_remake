@@ -1,4 +1,4 @@
-const base = () => import.meta.env.BASE_URL || "/";
+const base = () => (import.meta.env && import.meta.env.BASE_URL) || "/";
 const img = (file) => `${base()}demo/${file}`;
 
 const CESAR_ID = "63a63214-d241-425d-8b7f-87bfddeebe58";
@@ -94,7 +94,7 @@ export const demoState = {
   nextFiringAt,
   clock: {
     fireUtcHour: 0,
-    nextFireAt,
+    nextFireAt: nextFiringAt,
     sealing: false,
   },
   living,
