@@ -8,6 +8,7 @@ Dark single-elimination portrait ladder. Users import a Pollinations account (BY
 cd kiln
 cp .env.example .env   # optional: add GEMINI_API_KEY
 npm install
+npm test
 npm run dev            # http://0.0.0.0:3000
 ```
 

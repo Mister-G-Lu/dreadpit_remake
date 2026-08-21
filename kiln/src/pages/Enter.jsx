@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { motion } from "framer-motion";
 import { login, register } from "../api.js";
+import { validateCredentials } from "../authRules.js";
 
 export default function Enter() {
   const nav = useNavigate();
@@ -12,21 +13,9 @@ export default function Enter() {
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
 
-  function validate() {
-    const name = username.trim();
-    if (!name || !password) return "Please enter a username and password.";
-    if (mode === "register") {
-      if (!/^[a-zA-Z0-9_]{3,20}$/.test(name)) {
-        return "Username must be 3–20 letters, numbers, or underscores.";
-      }
-      if (password.length < 6) return "Password must be at least 6 characters.";
-    }
-    return "";
-  }
-
   async function onSubmit(e) {
     e.preventDefault();
-    const localErr = validate();
+    const localErr = validateCredentials(mode, username, password);
     if (localErr) {
       setErr(localErr);
       return;
