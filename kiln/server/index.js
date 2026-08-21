@@ -170,6 +170,11 @@ app.post("/api/fighters", requireUser, (req, res) => {
     const name = String(req.body?.name || "").trim().slice(0, 40);
     const sparkId = String(req.body?.sparkId || "").trim();
     if (name.length < 2) return res.status(400).json({ error: "Name the vessel." });
+    // Reserved: the judge's internal labels. A vessel named "Fighter 1" would
+    // read like an unsubstituted placeholder in narrations.
+    if (/^fighter[\s_-]?\d*$/i.test(name)) {
+      return res.status(400).json({ error: "The kiln keeps that name for itself. Choose another." });
+    }
     const spark = db
       .prepare("SELECT * FROM sparks WHERE id = ? AND user_id = ?")
       .get(sparkId, req.user.id);

@@ -4,7 +4,16 @@ import { UPLOADS } from "./db.js";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const SYSTEM = `You are the Eye of the Kiln. You see TWO fired portraits, labeled LEFT and RIGHT.
+// Secret backend labels. Names are stored on our end only — Gemini is shown
+// "FIGHTER1 vs FIGHTER2" and must answer in those labels; the server swaps
+// them for real names after judging. Fixed labels are safe here because the
+// model never sees fighter names (so its prose cannot legitimately contain
+// them) and substitution is single-pass (so a fighter whose NAME contains a
+// label can never trigger a second replacement).
+const F1 = "FIGHTER1";
+const F2 = "FIGHTER2";
+
+const SYSTEM = `You are the Eye of the Kiln. You see TWO fired portraits: ${F1} (the first image) and ${F2} (the second image).
 Judge only what is visible. Do not use any prompt text.
 Invent abilities only from visible cues (glow, scale, weapons, materials, pose, mass, focus).
 
@@ -43,12 +52,50 @@ Death is final. Exactly one winner.
 
 Return JSON only:
 {
-  "left":  { "form": "", "weapons": [], "armor": "", "implied_powers": [], "path_to_victory": "", "threat": 1 },
-  "right": { "form": "", "weapons": [], "armor": "", "implied_powers": [], "path_to_victory": "", "threat": 1 },
-  "winner": "left" | "right",
+  "fighter1": { "form": "", "weapons": [], "armor": "", "implied_powers": [], "path_to_victory": "", "threat": 1 },
+  "fighter2": { "form": "", "weapons": [], "armor": "", "implied_powers": [], "path_to_victory": "", "threat": 1 },
+  "winner": "${F1}" | "${F2}",
   "margin": "crushing" | "clear" | "narrow",
-  "narration": "120-180 words, present tense, no stats, no mention of being an AI"
+  "narration": "100-160 words, present tense, no stats, no mention of being an AI. Refer to the fighters ONLY as ${F1} and ${F2} — you are not told their names; never invent names or paraphrase the labels. Narrate the exchange only; do NOT declare the final outcome in prose. The kiln itself states the verdict after your last sentence."
 }`;
+
+// Display names for prose. If both fighters share a name, disambiguate by
+// side so the narration can never be read both ways.
+export function displayNames(left, right) {
+  const same =
+    String(left.name || "").trim().toLowerCase() ===
+    String(right.name || "").trim().toLowerCase();
+  return {
+    left: same ? `${left.name} (left)` : left.name,
+    right: same ? `${right.name} (right)` : right.name,
+  };
+}
+
+// The canonical closing line. Composed by the server from the structured
+// winner side — never trusted to model prose.
+export function verdictLine(side, left, right) {
+  const names = displayNames(left, right);
+  const winner = side === "left" ? names.left : names.right;
+  const loser = side === "left" ? names.right : names.left;
+  return `The kiln rules: ${winner} holds shape. ${loser} slumps, cracks, and is raked into the ash.`;
+}
+
+// Substitute the FIGHTER1/FIGHTER2 labels with (disambiguated) display names
+// in ONE regex pass — substituted text is never rescanned, so a fighter whose
+// NAME contains a label can never trigger a second replacement — then append
+// the canonical verdict. Done server-side at judge time so the stored
+// narration is final: every consumer (match page, home teaser, history, any
+// future feed) reads real names with zero client logic. The placeholder
+// original survives in raw_json.
+export function renderNarration(rawNarration, side, left, right) {
+  const names = displayNames(left, right);
+  // tolerate FIGHTER1 / Fighter 1 / fighter_1 style slips from the model
+  const pattern = /fighter[\s_-]?([12])/gi;
+  const prose = String(rawNarration || "")
+    .replace(pattern, (_, n) => (n === "1" ? names.left : names.right))
+    .trim();
+  return `${prose}${prose ? " " : ""}${verdictLine(side, left, right)}`.slice(0, 1600);
+}
 
 function models() {
   const primary = process.env.GEMINI_MODEL || "gemini-2.5-flash";
@@ -88,11 +135,12 @@ export function localJudge(left, right) {
   const lh = heatScore(left);
   const rh = heatScore(right);
   const winnerLeft = lh === rh ? left.id < right.id : lh > rh;
+  const side = winnerLeft ? "left" : "right";
   const winner = winnerLeft ? left : right;
-  const loser = winnerLeft ? right : left;
+  const names = displayNames(left, right);
   const margin = Math.abs(lh - rh) > 2 ? "clear" : "narrow";
   return {
-    winner: winnerLeft ? "left" : "right",
+    winner: side,
     winnerId: winner.id,
     margin,
     judge: "lesser-eye",
@@ -110,7 +158,7 @@ export function localJudge(left, right) {
       implied_powers: [],
       threat: Math.min(10, Math.round(rh + 3)),
     },
-    narration: `The lesser eye of the kiln (no Gemini key on this firing) reads the clay by heat and mass alone. ${left.name} and ${right.name} are shoved into the mouth together. ${winner.name} holds shape. ${loser.name} slumps, cracks, and is raked into the ash. The shelf does not argue.`,
+    narration: `The lesser eye of the kiln (no Gemini key on this firing) reads the clay by heat and mass alone. ${names.left} and ${names.right} are shoved into the mouth together. ${verdictLine(side, left, right)} The shelf does not argue.`,
     raw: null,
   };
 }
@@ -124,7 +172,36 @@ function parseJson(text) {
   return JSON.parse(trimmed.slice(start, end + 1));
 }
 
-async function callModel(model, key, leftB64, rightB64, leftName, rightName) {
+// Constrained decoding: with responseMimeType alone, JSON validity is only a
+// "strong hint"; adding responseSchema masks illegal tokens at generation
+// time, so `winner` can only ever be "left" or "right".
+const SCOUT_SCHEMA = {
+  type: "OBJECT",
+  properties: {
+    form: { type: "STRING" },
+    weapons: { type: "ARRAY", items: { type: "STRING" } },
+    armor: { type: "STRING" },
+    implied_powers: { type: "ARRAY", items: { type: "STRING" } },
+    path_to_victory: { type: "STRING" },
+    threat: { type: "INTEGER" },
+  },
+  required: ["form", "path_to_victory", "threat"],
+};
+
+const RESPONSE_SCHEMA = {
+  type: "OBJECT",
+  properties: {
+    fighter1: SCOUT_SCHEMA,
+    fighter2: SCOUT_SCHEMA,
+    winner: { type: "STRING", enum: [F1, F2] },
+    margin: { type: "STRING", enum: ["crushing", "clear", "narrow"] },
+    narration: { type: "STRING" },
+  },
+  required: ["fighter1", "fighter2", "winner", "margin", "narration"],
+  propertyOrdering: ["fighter1", "fighter2", "winner", "margin", "narration"],
+};
+
+async function callModel(model, key, leftB64, rightB64) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`;
   const body = {
     contents: [
@@ -132,7 +209,7 @@ async function callModel(model, key, leftB64, rightB64, leftName, rightName) {
         role: "user",
         parts: [
           {
-            text: `${SYSTEM}\n\nLEFT is named "${leftName}". RIGHT is named "${rightName}". Names are labels only — judge the portraits.`,
+            text: `${SYSTEM}\n\nThe first image is ${F1}. The second image is ${F2}. ${F1} vs ${F2} — judge the portraits.`,
           },
           { inline_data: { mime_type: "image/jpeg", data: leftB64 } },
           { inline_data: { mime_type: "image/jpeg", data: rightB64 } },
@@ -142,6 +219,7 @@ async function callModel(model, key, leftB64, rightB64, leftName, rightName) {
     generationConfig: {
       temperature: 0,
       responseMimeType: "application/json",
+      responseSchema: RESPONSE_SCHEMA,
       maxOutputTokens: 1100,
     },
   };
@@ -184,8 +262,9 @@ export async function judgeMatch(left, right) {
   for (const model of models()) {
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
-        const parsed = await callModel(model, key, leftB64, rightB64, left.name, right.name);
-        const side = parsed.winner === "right" ? "right" : "left";
+        const parsed = await callModel(model, key, leftB64, rightB64);
+        // FIGHTER1 = first image = left slot; FIGHTER2 = second = right slot.
+        const side = parsed.winner === F2 ? "right" : "left";
         const winnerId = side === "left" ? left.id : right.id;
         const margin = ["crushing", "clear", "narrow"].includes(parsed.margin)
           ? parsed.margin
@@ -195,9 +274,9 @@ export async function judgeMatch(left, right) {
           winnerId,
           margin,
           judge: model,
-          left: parsed.left || {},
-          right: parsed.right || {},
-          narration: String(parsed.narration || "").slice(0, 1600),
+          left: parsed.fighter1 || {},
+          right: parsed.fighter2 || {},
+          narration: renderNarration(parsed.narration, side, left, right),
           raw: parsed,
         };
       } catch (err) {

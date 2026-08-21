@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { getState } from "../api.js";
 import Clock from "../components/Clock.jsx";
 import Grid from "../components/Grid.jsx";
+import ForgeFire from "../components/ForgeFire.jsx";
 
 export default function Home() {
   const [state, setState] = useState(null);
@@ -36,7 +37,7 @@ export default function Home() {
   return (
     <div className="home">
       <section className="hero">
-        <div className="halo" aria-hidden="true" />
+        <ForgeFire />
         <motion.p className="eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}>
           Night firing · MMXXVI
         </motion.p>

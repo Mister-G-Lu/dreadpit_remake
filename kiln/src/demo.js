@@ -54,6 +54,25 @@ const matches = [
     left: { id: "wrath", name: "Wrath Infernal", image: img("wrath.jpg"), wins: 4 },
     right: { id: "reclaimer", name: "The Reclaimer", image: img("reclaimer.jpg"), wins: 1 },
   },
+  {
+    // REAL verdict — verbatim output of judgeMatch() in server/gemini.js run
+    // without a GEMINI_API_KEY, i.e. the actual localJudge / lesser-eye
+    // fallback. Unlike m1/m2 above (hand-written demo copy), nothing here was
+    // edited. Note it states the outcome plainly: winner "holds shape",
+    // loser "slumps, cracks, and is raked into the ash".
+    id: "m3",
+    seq: 3,
+    batch: 1,
+    status: "done",
+    margin: "narrow",
+    judge: "real (lesser-eye)",
+    judgedAt: "2026-08-20T01:00:12.000Z",
+    winnerId: "forge2",
+    narration:
+      "The lesser eye of the kiln (no Gemini key on this firing) reads the clay by heat and mass alone. Cinder Choir and Pelthook are shoved into the mouth together. The kiln rules: Cinder Choir holds shape. Pelthook slumps, cracks, and is raked into the ash. The shelf does not argue.",
+    left: { id: "forge2", name: "Cinder Choir", image: img("forge2.jpg"), wins: 2 },
+    right: { id: "hook2", name: "Pelthook", image: img("hook2.jpg"), wins: 1 },
+  },
 ];
 
 const nextBatch = new Date(Date.now() + 24 * 3600 * 1000).toISOString();
@@ -79,8 +98,8 @@ export const demoState = {
     batchIndex: 1,
     nextBatchAt: nextBatch,
     notes: "bye:Forge Colossus",
-    matchesTotal: 2,
-    matchesDone: 2,
+    matchesTotal: 3,
+    matchesDone: 3,
   },
   matches,
 };

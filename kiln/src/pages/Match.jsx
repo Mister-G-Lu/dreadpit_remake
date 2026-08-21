@@ -51,6 +51,17 @@ export default function Match() {
         <p className="hint">
           Read by {match.judge}
           {match.margin ? ` · ${match.margin}` : ""}
+          {match.winnerId
+            ? ` · ${
+                match.winnerId === match.left.id
+                  ? match.left.name === match.right.name
+                    ? `${match.left.name} (left)`
+                    : match.left.name
+                  : match.left.name === match.right.name
+                    ? `${match.right.name} (right)`
+                    : match.right.name
+              } stands`
+            : ""}
         </p>
       )}
     </div>
