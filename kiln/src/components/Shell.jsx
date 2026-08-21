@@ -77,7 +77,7 @@ export default function Shell() {
         <Outlet context={{ me, setMe, pollen }} />
       </motion.main>
       <footer className="foot">
-        <span>One firing every 24 hours · 256 living fighters</span>
+        <span>Nightly firing at 00:00 UTC · sealing in the hour before</span>
         <span>Judged by sight only.</span>
       </footer>
     </div>

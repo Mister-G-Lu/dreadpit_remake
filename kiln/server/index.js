@@ -1,24 +1,32 @@
 import express from "express";
 import { createServer } from "node:http";
 import { existsSync, readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   admittedToday,
+  botPoolStats,
   bumpSparks,
   currentRound,
   dead,
+  FIRE_UTC_HOUR,
   gate,
+  imageUrl,
+  isSealing,
   living,
   MAX_ROSTER,
+  nextFireAt,
   nowIso,
   openDb,
   publicFighter,
+  REPO_ROOT,
   roundMatches,
+  slotsUsed,
   SPARKS_PER_DAY,
   sparksToday,
   UPLOADS,
   userByToken,
+  USER_SLOTS,
   BATCH_SIZE,
   BATCH_INTERVAL_MS,
 } from "./db.js";
@@ -167,6 +175,11 @@ app.post("/api/forge/spark", requireUser, async (req, res) => {
 
 app.post("/api/fighters", requireUser, (req, res) => {
   try {
+    if (isSealing()) {
+      return res.status(423).json({
+        error: "The kiln is sealed for tonight's firing. New vessels reopen after the Eye wakes.",
+      });
+    }
     const name = String(req.body?.name || "").trim().slice(0, 40);
     const sparkId = String(req.body?.sparkId || "").trim();
     if (name.length < 2) return res.status(400).json({ error: "Name the fighter." });
@@ -185,7 +198,13 @@ app.post("/api/fighters", requireUser, (req, res) => {
 
     if (admittedToday(db) >= MAX_ROSTER) {
       return res.status(409).json({
-        error: "256 new fighters a day. The roster is closed until tomorrow.",
+        error: `${MAX_ROSTER} new fighters a day. The roster is closed until tomorrow.`,
+      });
+    }
+
+    if (slotsUsed(db, req.user.id) >= USER_SLOTS) {
+      return res.status(409).json({
+        error: `All ${USER_SLOTS} of your vessel slots are filled. Free one, or raise one of the dead.`,
       });
     }
 
@@ -209,6 +228,65 @@ app.post("/api/fighters", requireUser, (req, res) => {
   }
 });
 
+// A player may raise one of their dead: it takes a vessel slot and restarts at
+// the bottom of the ladder (wins reset for this life), but its career record
+// stays carved on the vessel.
+app.post("/api/fighters/:id/resurrect", requireUser, (req, res) => {
+  try {
+    if (isSealing()) {
+      return res.status(423).json({
+        error: "The kiln is sealed for tonight's firing. Resurrections reopen after the Eye wakes.",
+      });
+    }
+    const row = db.prepare("SELECT * FROM fighters WHERE id = ?").get(req.params.id);
+    if (!row || row.user_id !== req.user.id) {
+      return res.status(404).json({ error: "No such vessel of yours." });
+    }
+    if (row.status !== "dead") {
+      return res.status(409).json({ error: "Only the dead can be raised." });
+    }
+    if (slotsUsed(db, req.user.id) >= USER_SLOTS) {
+      return res.status(409).json({
+        error: `All ${USER_SLOTS} of your vessel slots are filled. Free one first.`,
+      });
+    }
+    const livingN = db
+      .prepare("SELECT COUNT(*) AS n FROM fighters WHERE status = 'living'")
+      .get().n;
+    const status = livingN >= MAX_ROSTER ? "gate" : "living";
+    db.prepare(
+      `UPDATE fighters
+       SET status = ?, wins = 0, created_at = ?, died_at = NULL, killed_by = NULL, death_match_id = NULL
+       WHERE id = ?`
+    ).run(status, nowIso(), row.id);
+    const fresh = db
+      .prepare(
+        `SELECT f.*, u.username AS owner FROM fighters f JOIN users u ON u.id = f.user_id WHERE f.id = ?`
+      )
+      .get(row.id);
+    console.log(`[kiln] ${req.user.username} raised ${row.name} from the ash (${fresh.career_wins} career wins, back to the bottom)`);
+    res.json({ fighter: publicFighter(fresh), queued: status === "gate" });
+  } catch (err) {
+    sendErr(res, err);
+  }
+});
+
+app.get("/api/me/fighters", requireUser, (req, res) => {
+  const rows = db
+    .prepare(
+      `SELECT f.*, u.username AS owner FROM fighters f
+       JOIN users u ON u.id = f.user_id
+       WHERE f.user_id = ?
+       ORDER BY CASE f.status WHEN 'living' THEN 0 WHEN 'gate' THEN 1 ELSE 2 END,
+                f.career_wins DESC, f.created_at DESC`
+    )
+    .all(req.user.id);
+  res.json({
+    fighters: rows.map(publicFighter),
+    slots: { used: slotsUsed(db, req.user.id), max: USER_SLOTS },
+  });
+});
+
 app.get("/api/state", (req, res) => {
   const round = currentRound(db);
   const matches = round ? roundMatches(db, round.id) : [];
@@ -230,8 +308,14 @@ app.get("/api/state", (req, res) => {
             id: user.id,
             username: user.username,
             sparksUsed: sparksToday(db, user.id),
+            slots: { used: slotsUsed(db, user.id), max: USER_SLOTS },
           }
         : null,
+    clock: {
+      fireUtcHour: FIRE_UTC_HOUR,
+      nextFireAt: nextFireAt().toISOString(),
+      sealing: isSealing(),
+    },
     round: round
       ? {
           id: round.id,
@@ -247,6 +331,7 @@ app.get("/api/state", (req, res) => {
         }
       : null,
     matches: matches.map(publicMatch),
+    bots: botPoolStats(db),
   });
 });
 
@@ -265,13 +350,13 @@ function publicMatch(m) {
     left: {
       id: m.left_id,
       name: m.left_name,
-      image: `/uploads/${m.left_file}`,
+      image: imageUrl(m.left_file),
       wins: m.left_wins,
     },
     right: {
       id: m.right_id,
       name: m.right_name,
-      image: `/uploads/${m.right_file}`,
+      image: imageUrl(m.right_file),
       wins: m.right_wins,
     },
   };
@@ -320,8 +405,8 @@ app.get("/api/fighters/:id", (req, res) => {
         winnerId: m.winner_id,
         foughtAt: m.judged_at,
         opponent: opponentIsRight
-          ? { id: m.right_id, name: m.right_name, image: `/uploads/${m.right_file}` }
-          : { id: m.left_id, name: m.left_name, image: `/uploads/${m.left_file}` },
+          ? { id: m.right_id, name: m.right_name, image: imageUrl(m.right_file) }
+          : { id: m.left_id, name: m.left_name, image: imageUrl(m.left_file) },
       };
     }),
   });
@@ -358,6 +443,18 @@ app.post("/api/round/tick", requireUser, async (_req, res) => {
 });
 
 app.use("/uploads", express.static(UPLOADS, { maxAge: "7d", fallthrough: false }));
+
+// Founding-dead portraits live in the repo (catalogued by bot_images_manifest.json),
+// not in kiln/data/uploads. Only these three folders are ever served.
+const BOT_FOLDERS = new Set(["big_portraits", "bot_losers", "portraits"]);
+app.get("/bots/:folder/:file", (req, res) => {
+  const { folder, file } = req.params;
+  if (!BOT_FOLDERS.has(folder)) return res.status(404).end();
+  const safe = basename(file);
+  res.sendFile(join(REPO_ROOT, folder, safe), { maxAge: "7d" }, (err) => {
+    if (err && !res.headersSent) res.status(404).end();
+  });
+});
 
 const PORT = Number(process.env.PORT || 3000);
 const HOST = process.env.HOST || "0.0.0.0";

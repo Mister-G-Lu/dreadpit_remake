@@ -1,6 +1,5 @@
 import { readFileSync } from "node:fs";
-import { join } from "node:path";
-import { UPLOADS } from "./db.js";
+import { portraitPath } from "./db.js";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -255,8 +254,8 @@ export async function judgeMatch(left, right) {
     return localJudge(left, right);
   }
 
-  const leftB64 = readFileSync(join(UPLOADS, left.filename)).toString("base64");
-  const rightB64 = readFileSync(join(UPLOADS, right.filename)).toString("base64");
+  const leftB64 = readFileSync(portraitPath(left.filename)).toString("base64");
+  const rightB64 = readFileSync(portraitPath(right.filename)).toString("base64");
 
   let last;
   for (const model of models()) {

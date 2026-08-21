@@ -1,5 +1,5 @@
 import { DatabaseSync } from "node:sqlite";
-import { mkdirSync, copyFileSync, existsSync } from "node:fs";
+import { mkdirSync, copyFileSync, existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { randomBytes } from "node:crypto";
@@ -10,10 +10,54 @@ export const REPO_ROOT = join(ROOT, "..");
 export const DATA_DIR = join(ROOT, "data");
 export const UPLOADS = join(DATA_DIR, "uploads");
 
-export const MAX_ROSTER = Number(process.env.MAX_ROSTER || 256);
+export const MAX_ROSTER = Number(process.env.MAX_ROSTER || 128);
 export const SPARKS_PER_DAY = Number(process.env.SPARKS_PER_DAY || 10);
 export const BATCH_SIZE = Number(process.env.BATCH_SIZE || 10);
 export const BATCH_INTERVAL_MS = Number(process.env.BATCH_INTERVAL_MS || 60 * 60 * 1000);
+export const BOT_COOLDOWN_DAYS = Number(process.env.BOT_COOLDOWN_DAYS || 1);
+export const BOTS_ENABLED = process.env.KILN_BOTS !== "0";
+export const USER_SLOTS = Number(process.env.USER_SLOTS || 15);
+export const FIRE_UTC_HOUR = Math.min(23, Math.max(0, Number(process.env.FIRE_UTC_HOUR || 0)));
+export const SEAL_MINUTES = Math.min(12 * 60, Math.max(0, Number(process.env.SEAL_MINUTES ?? 60)));
+
+// Portrait filenames starting with this prefix live in the repo (not kiln/data)
+// and are served under /bots/<folder>/<file>. See imageUrl() / portraitPath().
+export const BOT_FILE_PREFIX = "@bot/";
+
+// --- The nightly clock -----------------------------------------------------
+// The kiln fires once per UTC day at FIRE_UTC_HOUR. SEAL_MINUTES before it, the
+// kiln seals: no new vessels, no resurrections — the gate line steps onto the
+// stack and the founding dead fill whatever slots remain. Slow judging is fine:
+// a round opened at fire time simply judges through the day.
+function fireMoment(now, dayOffset = 0) {
+  const t = new Date(now);
+  t.setUTCDate(t.getUTCDate() + dayOffset);
+  t.setUTCHours(FIRE_UTC_HOUR, 0, 0, 0);
+  return t;
+}
+
+export function nextFireAt(now = new Date()) {
+  const today = fireMoment(now);
+  return now.getTime() >= today.getTime() ? fireMoment(now, 1) : today;
+}
+
+export function lastFireAt(now = new Date()) {
+  return fireMoment(now);
+}
+
+export function isSealing(now = new Date()) {
+  if (SEAL_MINUTES <= 0) return false;
+  const mins = (nextFireAt(now).getTime() - now.getTime()) / 60000;
+  return mins > 0 && mins <= SEAL_MINUTES;
+}
+
+export function slotsUsed(db, userId) {
+  return db
+    .prepare(
+      "SELECT COUNT(*) AS n FROM fighters WHERE user_id = ? AND status IN ('living','gate')"
+    )
+    .get(userId).n;
+}
 
 export function utcDate(d = new Date()) {
   return d.toISOString().slice(0, 10);
@@ -104,7 +148,101 @@ CREATE TABLE IF NOT EXISTS matches (
   judged_at TEXT,
   judge TEXT
 );
+
+CREATE TABLE IF NOT EXISTS bot_pool (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  base_wins INTEGER NOT NULL DEFAULT 0,
+  filename TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'available',
+  deployments INTEGER NOT NULL DEFAULT 0,
+  deaths INTEGER NOT NULL DEFAULT 0,
+  wins_gained INTEGER NOT NULL DEFAULT 0,
+  fighter_id TEXT,
+  last_deployed_at TEXT,
+  available_at TEXT,
+  first_seen TEXT NOT NULL
+);
 `;
+
+// Additive migrations for databases created before a feature existed.
+function migrate(db) {
+  const cols = db.prepare("PRAGMA table_info(fighters)").all().map((c) => c.name);
+  if (!cols.includes("is_bot")) {
+    db.exec("ALTER TABLE fighters ADD COLUMN is_bot INTEGER NOT NULL DEFAULT 0");
+  }
+  if (!cols.includes("career_wins")) {
+    db.exec("ALTER TABLE fighters ADD COLUMN career_wins INTEGER NOT NULL DEFAULT 0");
+    // Existing records become career totals; `wins` stays the current life.
+    db.exec("UPDATE fighters SET career_wins = wins");
+  }
+}
+
+// The rotating founding-dead: 308 scraped DreadPit portraits catalogued in
+// bot_images_manifest.json at the repo root. Bots deploy to fill empty stack
+// slots, die like anything else in the pit, and return to the pool to revive.
+export function seedBotPool(db) {
+  const n = db.prepare("SELECT COUNT(*) AS n FROM bot_pool").get().n;
+  if (n > 0) return;
+  const manifest = join(REPO_ROOT, "bot_images_manifest.json");
+  if (!existsSync(manifest)) {
+    console.log("[kiln] bot pool: no bot_images_manifest.json — stack fills from the gate only");
+    return;
+  }
+  let entries;
+  try {
+    entries = JSON.parse(readFileSync(manifest, "utf8"));
+  } catch (err) {
+    console.warn("[kiln] bot pool: manifest unreadable —", err.message);
+    return;
+  }
+  const ins = db.prepare(
+    `INSERT INTO bot_pool (id, name, base_wins, filename, status, first_seen)
+     VALUES (?, ?, ?, ?, 'available', ?)`
+  );
+  let seeded = 0;
+  // node:sqlite (Node 22) has no .transaction() helper — drive one manually.
+  db.exec("BEGIN");
+  try {
+    for (const e of entries) {
+      if (!e?.id || !e?.name || !e?.image) continue;
+      ins.run(String(e.id), String(e.name).slice(0, 60), Number(e.wins) || 0, BOT_FILE_PREFIX + e.image, nowIso());
+      seeded++;
+    }
+    db.exec("COMMIT");
+  } catch (err) {
+    db.exec("ROLLBACK");
+    console.warn("[kiln] bot pool: seed failed —", err.message);
+    return;
+  }
+  console.log(`[kiln] bot pool seeded: ${seeded} rotating vessels (revive cooldown ${BOT_COOLDOWN_DAYS}d)`);
+}
+
+// A fighter portrait is either an upload in kiln/data/uploads or, when the
+// filename carries the @bot/ prefix, a repo file served via /bots/.
+export function imageUrl(filename) {
+  if (filename?.startsWith(BOT_FILE_PREFIX)) return `/bots/${filename.slice(BOT_FILE_PREFIX.length)}`;
+  return `/uploads/${filename}`;
+}
+
+export function portraitPath(filename) {
+  if (filename?.startsWith(BOT_FILE_PREFIX)) return join(REPO_ROOT, filename.slice(BOT_FILE_PREFIX.length));
+  return join(UPLOADS, filename);
+}
+
+export function botPoolStats(db) {
+  const total = db.prepare("SELECT COUNT(*) AS n FROM bot_pool").get().n;
+  if (!total) return { enabled: false, total: 0 };
+  const by = db.prepare("SELECT status, COUNT(*) AS n FROM bot_pool GROUP BY status").all();
+  const s = Object.fromEntries(by.map((r) => [r.status, r.n]));
+  return {
+    enabled: BOTS_ENABLED,
+    total,
+    available: s.available || 0,
+    deployed: s.deployed || 0,
+    resting: s.resting || 0,
+  };
+}
 
 const SEED = [
   {
@@ -143,6 +281,8 @@ export function openDb() {
   mkdirSync(UPLOADS, { recursive: true });
   const db = new DatabaseSync(join(DATA_DIR, "kiln.sqlite"));
   db.exec(SCHEMA);
+  migrate(db);
+  seedBotPool(db);
 
   const sys = db.prepare("SELECT id FROM users WHERE id = ?").get("system");
   if (!sys) {
@@ -278,9 +418,11 @@ export function publicFighter(row) {
     prompt: row.status === "dead" ? null : row.prompt,
     sealed: row.status === "dead",
     filename: row.filename,
-    image: `/uploads/${row.filename}`,
+    image: imageUrl(row.filename),
     wins: row.wins,
+    careerWins: row.career_wins ?? row.wins,
     status: row.status,
+    isBot: Boolean(row.is_bot),
     owner: row.owner || null,
     createdAt: row.created_at,
     diedAt: row.died_at || null,

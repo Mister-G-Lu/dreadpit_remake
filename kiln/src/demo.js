@@ -92,6 +92,11 @@ export const demoState = {
   gemini: true,
   static: true,
   nextFiringAt,
+  clock: {
+    fireUtcHour: 0,
+    nextFireAt,
+    sealing: false,
+  },
   living,
   gate: [],
   deadCount: dead.length,
