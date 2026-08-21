@@ -1,4 +1,4 @@
-const base = () => import.meta.env.BASE_URL || "/";
+const base = () => (import.meta.env && import.meta.env.BASE_URL) || "/";
 const img = (file) => `${base()}demo/${file}`;
 
 const fighters = [

@@ -65,12 +65,12 @@ export function createSession(db, userId) {
 export function register(db, username, password) {
   const name = String(username || "").trim().toLowerCase();
   if (!/^[a-z0-9_]{3,20}$/.test(name)) {
-    throw Object.assign(new Error("Username: 3–20 letters, numbers, underscore."), {
+    throw Object.assign(new Error("Username must be 3–20 letters, numbers, or underscores."), {
       status: 400,
     });
   }
   if (name === "kiln" || name === "system") {
-    throw Object.assign(new Error("That name is reserved."), { status: 400 });
+    throw Object.assign(new Error("That username is reserved. Please choose another."), { status: 400 });
   }
   if (String(password || "").length < 6) {
     throw Object.assign(new Error("Password must be at least 6 characters."), {
@@ -79,7 +79,7 @@ export function register(db, username, password) {
   }
   const exists = db.prepare("SELECT id FROM users WHERE username = ?").get(name);
   if (exists) {
-    throw Object.assign(new Error("That name is already taken."), { status: 409 });
+    throw Object.assign(new Error("That username is already taken."), { status: 409 });
   }
   const { hash, salt } = hashPassword(password);
   const userId = id();
@@ -93,7 +93,7 @@ export function login(db, username, password) {
   const name = String(username || "").trim().toLowerCase();
   const row = db.prepare("SELECT * FROM users WHERE username = ?").get(name);
   if (!row || row.id === "system" || !verifyPassword(password, row.pass_hash, row.pass_salt)) {
-    throw Object.assign(new Error("Wrong name or password."), { status: 401 });
+    throw Object.assign(new Error("Wrong username or password."), { status: 401 });
   }
   return { id: row.id, username: row.username };
 }

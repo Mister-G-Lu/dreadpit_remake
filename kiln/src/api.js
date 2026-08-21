@@ -1,4 +1,4 @@
-import { demoAsh, demoFighters, demoMatches, demoState } from "./demo.js";
+import { localApi } from "./local.js";
 
 export function pollenKey() {
   return localStorage.getItem("kiln_pollen_key") || "";
@@ -9,7 +9,20 @@ export function setPollenKey(key) {
   else localStorage.removeItem("kiln_pollen_key");
 }
 
-let live = import.meta.env.VITE_PAGES !== "1";
+function statusMessage(status) {
+  if (status === 401) return "Please log in first.";
+  if (status === 403) return "You don't have permission to do that.";
+  if (status === 404) return "Not found.";
+  if (status === 429) return "Too many requests. Please wait a moment and try again.";
+  if (status >= 500) return "Something went wrong on the server. Please try again.";
+  return `Request failed (${status}).`;
+}
+
+function networkMessage(err) {
+  const name = err?.name || "";
+  if (name === "AbortError") return "The request timed out. Please try again.";
+  return "Can't reach the server. Check your connection and try again.";
+}
 
 async function liveApi(path, opts = {}) {
   const headers = { ...(opts.headers || {}) };
@@ -21,52 +34,53 @@ async function liveApi(path, opts = {}) {
     const key = pollenKey();
     if (key) headers["X-Pollinations-Key"] = key;
   }
-  const res = await fetch(path, { credentials: "include", ...opts, headers });
-  const data = await res.json().catch(() => ({}));
+
+  let res;
+  try {
+    res = await fetch(path, { credentials: "include", ...opts, headers });
+  } catch (err) {
+    throw Object.assign(new Error(networkMessage(err)), { status: 0 });
+  }
+
+  const text = await res.text();
+  let data = {};
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = {};
+    }
+  }
   if (!res.ok) {
-    const err = new Error(data.error || `request failed (${res.status})`);
+    const err = new Error(data.error || statusMessage(res.status));
     err.status = res.status;
     throw err;
   }
   return data;
 }
 
-function demoApi(path, opts = {}) {
-  if (path === "/api/state") return Promise.resolve({ ...demoState });
-  if (path === "/api/auth/me") return Promise.resolve({ user: null, sparksUsed: 0, sparksMax: 10 });
-  if (path === "/api/ash") return Promise.resolve(demoAsh);
-  const fighter = path.match(/^\/api\/fighters\/(.+)$/);
-  if (fighter) {
-    const hit = demoFighters[fighter[1]];
-    if (!hit) return Promise.reject(Object.assign(new Error("No such vessel."), { status: 404 }));
-    return Promise.resolve(hit);
+let modePromise = null;
+
+function detectMode() {
+  if (import.meta.env.VITE_PAGES === "1") return Promise.resolve("local");
+  if (!modePromise) {
+    modePromise = Promise.race([
+      fetch("/api/health", { credentials: "include" })
+        .then(async (res) => {
+          const data = await res.json().catch(() => ({}));
+          return res.ok && data.ok === true ? "live" : "local";
+        })
+        .catch(() => "local"),
+      new Promise((resolve) => setTimeout(() => resolve("local"), 2500)),
+    ]);
   }
-  const match = path.match(/^\/api\/matches\/(.+)$/);
-  if (match) {
-    const hit = demoMatches[match[1]];
-    if (!hit) return Promise.reject(Object.assign(new Error("No such firing."), { status: 404 }));
-    return Promise.resolve(hit);
-  }
-  if (opts.method === "POST") {
-    return Promise.reject(
-      Object.assign(new Error("This GitHub Pages cut is the gallery. Throw clay on a live flue."), {
-        status: 501,
-      })
-    );
-  }
-  return Promise.reject(Object.assign(new Error("static kiln"), { status: 501 }));
+  return modePromise;
 }
 
 export async function api(path, opts = {}) {
-  if (live) {
-    try {
-      return await liveApi(path, opts);
-    } catch (err) {
-      if (err.status && err.status < 500) throw err;
-      live = false;
-    }
-  }
-  return demoApi(path, opts);
+  const mode = await detectMode();
+  if (mode === "live") return liveApi(path, opts);
+  return localApi(path, opts);
 }
 
 export const getState = () => api("/api/state");

@@ -33,7 +33,7 @@ Sight-only judging: the 200-character prompt is **not** sent to Gemini.
 
 ## GitHub Pages
 
-Static gallery (HashRouter + demo roster) builds into `/docs`.
+Static gallery (HashRouter + demo roster) builds into `/docs`. Login and the forge still work: accounts and fighters are stored in the browser on this device.
 
 ```bash
 cd kiln
@@ -44,4 +44,4 @@ Then: **Settings → Pages → Deploy from a branch → `main` / `docs`**.
 
 Live URL: https://mister-g-lu.github.io/dreadpit_remake/
 
-The Pages cut is the pit under glass (browse stack, firings, vessels). Throwing new clay still needs this Node flue (`npm run dev`).
+The shared nightly firing (server-side SQLite + Gemini) still needs the Node app (`npm run dev`).

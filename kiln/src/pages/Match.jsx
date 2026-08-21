@@ -12,7 +12,12 @@ export default function Match() {
       .then((d) => setMatch(d.match))
       .catch((e) => setErr(e.message));
   }, [id]);
-  if (err) return <p className="error">{err}</p>;
+  if (err)
+    return (
+      <p className="error" role="alert">
+        {err}
+      </p>
+    );
   if (!match)
     return (
       <div className="boot">

@@ -16,7 +16,12 @@ export default function Home() {
       .catch((e) => setErr(e.message));
   }, []);
 
-  if (err) return <p className="error">{err}</p>;
+  if (err)
+    return (
+      <p className="error" role="alert">
+        {err}
+      </p>
+    );
   if (!state)
     return (
       <div className="boot">
@@ -75,7 +80,11 @@ export default function Home() {
             Import Pollen
           </Link>
         </div>
-        {state.static && <p className="hint gallery-note">Gallery firing — this GitHub Pages cut is the pit under glass.</p>}
+        {state.static && (
+          <p className="hint gallery-note">
+            Running in your browser — accounts and fighters you create are saved on this device.
+          </p>
+        )}
       </section>
 
       <section className="panel pit-panel">

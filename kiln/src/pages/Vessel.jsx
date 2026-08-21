@@ -10,7 +10,12 @@ export default function Vessel() {
   useEffect(() => {
     getFighter(id).then(setData).catch((e) => setErr(e.message));
   }, [id]);
-  if (err) return <p className="error">{err}</p>;
+  if (err)
+    return (
+      <p className="error" role="alert">
+        {err}
+      </p>
+    );
   if (!data)
     return (
       <div className="boot">

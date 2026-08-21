@@ -52,7 +52,7 @@ export default function Shell() {
             </button>
           ) : (
             <NavLink to="/enter" className="enter-link">
-              Enter
+              Log in
             </NavLink>
           )}
           <button className="burger" aria-label="Menu" onClick={() => setOpen((v) => !v)}>

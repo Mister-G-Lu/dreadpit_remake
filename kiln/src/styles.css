@@ -381,7 +381,13 @@ h2 { font-family: var(--font-display); letter-spacing: 0.14em; text-transform: u
 }
 .tabs button.on { border-color: var(--copper); color: var(--copper); }
 
-.error { color: var(--bad); }
+.error {
+  color: var(--bad);
+  background: rgba(196, 92, 58, 0.12);
+  border: 1px solid rgba(196, 92, 58, 0.4);
+  padding: 10px 12px;
+  margin: 0;
+}
 .ok { color: var(--ok); }
 .muted { color: var(--ash-dim); }
 .hint { color: var(--ash-dim); font-size: 13px; }
