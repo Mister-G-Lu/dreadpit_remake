@@ -44,7 +44,7 @@ export default function Match() {
   return (
     <div className="duel">
       <p className="eyebrow">
-        {match.source === "archived-gemini" ? "Archived Gemini verdict" : "The Eye’s verdict"}
+        {match.source === "test" ? "Test verdict" : "The Eye’s verdict"}
         {date ? ` · ${date}` : ""}
       </p>
       <h1 className="verdict-title">{winner ? `${winner.name} wins` : "Awaiting a verdict"}</h1>

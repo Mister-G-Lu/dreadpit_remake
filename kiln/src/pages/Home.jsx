@@ -102,7 +102,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="eyebrow">{state.static ? "Featured Gemini verdict" : "Latest verdict"}</p>
+          <p className="eyebrow">{state.static ? "Featured verdict" : "Latest verdict"}</p>
           <Link to={`/match/${last.id}`} className="duel-strip">
             <img src={last.left.image} alt={last.left.name} />
             <span>VS</span>

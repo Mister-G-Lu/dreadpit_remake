@@ -39,6 +39,7 @@ const matches = [
     status: "done",
     margin: "clear",
     judge: "demo",
+    source: "test",
     judgedAt: "2026-08-20T01:00:04.000Z",
     winnerId: "hook",
     narration:
@@ -53,6 +54,7 @@ const matches = [
     status: "done",
     margin: "narrow",
     judge: "demo",
+    source: "test",
     judgedAt: "2026-08-20T01:00:08.000Z",
     winnerId: "wrath",
     narration:
@@ -69,7 +71,6 @@ const matches = [
     status: "done",
     margin: null,
     judge: "gemini",
-    source: "archived-gemini",
     judgedAt: "2026-07-25T12:00:47.047Z",
     winnerId: CESAR_ID,
     reasoning:
