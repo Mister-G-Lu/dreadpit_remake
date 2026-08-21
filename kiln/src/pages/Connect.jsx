@@ -51,7 +51,7 @@ export default function Connect() {
     setPollenKey(k);
     setKey(k);
     setDraft("");
-    setNote("Key saved in this browser. It is sent only when you fire a spark.");
+    setNote("Key saved in this browser. It is sent only when you generate a portrait.");
   }
 
   function disconnect() {
@@ -62,11 +62,11 @@ export default function Connect() {
 
   return (
     <motion.div className="narrow cinematic" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-      <p className="eyebrow">Bring your own Pollen</p>
-      <h1>Import a Pollinations account</h1>
+      <p className="eyebrow">Account link</p>
+      <h1>Connect Pollinations</h1>
       <p className="lede">
-        Official BYOP. Authorize Kiln at enter.pollinations.ai. They mint a scoped key that spends{" "}
-        <em>your</em> Pollen. Flux is free; the key buys a clean plate.
+        Official bring-your-own-Pollen. Authorize Kiln at enter.pollinations.ai. They mint a scoped
+        key that spends <em>your</em> Pollen. Flux is free; the key mainly drops the watermark.
       </p>
 
       <div className={`status-card ${key ? "on" : ""}`}>
@@ -75,7 +75,7 @@ export default function Connect() {
           <p>
             {key
               ? `${key.slice(0, 6)}…${key.slice(-4)} · this device only`
-              : "Anonymous Flux still throws sparks, one slow portrait at a time."}
+              : "Anonymous Flux still generates, one slow portrait at a time."}
           </p>
         </div>
         {key && (

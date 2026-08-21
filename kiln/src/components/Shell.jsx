@@ -43,16 +43,21 @@ export default function Shell() {
         </nav>
         <div className="top-right">
           <NavLink to="/connect" className={pollen ? "pill on" : "pill"}>
-            {pollen ? "Pollen" : "Pollen"}
+            Pollinations
             {pollen && <i className="dot" />}
           </NavLink>
           {me ? (
-            <button className="text-btn" onClick={onLogout}>
-              {me.username}
-            </button>
+            <>
+              <NavLink to="/profile" className="enter-link">
+                Profile
+              </NavLink>
+              <button className="text-btn" onClick={onLogout}>
+                Log out
+              </button>
+            </>
           ) : (
             <NavLink to="/enter" className="enter-link">
-              Enter
+              Login
             </NavLink>
           )}
           <button className="burger" aria-label="Menu" onClick={() => setOpen((v) => !v)}>
@@ -72,8 +77,8 @@ export default function Shell() {
         <Outlet context={{ me, setMe, pollen }} />
       </motion.main>
       <footer className="foot">
-        <span>One firing every 24 hours · two hundred fifty-six at the lip</span>
-        <span>Sight only. The shelf does not argue.</span>
+        <span>One firing every 24 hours · 256 living fighters</span>
+        <span>Judged by sight only.</span>
       </footer>
     </div>
   );

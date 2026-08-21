@@ -21,7 +21,7 @@ export default function Home() {
     return (
       <div className="boot">
         <span className="ring" />
-        <p>Warming the flue</p>
+        <p>Warming the kiln</p>
       </div>
     );
 
@@ -48,7 +48,7 @@ export default function Home() {
         >
           Ten sparks.
           <br />
-          <em>One vessel.</em>
+          <em>One fighter.</em>
         </motion.h1>
         <motion.p
           className="lede"
@@ -56,8 +56,8 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.25 }}
         >
-          Import Pollinations. Fire ten portraits a day. Two hundred fifty-six fit the mouth.
-          Every 24 hours, the Eye returns the winners.
+          Log in. Connect Pollinations. Generate ten portraits a day and keep one fighter.
+          256 living at a time. Every 24 hours the Eye names the winners.
         </motion.p>
         {reading ? (
           <div className="reading-state" role="status">
@@ -72,10 +72,10 @@ export default function Home() {
         )}
         <div className="cta-row">
           <Link className="btn copper" to="/forge">
-            Charge the forge
+            Open the forge
           </Link>
           <Link className="btn ghost" to="/connect">
-            Import Pollen
+            Connect Pollinations
           </Link>
         </div>
         {state.static && <p className="hint gallery-note">Gallery preview — browse the stack and its archived verdicts.</p>}
@@ -83,7 +83,7 @@ export default function Home() {
 
       <section className="panel pit-panel">
         <header className="panel-h">
-          <h2>The mouth</h2>
+          <h2>Living stack</h2>
           <p>
             {state.living.length} / {state.maxRoster} living
             {state.gate.length ? ` · ${state.gate.length} waiting` : ""}
@@ -91,7 +91,7 @@ export default function Home() {
         </header>
         <Grid fighters={state.living} max={state.maxRoster} />
         <p className="center-link">
-          <Link to="/stack">Walk the stack →</Link>
+          <Link to="/stack">Open the stack →</Link>
         </p>
       </section>
 
@@ -113,13 +113,13 @@ export default function Home() {
       )}
 
       <section className="laws">
-        <h2>Laws of the flue</h2>
+        <h2>House laws</h2>
         <ol>
           {[
-            ["I · Ten sparks", "Your Pollinations account throws at most ten portraits a day. Pick one. The rest go cold."],
-            ["II · Two hundred fifty-six", "The stack holds 256 living vessels. If it is full, new challengers wait at the mouth."],
-            ["III · Every 24 hours", "The Eye judges the matchups once a day. Results appear together when the firing is complete."],
-            ["IV · Sight only", "The Eye never reads the prompt. Winners remain. Losers are ash."],
+            ["I · Ten sparks", "At most ten portraits a day from your Pollinations account. Pick one fighter. The rest go cold."],
+            ["II · Two hundred fifty-six", "The stack holds 256 living fighters. If it is full, new ones wait in line."],
+            ["III · Every 24 hours", "The Eye judges matchups once a day. Results appear together when the firing is complete."],
+            ["IV · Sight only", "The Eye never reads the prompt. Winners stay. Losers go to Ash."],
           ].map(([t, b], i) => (
             <motion.li
               key={t}

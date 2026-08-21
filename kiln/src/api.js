@@ -38,18 +38,18 @@ function demoApi(path, opts = {}) {
   const fighter = path.match(/^\/api\/fighters\/(.+)$/);
   if (fighter) {
     const hit = demoFighters[fighter[1]];
-    if (!hit) return Promise.reject(Object.assign(new Error("No such vessel."), { status: 404 }));
+    if (!hit) return Promise.reject(Object.assign(new Error("No such fighter."), { status: 404 }));
     return Promise.resolve(hit);
   }
   const match = path.match(/^\/api\/matches\/(.+)$/);
   if (match) {
     const hit = demoMatches[match[1]];
-    if (!hit) return Promise.reject(Object.assign(new Error("No such firing."), { status: 404 }));
+    if (!hit) return Promise.reject(Object.assign(new Error("No such fight."), { status: 404 }));
     return Promise.resolve(hit);
   }
   if (opts.method === "POST") {
     return Promise.reject(
-      Object.assign(new Error("This gallery is read-only. Enter the live kiln to throw new clay."), {
+      Object.assign(new Error("This gallery is read-only. Log in on the live kiln to generate fighters."), {
         status: 501,
       })
     );

@@ -13,18 +13,18 @@ export default function Stack() {
     return (
       <div className="boot">
         <span className="ring" />
-        <p>Reading the shelf</p>
+        <p>Reading the stack</p>
       </div>
     );
   return (
     <div>
       <p className="eyebrow">The stack</p>
       <h1>
-        {state.living.length} living · {state.maxRoster} lip
+        {state.living.length} living · {state.maxRoster} cap
       </h1>
       <p className="lede">
-        Ordered by firings survived. Adjacent vessels meet when the Eye wakes. Odd
-        nights the top vessel sits a bye.
+        Ranked by fights survived. Neighbors on this list fight when the Eye wakes.
+        On odd nights the top fighter sits out.
       </p>
       <Grid fighters={state.living} max={state.maxRoster} />
       <ol className="rank">
