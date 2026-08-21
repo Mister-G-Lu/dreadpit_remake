@@ -92,7 +92,7 @@ export default function Firing() {
                     <span>{match.left.name}</span>
                   </div>
                   <div className="result-verdict">
-                    {match.source === "archived-gemini" && <small>Real Gemini record</small>}
+                    {match.source === "test" && <small>Test</small>}
                     <span>VS</span>
                     <strong>{winner ? `${winner.name} wins` : "Verdict pending"}</strong>
                   </div>
