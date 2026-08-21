@@ -277,9 +277,10 @@ const SEED = [
   },
 ];
 
-export function openDb() {
+export function openDb(file = join(DATA_DIR, "kiln.sqlite")) {
   mkdirSync(UPLOADS, { recursive: true });
-  const db = new DatabaseSync(join(DATA_DIR, "kiln.sqlite"));
+  if (file !== ":memory:") mkdirSync(dirname(file), { recursive: true });
+  const db = new DatabaseSync(file);
   db.exec(SCHEMA);
   migrate(db);
   seedBotPool(db);
