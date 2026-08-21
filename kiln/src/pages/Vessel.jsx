@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import { getFighter } from "../api.js";
 
 export default function Vessel() {
@@ -10,11 +11,24 @@ export default function Vessel() {
     getFighter(id).then(setData).catch((e) => setErr(e.message));
   }, [id]);
   if (err) return <p className="error">{err}</p>;
-  if (!data) return <p className="muted">Turning the vessel…</p>;
+  if (!data)
+    return (
+      <div className="boot">
+        <span className="ring" />
+        <p>Turning the vessel</p>
+      </div>
+    );
   const f = data.fighter;
   return (
     <div className="vessel">
-      <img src={f.image} alt={f.name} className="hero-port" />
+      <motion.img
+        src={f.image}
+        alt={f.name}
+        className="hero-port"
+        initial={{ clipPath: "inset(12% 12% 12% 12%)", filter: "brightness(0.4)" }}
+        animate={{ clipPath: "inset(0% 0% 0% 0%)", filter: "brightness(1)" }}
+        transition={{ duration: 0.8 }}
+      />
       <div>
         <p className="eyebrow">{f.status}</p>
         <h1>{f.name}</h1>

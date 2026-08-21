@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { login, register } from "../api.js";
 
 export default function Enter() {
@@ -26,7 +27,7 @@ export default function Enter() {
   }
 
   return (
-    <div className="narrow">
+    <motion.div className="narrow cinematic" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
       <p className="eyebrow">Take a name</p>
       <h1>{mode === "login" ? "Return to the flue" : "Be named in soot"}</h1>
       <p className="lede">A kiln name is 3–20 letters. This is not your Pollinations account — link that next.</p>
@@ -57,6 +58,6 @@ export default function Enter() {
           {busy ? "Opening…" : mode === "login" ? "Enter" : "Take the name"}
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }

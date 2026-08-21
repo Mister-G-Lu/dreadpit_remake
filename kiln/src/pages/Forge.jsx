@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { motion } from "framer-motion";
 import { fireSpark, getState, pollenKey, submitVessel } from "../api.js";
 
 export default function Forge() {
@@ -12,7 +13,6 @@ export default function Forge() {
   const [picked, setPicked] = useState(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
-  const [queued, setQueued] = useState(false);
 
   useEffect(() => {
     getState().then(setState).catch((e) => setErr(e.message));
@@ -20,9 +20,10 @@ export default function Forge() {
 
   if (!me) {
     return (
-      <div className="narrow">
-        <h1>The forge is named</h1>
-        <p className="lede">Take a kiln name before you throw clay.</p>
+      <div className="narrow cinematic">
+        <p className="eyebrow">Named clay only</p>
+        <h1>The forge is locked</h1>
+        <p className="lede">Take a kiln name, then throw ten sparks. On GitHub Pages this is the gallery — a live flue still takes clay.</p>
         <Link className="btn copper" to="/enter">
           Enter
         </Link>
@@ -44,14 +45,10 @@ export default function Forge() {
     setBusy(true);
     try {
       const spark = await fireSpark(prompt.trim());
-      const next = { ...spark, prompt: prompt.trim(), fresh: true };
+      const next = { ...spark, prompt: prompt.trim() };
       setSparks((s) => [next, ...s]);
       setPicked(next.id);
-      setState((st) =>
-        st
-          ? { ...st, me: { ...st.me, sparksUsed: spark.sparksUsed } }
-          : st
-      );
+      setState((st) => (st ? { ...st, me: { ...st.me, sparksUsed: spark.sparksUsed } } : st));
     } catch (ex) {
       setErr(ex.message);
     } finally {
@@ -67,7 +64,6 @@ export default function Forge() {
     setErr("");
     try {
       const res = await submitVessel(name.trim(), picked);
-      setQueued(res.queued);
       nav(res.queued ? "/stack" : `/vessel/${res.fighter.id}`);
     } catch (ex) {
       setErr(ex.message);
@@ -81,13 +77,13 @@ export default function Forge() {
       <header className="forge-h">
         <div>
           <p className="eyebrow">The forge</p>
-          <h1>Throw ten sparks. Keep one.</h1>
+          <h1>Throw ten. Keep one.</h1>
         </div>
         <div className="sparks-meter">
-          <span>{Math.max(0, max - (state?.me?.sparksUsed ?? 0))} left today</span>
+          <span>{left} left today</span>
           <div className="meter">
             {Array.from({ length: max }, (_, i) => (
-              <i key={i} className={i < (state?.me?.sparksUsed ?? 0) ? "gone" : "live"} />
+              <i key={i} className={i < used ? "gone" : "live"} />
             ))}
           </div>
         </div>
@@ -95,8 +91,8 @@ export default function Forge() {
 
       {!pollenKey() && (
         <p className="banner">
-          No Pollinations key — anonymous Flux will still fire, slowly, with a mark.
-          <Link to="/connect"> Import your account</Link> for a clean plate.
+          No Pollinations key — anonymous Flux still fires, slower, marked.
+          <Link to="/connect"> Import your account</Link>
         </p>
       )}
 
@@ -112,7 +108,7 @@ export default function Forge() {
           />
           <small>{prompt.length}/200</small>
         </label>
-        <button className="btn copper" disabled={busy || left <= 0}>
+        <button className={`btn copper ${busy ? "pulse" : ""}`} disabled={busy || left <= 0}>
           {busy ? "In the fire…" : "Fire a spark"}
         </button>
       </form>
@@ -122,15 +118,17 @@ export default function Forge() {
           <h2>Today’s plate</h2>
           <div className="contact">
             {sparks.map((s) => (
-              <button
+              <motion.button
                 key={s.id}
                 type="button"
+                layout
                 className={picked === s.id ? "shot on" : "shot"}
                 onClick={() => setPicked(s.id)}
+                whileHover={{ y: -6 }}
               >
                 <img src={s.image} alt="" />
                 <span>seed {s.seed}</span>
-              </button>
+              </motion.button>
             ))}
           </div>
           <form className="form row" onSubmit={onSubmit}>
@@ -144,7 +142,6 @@ export default function Forge() {
           </form>
         </>
       )}
-      {queued && <p className="ok">The stack is full. Your vessel waits in the mouth.</p>}
       {err && <p className="error">{err}</p>}
     </div>
   );

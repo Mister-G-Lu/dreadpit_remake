@@ -30,3 +30,33 @@ npm run dev            # http://0.0.0.0:3000
 5. Matches 1–10 judge immediately. 11–20 wait an hour, and so on. A Gemini 429 parks the round for 10 minutes and retries (stutter). Losers go to ash; the mouth fills empty slots.
 
 Sight-only judging: the 200-character prompt is **not** sent to Gemini.
+
+## GitHub Pages
+
+Static gallery (HashRouter + demo roster) builds into `/docs` and also deploys via `.github/workflows/pages.yml`.
+
+```bash
+cd kiln
+npm run build:pages
+```
+
+Then: **Settings → Pages → Deploy from a branch → `main` / `docs`**.
+
+Live URL: https://mister-g-lu.github.io/dreadpit_analysis/
+
+The Pages cut is the pit under glass (browse stack, firings, vessels). Throwing new clay still needs this Node flue (`npm run dev`).
+
+
+## GitHub Pages
+
+Static gallery (HashRouter + demo roster) builds into `/docs` and also deploys via `.github/workflows/pages.yml`.
+
+```bash
+cd kiln
+npm run build:pages
+```
+
+Then in the repo: **Settings → Pages → Deploy from a branch → `main` / `docs`**.
+Live URL: https://mister-g-lu.github.io/dreadpit_analysis/
+
+The Pages cut is the pit under glass (browse stack, firings, vessels). Throwing new clay still needs this Node flue (`npm run dev`).

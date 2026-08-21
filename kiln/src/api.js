@@ -1,3 +1,5 @@
+import { demoAsh, demoFighters, demoMatches, demoState } from "./demo.js";
+
 export function pollenKey() {
   return localStorage.getItem("kiln_pollen_key") || "";
 }
@@ -7,7 +9,9 @@ export function setPollenKey(key) {
   else localStorage.removeItem("kiln_pollen_key");
 }
 
-export async function api(path, opts = {}) {
+let live = import.meta.env.VITE_PAGES !== "1";
+
+async function liveApi(path, opts = {}) {
   const headers = { ...(opts.headers || {}) };
   if (opts.json !== undefined) {
     headers["Content-Type"] = "application/json";
@@ -25,6 +29,44 @@ export async function api(path, opts = {}) {
     throw err;
   }
   return data;
+}
+
+function demoApi(path, opts = {}) {
+  if (path === "/api/state") return Promise.resolve({ ...demoState });
+  if (path === "/api/auth/me") return Promise.resolve({ user: null, sparksUsed: 0, sparksMax: 10 });
+  if (path === "/api/ash") return Promise.resolve(demoAsh);
+  const fighter = path.match(/^\/api\/fighters\/(.+)$/);
+  if (fighter) {
+    const hit = demoFighters[fighter[1]];
+    if (!hit) return Promise.reject(Object.assign(new Error("No such vessel."), { status: 404 }));
+    return Promise.resolve(hit);
+  }
+  const match = path.match(/^\/api\/matches\/(.+)$/);
+  if (match) {
+    const hit = demoMatches[match[1]];
+    if (!hit) return Promise.reject(Object.assign(new Error("No such firing."), { status: 404 }));
+    return Promise.resolve(hit);
+  }
+  if (opts.method === "POST") {
+    return Promise.reject(
+      Object.assign(new Error("This GitHub Pages cut is the gallery. Throw clay on a live flue."), {
+        status: 501,
+      })
+    );
+  }
+  return Promise.reject(Object.assign(new Error("static kiln"), { status: 501 }));
+}
+
+export async function api(path, opts = {}) {
+  if (live) {
+    try {
+      return await liveApi(path, opts);
+    } catch (err) {
+      if (err.status && err.status < 500) throw err;
+      live = false;
+    }
+  }
+  return demoApi(path, opts);
 }
 
 export const getState = () => api("/api/state");

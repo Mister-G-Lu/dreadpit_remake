@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { getState } from "../api.js";
 import Clock from "../components/Clock.jsx";
 
@@ -17,10 +18,16 @@ export default function Firing() {
     };
   }, []);
 
-  if (!state) return <p className="muted">Listening at the flue…</p>;
+  if (!state)
+    return (
+      <div className="boot">
+        <span className="ring" />
+        <p>Listening at the flue</p>
+      </div>
+    );
   if (!state.round)
     return (
-      <div className="narrow">
+      <div className="narrow cinematic">
         <h1>No firing yet</h1>
         <p className="lede">When two vessels stand, the Eye opens. First ten matches fire at once; the rest wait an hour each.</p>
       </div>
@@ -39,9 +46,9 @@ export default function Firing() {
         {state.round.matchesDone}/{state.round.matchesTotal} mouths fed
       </h1>
       <p className="lede">
-        Status: {state.round.status}. The Eye reads {state.batchSize} matches per hour
-        {state.gemini ? " through Gemini Flash" : " with the lesser eye (no Gemini key)"}
-        . Rate-limits stutter the flue; they do not skip a vessel.
+        {state.round.status}. {state.batchSize} matches per hour
+        {state.gemini ? " through Gemini Flash" : " with the lesser eye"}
+        . Rate-limits stutter; they do not skip.
       </p>
       {(state.round.status === "running" || state.round.status === "stalled") && (
         <Clock target={state.round.nextBatchAt} label={`Hour ${state.round.batchIndex + 1} · next ten`} />
@@ -57,18 +64,25 @@ export default function Firing() {
             </small>
           </h2>
           <div className="match-list">
-            {matches.map((m) => (
-              <Link to={`/match/${m.id}`} key={m.id} className={`match-row ${m.status}`}>
-                <span className="seq">{m.seq}</span>
-                <img src={m.left.image} alt={m.left.name} className={m.winnerId === m.left.id ? "won" : m.winnerId ? "lost" : ""} />
-                <span className="vs">
-                  <strong>{m.left.name}</strong>
-                  <em>vs</em>
-                  <strong>{m.right.name}</strong>
-                </span>
-                <img src={m.right.image} alt={m.right.name} className={m.winnerId === m.right.id ? "won" : m.winnerId ? "lost" : ""} />
-                <span className="st">{m.status === "done" ? m.margin : m.status}</span>
-              </Link>
+            {matches.map((m, i) => (
+              <motion.div
+                key={m.id}
+                initial={{ opacity: 0, x: i % 2 ? 24 : -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <Link to={`/match/${m.id}`} className={`match-row ${m.status}`}>
+                  <span className="seq">{m.seq}</span>
+                  <img src={m.left.image} alt={m.left.name} className={m.winnerId === m.left.id ? "won" : m.winnerId ? "lost" : ""} />
+                  <span className="vs">
+                    <strong>{m.left.name}</strong>
+                    <em>vs</em>
+                    <strong>{m.right.name}</strong>
+                  </span>
+                  <img src={m.right.image} alt={m.right.name} className={m.winnerId === m.right.id ? "won" : m.winnerId ? "lost" : ""} />
+                  <span className="st">{m.status === "done" ? m.margin : m.status}</span>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </section>
