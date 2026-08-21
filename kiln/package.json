@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://mister-g-lu.github.io/dreadpit_analysis/",
+  "homepage": "https://mister-g-lu.github.io/dreadpit_remake/",
   "scripts": {
     "dev": "node server/index.js",
     "start": "NODE_ENV=production node server/index.js",
