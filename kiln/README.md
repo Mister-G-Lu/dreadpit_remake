@@ -17,7 +17,7 @@ npm run dev            # http://0.0.0.0:3000
 | `GEMINI_MODEL` | `gemini-2.5-flash` | Primary judge. Falls back through Flash-Lite / 2.0 / 1.5 / 3.x names. |
 | `BATCH_SIZE` | `10` | Matches per hour. |
 | `BATCH_INTERVAL_MS` | `3600000` | Delay after a successful batch. First batch of a round fires immediately. |
-| `MAX_ROSTER` | `64` | Living stack size **and** new fighters admitted per UTC day. Sized so one firing (≈32 matches) judges in ~3h even with 429 stutter. |
+| `MAX_ROSTER` | `128` | Living stack size **and** new fighters admitted per UTC day. One firing = 64 matches ≈ 6–7h at 10/hour — verdicts still land within the day. |
 | `SPARKS_PER_DAY` | `10` | Image generations per user per UTC day. |
 | `USER_SLOTS` | `15` | Vessels (living + waiting) a single player may hold. The dead hold no slot. |
 | `FIRE_UTC_HOUR` | `0` | UTC hour the nightly firing opens. Never move it once players rely on it. |

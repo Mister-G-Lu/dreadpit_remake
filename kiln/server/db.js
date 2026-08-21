@@ -10,7 +10,7 @@ export const REPO_ROOT = join(ROOT, "..");
 export const DATA_DIR = join(ROOT, "data");
 export const UPLOADS = join(DATA_DIR, "uploads");
 
-export const MAX_ROSTER = Number(process.env.MAX_ROSTER || 64);
+export const MAX_ROSTER = Number(process.env.MAX_ROSTER || 128);
 export const SPARKS_PER_DAY = Number(process.env.SPARKS_PER_DAY || 10);
 export const BATCH_SIZE = Number(process.env.BATCH_SIZE || 10);
 export const BATCH_INTERVAL_MS = Number(process.env.BATCH_INTERVAL_MS || 60 * 60 * 1000);
