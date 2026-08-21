@@ -780,3 +780,39 @@ blockquote {
     transition: none !important;
   }
 }
+
+/* --- Profile: your vessels + raise from ash ------------------------------ */
+.mine-list { margin-top: 28px; }
+.mine-list h2 {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ash-dim);
+  margin-bottom: 12px;
+}
+.mine-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #1a1510;
+}
+.mine-row img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: saturate(0.9) contrast(1.05);
+}
+.mine-row > a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--ash);
+  text-decoration: none;
+  flex: 1;
+  min-width: 0;
+}
+.mine-row > a:hover { color: var(--copper); }
+.mine-row small { color: var(--ash-dim); font-size: 12px; }
+.btn.small { padding: 7px 12px; font-size: 12px; white-space: nowrap; }

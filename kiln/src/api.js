@@ -35,6 +35,7 @@ function demoApi(path, opts = {}) {
   if (path === "/api/state") return Promise.resolve({ ...demoState });
   if (path === "/api/auth/me") return Promise.resolve({ user: null, sparksUsed: 0, sparksMax: 10 });
   if (path === "/api/ash") return Promise.resolve(demoAsh);
+  if (path === "/api/me/fighters") return Promise.resolve({ fighters: [], slots: { used: 0, max: 15 } });
   const fighter = path.match(/^\/api\/fighters\/(.+)$/);
   if (fighter) {
     const hit = demoFighters[fighter[1]];
@@ -74,6 +75,9 @@ export const getMe = () => api("/api/auth/me");
 export const getAsh = () => api("/api/ash");
 export const getFighter = (id) => api(`/api/fighters/${id}`);
 export const getMatch = (id) => api(`/api/matches/${id}`);
+export const getMyFighters = () => api("/api/me/fighters");
+export const resurrectFighter = (id) =>
+  api(`/api/fighters/${id}/resurrect`, { method: "POST", json: {} });
 export const register = (username, password) =>
   api("/api/auth/register", { method: "POST", json: { username, password } });
 export const login = (username, password) =>

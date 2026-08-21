@@ -10,16 +10,54 @@ export const REPO_ROOT = join(ROOT, "..");
 export const DATA_DIR = join(ROOT, "data");
 export const UPLOADS = join(DATA_DIR, "uploads");
 
-export const MAX_ROSTER = Number(process.env.MAX_ROSTER || 256);
+export const MAX_ROSTER = Number(process.env.MAX_ROSTER || 64);
 export const SPARKS_PER_DAY = Number(process.env.SPARKS_PER_DAY || 10);
 export const BATCH_SIZE = Number(process.env.BATCH_SIZE || 10);
 export const BATCH_INTERVAL_MS = Number(process.env.BATCH_INTERVAL_MS || 60 * 60 * 1000);
 export const BOT_COOLDOWN_DAYS = Number(process.env.BOT_COOLDOWN_DAYS || 1);
 export const BOTS_ENABLED = process.env.KILN_BOTS !== "0";
+export const USER_SLOTS = Number(process.env.USER_SLOTS || 15);
+export const FIRE_UTC_HOUR = Math.min(23, Math.max(0, Number(process.env.FIRE_UTC_HOUR || 0)));
+export const SEAL_MINUTES = Math.min(12 * 60, Math.max(0, Number(process.env.SEAL_MINUTES ?? 60)));
 
 // Portrait filenames starting with this prefix live in the repo (not kiln/data)
 // and are served under /bots/<folder>/<file>. See imageUrl() / portraitPath().
 export const BOT_FILE_PREFIX = "@bot/";
+
+// --- The nightly clock -----------------------------------------------------
+// The kiln fires once per UTC day at FIRE_UTC_HOUR. SEAL_MINUTES before it, the
+// kiln seals: no new vessels, no resurrections — the gate line steps onto the
+// stack and the founding dead fill whatever slots remain. Slow judging is fine:
+// a round opened at fire time simply judges through the day.
+function fireMoment(now, dayOffset = 0) {
+  const t = new Date(now);
+  t.setUTCDate(t.getUTCDate() + dayOffset);
+  t.setUTCHours(FIRE_UTC_HOUR, 0, 0, 0);
+  return t;
+}
+
+export function nextFireAt(now = new Date()) {
+  const today = fireMoment(now);
+  return now.getTime() >= today.getTime() ? fireMoment(now, 1) : today;
+}
+
+export function lastFireAt(now = new Date()) {
+  return fireMoment(now);
+}
+
+export function isSealing(now = new Date()) {
+  if (SEAL_MINUTES <= 0) return false;
+  const mins = (nextFireAt(now).getTime() - now.getTime()) / 60000;
+  return mins > 0 && mins <= SEAL_MINUTES;
+}
+
+export function slotsUsed(db, userId) {
+  return db
+    .prepare(
+      "SELECT COUNT(*) AS n FROM fighters WHERE user_id = ? AND status IN ('living','gate')"
+    )
+    .get(userId).n;
+}
 
 export function utcDate(d = new Date()) {
   return d.toISOString().slice(0, 10);
@@ -132,6 +170,11 @@ function migrate(db) {
   const cols = db.prepare("PRAGMA table_info(fighters)").all().map((c) => c.name);
   if (!cols.includes("is_bot")) {
     db.exec("ALTER TABLE fighters ADD COLUMN is_bot INTEGER NOT NULL DEFAULT 0");
+  }
+  if (!cols.includes("career_wins")) {
+    db.exec("ALTER TABLE fighters ADD COLUMN career_wins INTEGER NOT NULL DEFAULT 0");
+    // Existing records become career totals; `wins` stays the current life.
+    db.exec("UPDATE fighters SET career_wins = wins");
   }
 }
 
@@ -377,6 +420,7 @@ export function publicFighter(row) {
     filename: row.filename,
     image: imageUrl(row.filename),
     wins: row.wins,
+    careerWins: row.career_wins ?? row.wins,
     status: row.status,
     isBot: Boolean(row.is_bot),
     owner: row.owner || null,

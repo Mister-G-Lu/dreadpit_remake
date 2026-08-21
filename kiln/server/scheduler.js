@@ -3,6 +3,8 @@ import {
   BATCH_SIZE,
   BOTS_ENABLED,
   BOT_COOLDOWN_DAYS,
+  isSealing,
+  lastFireAt,
   MAX_ROSTER,
   currentRound,
   gate,
@@ -34,11 +36,8 @@ export function startRound(db) {
   if (roster.length < 2) return null;
   const last = currentRound(db);
   if (last?.status === "running" || last?.status === "stalled") return last;
-
-  if (last?.completed_at) {
-    const elapsed = Date.now() - new Date(last.completed_at).getTime();
-    if (elapsed < 24 * 60 * 60 * 1000) return last;
-  }
+  // Fire timing itself lives in tick(): a round opens at (or after) the daily
+  // FIRE_UTC_HOUR once the previous round has closed.
 
   const number = (last?.number || 0) + 1;
   const { pairs, bye } = pairFighters(roster, number);
@@ -195,7 +194,7 @@ function applyVerdict(db, match, result) {
     result.judge,
     match.id
   );
-  db.prepare("UPDATE fighters SET wins = wins + 1 WHERE id = ?").run(winnerId);
+  db.prepare("UPDATE fighters SET wins = wins + 1, career_wins = career_wins + 1 WHERE id = ?").run(winnerId);
   db.prepare(
     `UPDATE fighters SET status = 'dead', died_at = ?, killed_by = ?, death_match_id = ? WHERE id = ?`
   ).run(judged, winnerId, match.id, loserId);
@@ -223,8 +222,7 @@ export async function processBatch(db) {
     db.prepare(
       "UPDATE rounds SET status = 'complete', completed_at = ? WHERE id = ?"
     ).run(nowIso(), round.id);
-    fillFromGate(db);
-    console.log(`[kiln] round ${round.number} complete`);
+    console.log(`[kiln] round ${round.number} complete — the stack rests until the next sealing`);
     return { complete: true };
   }
 
@@ -268,8 +266,7 @@ export async function processBatch(db) {
     db.prepare(
       "UPDATE rounds SET status = 'complete', completed_at = ?, batch_index = batch_index + 1 WHERE id = ?"
     ).run(nowIso(), round.id);
-    fillFromGate(db);
-    console.log(`[kiln] round ${round.number} complete`);
+    console.log(`[kiln] round ${round.number} complete — the stack rests until the next sealing`);
     return { complete: true, judged };
   }
 
@@ -285,22 +282,38 @@ export async function tick(db) {
   ticking = true;
   try {
     const last = currentRound(db);
-    if (!last || last.status === "complete") {
-      // No firing in progress: the gate (and then the founding dead) top the stack.
-      fillFromGate(db);
+
+    // A firing is in progress: judge batches, ignore the clock.
+    if (last && (last.status === "running" || last.status === "stalled")) {
+      await processBatch(db);
+      return;
     }
+
     const livingN = db
       .prepare("SELECT COUNT(*) AS n FROM fighters WHERE status = 'living'")
       .get().n;
-    if (livingN >= 2) {
-      if (!last || last.status === "complete") {
+
+    // First firing ever: seal and fire as soon as two vessels stand, so a
+    // fresh kiln welcomes you instead of waiting for midnight.
+    if (!last) {
+      fillFromGate(db);
+      if (livingN >= 2) {
         const opened = startRound(db);
         if (opened) await processBatch(db);
-        return;
       }
+      return;
     }
-    if (last && (last.status === "running" || last.status === "stalled")) {
-      await processBatch(db);
+
+    // The sealing: in the hour before the fire, the gate line steps up and the
+    // founding dead fill the missing slots. No bots materialize outside it.
+    if (isSealing()) fillFromGate(db);
+
+    // Fire at (or after) the daily FIRE_UTC_HOUR, once per UTC day.
+    const fireAt = lastFireAt().getTime();
+    const alreadyFiredTonight = new Date(last.started_at).getTime() >= fireAt;
+    if (!alreadyFiredTonight && Date.now() >= fireAt && livingN >= 2) {
+      const opened = startRound(db);
+      if (opened) await processBatch(db);
     }
   } catch (err) {
     console.error("[kiln] tick error", err);

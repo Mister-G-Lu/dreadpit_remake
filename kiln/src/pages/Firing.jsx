@@ -60,7 +60,8 @@ export default function Firing() {
     );
 
   const matches = state.matches.filter((match) => match.status === "done");
-  const next = state.nextFiringAt ||
+  const next = state.clock?.nextFireAt ||
+    state.nextFiringAt ||
     (state.round.completedAt
       ? new Date(new Date(state.round.completedAt).getTime() + 24 * 3600 * 1000).toISOString()
       : null);
