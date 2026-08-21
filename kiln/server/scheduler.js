@@ -1,0 +1,223 @@
+import {
+  BATCH_INTERVAL_MS,
+  BATCH_SIZE,
+  MAX_ROSTER,
+  currentRound,
+  gate,
+  id,
+  living,
+  nowIso,
+} from "./db.js";
+import { judgeMatch } from "./gemini.js";
+
+let ticking = false;
+
+export function pairFighters(fighters, roundNumber) {
+  const list = fighters.slice(0, MAX_ROSTER);
+  const bye = [];
+  const pool = list.slice();
+  if (roundNumber % 2 === 1 && pool.length >= 3) {
+    bye.push(pool.shift());
+  }
+  if (pool.length % 2 === 1) bye.push(pool.pop());
+  const pairs = [];
+  for (let i = 0; i < pool.length; i += 2) {
+    pairs.push([pool[i], pool[i + 1]]);
+  }
+  return { pairs, bye };
+}
+
+export function startRound(db) {
+  const roster = living(db);
+  if (roster.length < 2) return null;
+  const last = currentRound(db);
+  if (last?.status === "running" || last?.status === "stalled") return last;
+
+  if (last?.completed_at) {
+    const elapsed = Date.now() - new Date(last.completed_at).getTime();
+    if (elapsed < 24 * 60 * 60 * 1000) return last;
+  }
+
+  const number = (last?.number || 0) + 1;
+  const { pairs, bye } = pairFighters(roster, number);
+  if (!pairs.length) return null;
+
+  const roundId = id();
+  const started = nowIso();
+  db.prepare(
+    `INSERT INTO rounds (id, number, started_at, status, batch_index, next_batch_at, notes)
+     VALUES (?, ?, ?, 'running', 0, ?, ?)`
+  ).run(
+    roundId,
+    number,
+    started,
+    started,
+    bye.length ? `bye:${bye.map((b) => b.name).join(",")}` : null
+  );
+
+  pairs.forEach((pair, i) => {
+    db.prepare(
+      `INSERT INTO matches (id, round_id, seq, left_id, right_id, status, attempts)
+       VALUES (?, ?, ?, ?, ?, 'pending', 0)`
+    ).run(id(), roundId, i + 1, pair[0].id, pair[1].id);
+  });
+
+  console.log(
+    `[kiln] round ${number} opened — ${pairs.length} matches, first ${BATCH_SIZE} fire now`
+  );
+  return db.prepare("SELECT * FROM rounds WHERE id = ?").get(roundId);
+}
+
+function fillFromGate(db) {
+  const livingCount = db
+    .prepare("SELECT COUNT(*) AS n FROM fighters WHERE status = 'living'")
+    .get().n;
+  const slots = MAX_ROSTER - livingCount;
+  if (slots <= 0) return;
+  const waiting = gate(db).slice(0, slots);
+  for (const f of waiting) {
+    db.prepare("UPDATE fighters SET status = 'living' WHERE id = ?").run(f.id);
+  }
+  if (waiting.length) {
+    console.log(`[kiln] ${waiting.length} vessel(s) stepped from the mouth onto the stack`);
+  }
+}
+
+function applyVerdict(db, match, result) {
+  const winnerId = result.winnerId;
+  const loserId = winnerId === match.left_id ? match.right_id : match.left_id;
+  const judged = nowIso();
+  db.prepare(
+    `UPDATE matches SET winner_id = ?, margin = ?, narration = ?, left_scout = ?, right_scout = ?,
+       raw_json = ?, status = 'done', judged_at = ?, judge = ?
+     WHERE id = ?`
+  ).run(
+    winnerId,
+    result.margin,
+    result.narration,
+    JSON.stringify(result.left || {}),
+    JSON.stringify(result.right || {}),
+    result.raw ? JSON.stringify(result.raw) : null,
+    judged,
+    result.judge,
+    match.id
+  );
+  db.prepare("UPDATE fighters SET wins = wins + 1 WHERE id = ?").run(winnerId);
+  db.prepare(
+    `UPDATE fighters SET status = 'dead', died_at = ?, killed_by = ?, death_match_id = ? WHERE id = ?`
+  ).run(judged, winnerId, match.id, loserId);
+}
+
+export async function processBatch(db) {
+  const round = currentRound(db);
+  if (!round || (round.status !== "running" && round.status !== "stalled")) {
+    return { skipped: true };
+  }
+
+  if (new Date(round.next_batch_at).getTime() > Date.now()) {
+    return { waiting: true, nextBatchAt: round.next_batch_at };
+  }
+
+  const pending = db
+    .prepare(
+      `SELECT * FROM matches WHERE round_id = ? AND status IN ('pending','error') ORDER BY seq ASC LIMIT ?`
+    )
+    .all(round.id, BATCH_SIZE);
+
+  if (!pending.length) {
+    db.prepare(
+      "UPDATE rounds SET status = 'complete', completed_at = ? WHERE id = ?"
+    ).run(nowIso(), round.id);
+    fillFromGate(db);
+    console.log(`[kiln] round ${round.number} complete`);
+    return { complete: true };
+  }
+
+  console.log(
+    `[kiln] firing batch ${round.batch_index + 1} — matches ${pending[0].seq}–${pending[pending.length - 1].seq}`
+  );
+
+  let judged = 0;
+  for (const match of pending) {
+    const left = db.prepare("SELECT * FROM fighters WHERE id = ?").get(match.left_id);
+    const right = db.prepare("SELECT * FROM fighters WHERE id = ?").get(match.right_id);
+    db.prepare("UPDATE matches SET status = 'judging', attempts = attempts + 1 WHERE id = ?").run(
+      match.id
+    );
+    try {
+      const result = await judgeMatch(left, right);
+      applyVerdict(db, match, result);
+      judged++;
+      console.log(
+        `[kiln]  ${left.name} vs ${right.name} → ${result.winnerId === left.id ? left.name : right.name} (${result.judge})`
+      );
+    } catch (err) {
+      db.prepare("UPDATE matches SET status = 'pending' WHERE id = ?").run(match.id);
+      if (err.code === "RATE_LIMIT") {
+        const retry = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+        db.prepare(
+          "UPDATE rounds SET status = 'stalled', next_batch_at = ?, notes = ? WHERE id = ?"
+        ).run(retry, "stutter: gemini 429", round.id);
+        console.warn(`[kiln] rate limited — stutter until ${retry}`);
+        return { stutter: true, judged, nextBatchAt: retry };
+      }
+      console.warn(`[kiln] match ${match.seq} failed:`, err.message);
+    }
+  }
+
+  const still = db
+    .prepare("SELECT COUNT(*) AS n FROM matches WHERE round_id = ? AND status != 'done'")
+    .get(round.id).n;
+
+  if (!still) {
+    db.prepare(
+      "UPDATE rounds SET status = 'complete', completed_at = ?, batch_index = batch_index + 1 WHERE id = ?"
+    ).run(nowIso(), round.id);
+    fillFromGate(db);
+    console.log(`[kiln] round ${round.number} complete`);
+    return { complete: true, judged };
+  }
+
+  const next = new Date(Date.now() + BATCH_INTERVAL_MS).toISOString();
+  db.prepare(
+    "UPDATE rounds SET status = 'running', batch_index = batch_index + 1, next_batch_at = ? WHERE id = ?"
+  ).run(next, round.id);
+  return { judged, nextBatchAt: next, remaining: still };
+}
+
+export async function tick(db) {
+  if (ticking) return;
+  ticking = true;
+  try {
+    const last = currentRound(db);
+    const livingN = db
+      .prepare("SELECT COUNT(*) AS n FROM fighters WHERE status = 'living'")
+      .get().n;
+    if (livingN >= 2) {
+      if (!last || last.status === "complete") {
+        const opened = startRound(db);
+        if (opened) await processBatch(db);
+        return;
+      }
+    }
+    if (last && (last.status === "running" || last.status === "stalled")) {
+      await processBatch(db);
+    }
+  } catch (err) {
+    console.error("[kiln] tick error", err);
+  } finally {
+    ticking = false;
+  }
+}
+
+export function startScheduler(db) {
+  const t = async () => {
+    try {
+      await tick(db);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  setTimeout(t, 2000);
+  setInterval(t, 15 * 1000);
+}
