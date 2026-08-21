@@ -14,21 +14,21 @@ export default function Ash() {
     return (
       <div className="boot">
         <span className="ring" />
-        <p>Raking the heap</p>
+        <p>Loading the fallen</p>
       </div>
     );
   if (!dead.length)
     return (
       <div className="narrow cinematic">
-        <h1>The ash heap</h1>
-        <p className="lede">No vessel has cracked yet. The rake is clean.</p>
+        <h1>Ash</h1>
+        <p className="lede">No fighter has fallen yet.</p>
       </div>
     );
   return (
     <div>
-      <p className="eyebrow">The ash heap</p>
+      <p className="eyebrow">The fallen</p>
       <h1>Fired. Did not hold.</h1>
-      <p className="lede">Prompts sealed. Portraits remain as soot.</p>
+      <p className="lede">Dead fighters stay here. Their prompts are sealed.</p>
       <div className="ash-grid">
         {dead.map((f, i) => (
           <motion.div key={f.id} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
@@ -37,7 +37,7 @@ export default function Ash() {
               <div>
                 <strong>{f.name}</strong>
                 <small>
-                  {f.wins}w · felled by {f.killerName || "the flue"}
+                  {f.wins}w · felled by {f.killerName || "the kiln"}
                 </small>
               </div>
             </Link>

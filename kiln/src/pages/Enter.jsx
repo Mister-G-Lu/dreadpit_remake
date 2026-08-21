@@ -18,7 +18,7 @@ export default function Enter() {
     try {
       if (mode === "login") await login(username, password);
       else await register(username, password);
-      nav("/forge");
+      nav("/profile");
     } catch (ex) {
       setErr(ex.message);
     } finally {
@@ -28,20 +28,22 @@ export default function Enter() {
 
   return (
     <motion.div className="narrow cinematic" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-      <p className="eyebrow">Take a name</p>
-      <h1>{mode === "login" ? "Return to the flue" : "Be named in soot"}</h1>
-      <p className="lede">A kiln name is 3–20 letters. This is not your Pollinations account — link that next.</p>
+      <p className="eyebrow">Account</p>
+      <h1>{mode === "login" ? "Login" : "Sign up"}</h1>
+      <p className="lede">
+        Username 3–20 characters. This is your Kiln account — connect Pollinations after, from Profile.
+      </p>
       <div className="tabs">
         <button className={mode === "login" ? "on" : ""} onClick={() => setMode("login")}>
-          Return
+          Login
         </button>
         <button className={mode === "register" ? "on" : ""} onClick={() => setMode("register")}>
-          Be named
+          Sign up
         </button>
       </div>
       <form className="form" onSubmit={onSubmit}>
         <label>
-          Name
+          Username
           <input value={username} onChange={(e) => setUsername(e.target.value)} autoComplete="username" />
         </label>
         <label>
@@ -55,7 +57,7 @@ export default function Enter() {
         </label>
         {err && <p className="error">{err}</p>}
         <button className="btn copper" disabled={busy}>
-          {busy ? "Opening…" : mode === "login" ? "Enter" : "Take the name"}
+          {busy ? "Please wait…" : mode === "login" ? "Log in" : "Create account"}
         </button>
       </form>
     </motion.div>

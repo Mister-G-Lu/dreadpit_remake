@@ -26,7 +26,7 @@ export default function Vessel() {
     return (
       <div className="boot">
         <span className="ring" />
-        <p>Turning the vessel</p>
+        <p>Loading fighter</p>
       </div>
     );
   const f = data.fighter;
@@ -44,15 +44,15 @@ export default function Vessel() {
         <p className="eyebrow">{f.status}</p>
         <h1>{f.name}</h1>
         <p className="lede">
-          {f.wins} firings survived · thrown by {f.owner}
+          {f.wins} fights survived · by {f.owner}
           {f.killerName ? ` · felled by ${f.killerName}` : ""}
         </p>
         {f.sealed ? (
-          <p className="sealed">The summoning words are sealed in the ash.</p>
+          <p className="sealed">This prompt is sealed.</p>
         ) : f.prompt ? (
           <blockquote>{f.prompt}</blockquote>
         ) : (
-          <p className="sealed">The summoning words were not preserved with this archived vessel.</p>
+          <p className="sealed">No prompt was saved with this fighter.</p>
         )}
         <h2>Fight record</h2>
         <div className="fight-history">
@@ -89,7 +89,7 @@ export default function Vessel() {
               </motion.div>
             );
           })}
-          {!data.fights.length && <p className="muted empty-record">Not yet called.</p>}
+          {!data.fights.length && <p className="muted empty-record">No fights yet.</p>}
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ export default function Firing() {
     return (
       <div className="boot">
         <span className="ring" />
-        <p>Listening at the flue</p>
+        <p>Loading the firing</p>
       </div>
     );
   if (!state.round)
@@ -36,7 +36,7 @@ export default function Firing() {
       <div className="narrow cinematic">
         <p className="eyebrow">The firing</p>
         <h1>No verdicts yet</h1>
-        <p className="lede">Once two vessels stand, the Eye will return the first winners after the next daily firing.</p>
+        <p className="lede">Once two fighters stand, the Eye returns winners after the next daily firing.</p>
       </div>
     );
 

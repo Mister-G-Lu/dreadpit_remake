@@ -65,7 +65,7 @@ function me(req) {
 function requireUser(req, res, next) {
   const user = me(req);
   if (!user || user.id === "system") {
-    return res.status(401).json({ error: "Enter the kiln first." });
+    return res.status(401).json({ error: "Log in first." });
   }
   req.user = user;
   next();
@@ -137,11 +137,11 @@ app.post("/api/forge/spark", requireUser, async (req, res) => {
   try {
     const prompt = String(req.body?.prompt || "").trim().slice(0, 200);
     if (prompt.length < 8) {
-      return res.status(400).json({ error: "Give the clay at least 8 characters." });
+      return res.status(400).json({ error: "Describe the fighter in at least 8 characters." });
     }
     const used = sparksToday(db, req.user.id);
     if (used >= SPARKS_PER_DAY) {
-      return res.status(429).json({ error: "Ten sparks a day. The kiln sleeps on the rest." });
+      return res.status(429).json({ error: "Ten portraits a day. Try again tomorrow." });
     }
     const seed =
       Number.isFinite(Number(req.body?.seed)) && Number(req.body.seed) >= 0
@@ -169,23 +169,23 @@ app.post("/api/fighters", requireUser, (req, res) => {
   try {
     const name = String(req.body?.name || "").trim().slice(0, 40);
     const sparkId = String(req.body?.sparkId || "").trim();
-    if (name.length < 2) return res.status(400).json({ error: "Name the vessel." });
+    if (name.length < 2) return res.status(400).json({ error: "Name the fighter." });
     // Reserved: the judge's internal labels. A vessel named "Fighter 1" would
     // read like an unsubstituted placeholder in narrations.
     if (/^fighter[\s_-]?\d*$/i.test(name)) {
-      return res.status(400).json({ error: "The kiln keeps that name for itself. Choose another." });
+      return res.status(400).json({ error: "That name is reserved. Choose another." });
     }
     const spark = db
       .prepare("SELECT * FROM sparks WHERE id = ? AND user_id = ?")
       .get(sparkId, req.user.id);
-    if (!spark) return res.status(400).json({ error: "Pick a spark you fired today." });
+    if (!spark) return res.status(400).json({ error: "Pick a portrait you generated today." });
 
     const taken = db.prepare("SELECT id FROM fighters WHERE spark_id = ?").get(spark.id);
-    if (taken) return res.status(409).json({ error: "That spark is already a vessel." });
+    if (taken) return res.status(409).json({ error: "That portrait is already a fighter." });
 
     if (admittedToday(db) >= MAX_ROSTER) {
       return res.status(409).json({
-        error: "Two hundred fifty-six new vessels a day. The mouth is shut until tomorrow.",
+        error: "256 new fighters a day. The roster is closed until tomorrow.",
       });
     }
 
@@ -295,7 +295,7 @@ app.get("/api/fighters/:id", (req, res) => {
        WHERE f.id = ?`
     )
     .get(req.params.id);
-  if (!row) return res.status(404).json({ error: "No such vessel." });
+  if (!row) return res.status(404).json({ error: "No such fighter." });
   const fights = db
     .prepare(
       `SELECT m.*, rd.number AS round_number,
@@ -339,7 +339,7 @@ app.get("/api/matches/:id", (req, res) => {
        WHERE m.id = ?`
     )
     .get(req.params.id);
-  if (!m) return res.status(404).json({ error: "No such firing." });
+  if (!m) return res.status(404).json({ error: "No such fight." });
   const extra = {
     leftScout: m.left_scout ? JSON.parse(m.left_scout) : null,
     rightScout: m.right_scout ? JSON.parse(m.right_scout) : null,

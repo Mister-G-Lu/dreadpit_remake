@@ -93,7 +93,7 @@ export function login(db, username, password) {
   const name = String(username || "").trim().toLowerCase();
   const row = db.prepare("SELECT * FROM users WHERE username = ?").get(name);
   if (!row || row.id === "system" || !verifyPassword(password, row.pass_hash, row.pass_salt)) {
-    throw Object.assign(new Error("Wrong name or password."), { status: 401 });
+    throw Object.assign(new Error("Wrong username or password."), { status: 401 });
   }
   return { id: row.id, username: row.username };
 }

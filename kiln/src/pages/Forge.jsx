@@ -21,11 +21,11 @@ export default function Forge() {
   if (!me) {
     return (
       <div className="narrow cinematic">
-        <p className="eyebrow">Named clay only</p>
-        <h1>The forge is locked</h1>
-        <p className="lede">Take a kiln name, then throw ten sparks. Choose one portrait to enter the stack.</p>
+        <p className="eyebrow">Account required</p>
+        <h1>Login to forge</h1>
+        <p className="lede">Log in, then generate up to ten portraits today. Keep one fighter for the stack.</p>
         <Link className="btn copper" to="/enter">
-          Enter
+          Login
         </Link>
       </div>
     );
@@ -39,7 +39,7 @@ export default function Forge() {
     e.preventDefault();
     setErr("");
     if (prompt.trim().length < 8) {
-      setErr("Describe the vessel in at least 8 characters (max 200).");
+      setErr("Describe the fighter in at least 8 characters (max 200).");
       return;
     }
     setBusy(true);
@@ -58,8 +58,8 @@ export default function Forge() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    if (!picked) return setErr("Pick a spark.");
-    if (name.trim().length < 2) return setErr("Name the vessel.");
+    if (!picked) return setErr("Pick a portrait.");
+    if (name.trim().length < 2) return setErr("Name the fighter.");
     setBusy(true);
     setErr("");
     try {
@@ -91,14 +91,14 @@ export default function Forge() {
 
       {!pollenKey() && (
         <p className="banner">
-          No Pollinations key — anonymous Flux still fires, slower, marked.
-          <Link to="/connect"> Import your account</Link>
+          No Pollinations key — anonymous Flux still generates, slower, with a watermark.
+          <Link to="/connect"> Connect Pollinations</Link>
         </p>
       )}
 
       <form className="form" onSubmit={onFire}>
         <label>
-          Two hundred characters of clay
+          Prompt (max 200 characters)
           <textarea
             maxLength={200}
             rows={3}
@@ -109,13 +109,13 @@ export default function Forge() {
           <small>{prompt.length}/200</small>
         </label>
         <button className={`btn copper ${busy ? "pulse" : ""}`} disabled={busy || left <= 0}>
-          {busy ? "In the fire…" : "Fire a spark"}
+          {busy ? "Generating…" : "Generate portrait"}
         </button>
       </form>
 
       {sparks.length > 0 && (
         <>
-          <h2>Today’s plate</h2>
+          <h2>Today’s portraits</h2>
           <div className="contact">
             {sparks.map((s) => (
               <motion.button
@@ -133,11 +133,11 @@ export default function Forge() {
           </div>
           <form className="form row" onSubmit={onSubmit}>
             <label>
-              Vessel name
+              Fighter name
               <input value={name} onChange={(e) => setName(e.target.value)} maxLength={40} />
             </label>
             <button className="btn copper" disabled={busy || !picked}>
-              Enter the kiln
+              Submit to the stack
             </button>
           </form>
         </>

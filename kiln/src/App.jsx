@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Shell from "./components/Shell.jsx";
 import Home from "./pages/Home.jsx";
 import Enter from "./pages/Enter.jsx";
+import Profile from "./pages/Profile.jsx";
 import Connect from "./pages/Connect.jsx";
 import Forge from "./pages/Forge.jsx";
 import Stack from "./pages/Stack.jsx";
@@ -16,6 +17,7 @@ export default function App() {
       <Route element={<Shell />}>
         <Route path="/" element={<Home />} />
         <Route path="/enter" element={<Enter />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/connect" element={<Connect />} />
         <Route path="/forge" element={<Forge />} />
         <Route path="/stack" element={<Stack />} />

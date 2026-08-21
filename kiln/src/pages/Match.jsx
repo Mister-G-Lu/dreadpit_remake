@@ -34,7 +34,7 @@ export default function Match() {
     return (
       <div className="boot">
         <span className="ring" />
-        <p>Opening the mouth</p>
+        <p>Loading the fight</p>
       </div>
     );
 
