@@ -25,7 +25,7 @@ function id(n = 8) {
 }
 
 function emptyStore() {
-  return { users: [], sparks: [], fighters: [] };
+  return { users: [], sparks: [], fighters: [], rounds: [], matches: [] };
 }
 
 function load() {
@@ -37,6 +37,8 @@ function load() {
       users: Array.isArray(data.users) ? data.users : [],
       sparks: Array.isArray(data.sparks) ? data.sparks : [],
       fighters: Array.isArray(data.fighters) ? data.fighters : [],
+      rounds: Array.isArray(data.rounds) ? data.rounds : [],
+      matches: Array.isArray(data.matches) ? data.matches : [],
     };
   } catch {
     return emptyStore();
@@ -231,6 +233,155 @@ async function login(store, username, password) {
   return { user: publicUser(row) };
 }
 
+function heatScore(fighter) {
+  const t = `${fighter.name} ${fighter.prompt || ""}`.toLowerCase();
+  const keys = [
+    "fire",
+    "molten",
+    "forge",
+    "ember",
+    "glow",
+    "iron",
+    "armor",
+    "wing",
+    "shadow",
+    "cannon",
+    "hook",
+    "skull",
+    "furnace",
+  ];
+  return keys.reduce((n, k) => n + (t.includes(k) ? 1 : 0), 0) + (fighter.wins || 0) * 0.25;
+}
+
+function lesserEye(left, right) {
+  const lh = heatScore(left);
+  const rh = heatScore(right);
+  const winnerLeft = lh === rh ? left.id < right.id : lh > rh;
+  const winner = winnerLeft ? left : right;
+  const loser = winnerLeft ? right : left;
+  const margin = Math.abs(lh - rh) > 2 ? "clear" : "narrow";
+  return {
+    winnerId: winner.id,
+    margin,
+    judge: "lesser-eye",
+    narration: `The lesser eye of this device (no shared Gemini firing) reads heat and mass alone. ${left.name} and ${right.name} are shoved into the mouth together. The kiln rules: ${winner.name} holds shape. ${loser.name} slumps, cracks, and is raked into the ash.`,
+  };
+}
+
+function pairLocal(fighters, roundNumber) {
+  const list = fighters
+    .filter((f) => f.status === "living")
+    .sort((a, b) => (b.wins || 0) - (a.wins || 0) || (a.createdAt || "").localeCompare(b.createdAt || ""));
+  const bye = [];
+  const pool = list.slice();
+  if (roundNumber % 2 === 1 && pool.length >= 3) bye.push(pool.shift());
+  if (pool.length % 2 === 1) bye.push(pool.pop());
+  const pairs = [];
+  for (let i = 0; i < pool.length; i += 2) pairs.push([pool[i], pool[i + 1]]);
+  return { pairs, bye };
+}
+
+function lastFireAt(d = new Date()) {
+  const fire = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), 0, 0, 0, 0);
+  return fire;
+}
+
+function fillLocalGate(store) {
+  const livingN = store.fighters.filter((f) => f.status === "living").length;
+  const slots = MAX_ROSTER - demoState.living.length - livingN;
+  if (slots <= 0) return;
+  const waiting = store.fighters.filter((f) => f.status === "gate").slice(0, slots);
+  for (const f of waiting) f.status = "living";
+}
+
+function currentLocalRound(store) {
+  return store.rounds.slice().sort((a, b) => (b.number || 0) - (a.number || 0))[0] || null;
+}
+
+function publicMatch(store, m) {
+  const left = store.fighters.find((f) => f.id === m.leftId);
+  const right = store.fighters.find((f) => f.id === m.rightId);
+  if (!left || !right) return null;
+  return {
+    id: m.id,
+    seq: m.seq,
+    batch: 1,
+    status: m.status,
+    margin: m.margin,
+    narration: m.narration,
+    judgedAt: m.judgedAt,
+    judge: m.judge,
+    winnerId: m.winnerId,
+    left: { id: left.id, name: left.name, image: left.image, wins: left.wins },
+    right: { id: right.id, name: right.name, image: right.image, wins: right.wins },
+  };
+}
+
+function fireLocalRound(store) {
+  const living = store.fighters.filter((f) => f.status === "living");
+  if (living.length < 2) return null;
+  const last = currentLocalRound(store);
+  const number = (last?.number || 0) + 1;
+  const { pairs, bye } = pairLocal(store.fighters, number);
+  if (!pairs.length) return null;
+  const started = nowIso();
+  const round = {
+    id: id(),
+    number,
+    status: "complete",
+    startedAt: started,
+    completedAt: started,
+    batchIndex: 1,
+    nextBatchAt: null,
+    notes: bye.length ? `bye:${bye.map((b) => b.name).join(",")}` : null,
+  };
+  const matches = [];
+  pairs.forEach((pair, i) => {
+    const [left, right] = pair;
+    const result = lesserEye(left, right);
+    const judged = nowIso();
+    const winner = left.id === result.winnerId ? left : right;
+    const loser = left.id === result.winnerId ? right : left;
+    winner.wins = (winner.wins || 0) + 1;
+    winner.careerWins = (winner.careerWins ?? winner.wins - 1) + 1;
+    loser.status = "dead";
+    loser.diedAt = judged;
+    loser.killedBy = winner.id;
+    loser.killerName = winner.name;
+    matches.push({
+      id: id(10),
+      roundId: round.id,
+      seq: i + 1,
+      leftId: left.id,
+      rightId: right.id,
+      status: "done",
+      winnerId: result.winnerId,
+      margin: result.margin,
+      narration: result.narration,
+      judgedAt: judged,
+      judge: result.judge,
+    });
+  });
+  round.matchesTotal = matches.length;
+  round.matchesDone = matches.length;
+  store.rounds.push(round);
+  store.matches.push(...matches);
+  return round;
+}
+
+function tickLocal(store) {
+  fillLocalGate(store);
+  const livingN = store.fighters.filter((f) => f.status === "living").length;
+  const last = currentLocalRound(store);
+  if (!last) {
+    if (livingN >= 2) fireLocalRound(store);
+    return;
+  }
+  const fireAt = lastFireAt();
+  const already = new Date(last.startedAt).getTime() >= fireAt;
+  if (!already && Date.now() >= fireAt && livingN >= 2) fireLocalRound(store);
+}
+
 function mePayload(store) {
   const user = currentUser(store);
   if (!user) return { user: null, sparksUsed: 0, sparksMax: SPARKS_MAX };
@@ -242,14 +393,25 @@ function mePayload(store) {
 }
 
 function statePayload(store) {
+  tickLocal(store);
+  save(store);
   const user = currentUser(store);
   const localLiving = store.fighters.filter((f) => f.status === "living").map(publicFighter);
   const localGate = store.fighters.filter((f) => f.status === "gate").map(publicFighter);
   const localDead = store.fighters.filter((f) => f.status === "dead").length;
+  const last = currentLocalRound(store);
+  const localMatches = last
+    ? store.matches
+        .filter((m) => m.roundId === last.id)
+        .sort((a, b) => a.seq - b.seq)
+        .map((m) => publicMatch(store, m))
+        .filter(Boolean)
+    : [];
   return {
     ...demoState,
     maxRoster: MAX_ROSTER,
     sparksMax: SPARKS_MAX,
+    gemini: false,
     living: [...localLiving, ...demoState.living],
     gate: localGate,
     deadCount: demoState.deadCount + localDead,
@@ -264,6 +426,21 @@ function statePayload(store) {
       : null,
     static: true,
     local: true,
+    round: last
+      ? {
+          id: last.id,
+          number: last.number,
+          status: last.status,
+          startedAt: last.startedAt,
+          completedAt: last.completedAt,
+          batchIndex: last.batchIndex,
+          nextBatchAt: last.nextBatchAt,
+          notes: last.notes,
+          matchesTotal: last.matchesTotal ?? localMatches.length,
+          matchesDone: last.matchesDone ?? localMatches.length,
+        }
+      : demoState.round,
+    matches: localMatches.length ? [...localMatches, ...demoState.matches] : demoState.matches,
   };
 }
 
@@ -347,19 +524,42 @@ function submitVessel(store, body) {
 }
 
 function getFighter(store, idParam) {
+  tickLocal(store);
+  save(store);
   const local = store.fighters.find((f) => f.id === idParam);
   if (local) {
-    return {
-      fighter: publicFighter(local),
-      fights: [],
-    };
+    const fights = store.matches
+      .filter((m) => m.leftId === local.id || m.rightId === local.id)
+      .sort((a, b) => (b.judgedAt || "").localeCompare(a.judgedAt || ""))
+      .map((m) => {
+        const pub = publicMatch(store, m);
+        const opponent = pub.left.id === local.id ? pub.right : pub.left;
+        const round = store.rounds.find((r) => r.id === m.roundId);
+        return {
+          id: m.id,
+          round: round?.number || 1,
+          status: m.status,
+          winnerId: m.winnerId,
+          foughtAt: m.judgedAt,
+          opponent: { id: opponent.id, name: opponent.name, image: opponent.image },
+        };
+      });
+    return { fighter: publicFighter(local), fights };
   }
   const hit = demoFighters[idParam];
   if (!hit) fail("Fighter not found.", 404);
   return hit;
 }
 
-function getMatch(idParam) {
+function getMatch(store, idParam) {
+  tickLocal(store);
+  save(store);
+  const local = store.matches.find((m) => m.id === idParam);
+  if (local) {
+    const match = publicMatch(store, local);
+    if (!match) fail("Match not found.", 404);
+    return { match };
+  }
   const hit = demoMatches[idParam];
   if (!hit) fail("Match not found.", 404);
   return hit;
@@ -409,6 +609,8 @@ export async function localApi(path, opts = {}) {
   if (path === "/api/auth/me") return mePayload(store);
   if (path === "/api/state") return statePayload(store);
   if (path === "/api/ash") {
+    tickLocal(store);
+    save(store);
     const dead = [
       ...store.fighters.filter((f) => f.status === "dead").map(publicFighter),
       ...demoAsh.dead,
@@ -432,7 +634,7 @@ export async function localApi(path, opts = {}) {
   if (fighter && method === "GET") return getFighter(store, decodeURIComponent(fighter[1]));
 
   const match = path.match(/^\/api\/matches\/(.+)$/);
-  if (match && method === "GET") return getMatch(decodeURIComponent(match[1]));
+  if (match && method === "GET") return getMatch(store, decodeURIComponent(match[1]));
 
   fail("This action isn't available right now.", 501);
 }
