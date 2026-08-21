@@ -85,7 +85,9 @@ export default function Home() {
         </div>
         {state.static && (
           <p className="hint gallery-note">
-            Running in your browser — accounts and fighters you create are saved on this device.
+            Running in your browser — accounts and the forge stay on this device. Shared nightly
+            firings (SQLite + Gemini) still need the Node server (<code>npm run dev</code>). Until
+            that is deployed, this device fires your own vessels with the lesser eye.
           </p>
         )}
       </section>

@@ -162,6 +162,44 @@ describe("local (browser) kiln", { concurrency: false }, () => {
     assert.equal(page.fighter.name, "Bell Colossus");
   });
 
+  it("fires a local lesser-eye round once two vessels stand", async () => {
+    await localApi("/api/auth/register", {
+      method: "POST",
+      json: { username: "smith", password: "secret1" },
+    });
+    const a = await localApi("/api/forge/spark", {
+      method: "POST",
+      json: { prompt: "Molten forge giant of black iron and furnace glow", seed: 1 },
+    });
+    const b = await localApi("/api/forge/spark", {
+      method: "POST",
+      json: { prompt: "Quiet paper bird with no weapons at all", seed: 2 },
+    });
+    const fa = await localApi("/api/fighters", {
+      method: "POST",
+      json: { name: "Furnace King", sparkId: a.id },
+    });
+    const fb = await localApi("/api/fighters", {
+      method: "POST",
+      json: { name: "Paper Bird", sparkId: b.id },
+    });
+    const state = await localApi("/api/state");
+    assert.equal(state.local, true);
+    assert.equal(state.gemini, false);
+    const localMatch = state.matches.find(
+      (m) =>
+        (m.left.id === fa.fighter.id || m.right.id === fa.fighter.id) &&
+        (m.left.id === fb.fighter.id || m.right.id === fb.fighter.id)
+    );
+    assert.ok(localMatch);
+    assert.equal(localMatch.judge, "lesser-eye");
+    assert.equal(localMatch.status, "done");
+    const page = await localApi(`/api/matches/${localMatch.id}`);
+    assert.equal(page.match.id, localMatch.id);
+    const dead = await localApi("/api/ash");
+    assert.ok(dead.dead.some((f) => f.id === fa.fighter.id || f.id === fb.fighter.id));
+  });
+
   it("serves demo fighters and a 404 with a normal message", async () => {
     const hit = await localApi("/api/fighters/hook");
     assert.equal(hit.fighter.name, "The Hook");

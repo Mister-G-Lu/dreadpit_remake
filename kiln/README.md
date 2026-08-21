@@ -79,4 +79,4 @@ Then: **Settings → Pages → Deploy from a branch → `main` / `docs`**.
 
 Live URL: https://mister-g-lu.github.io/dreadpit_remake/
 
-The shared nightly firing (server-side SQLite + Gemini) still needs the Node app (`npm run dev`).
+The shared nightly firing (SQLite + Gemini judging) still needs the Node server (`npm run dev`). On the static Pages cut, accounts and the forge work per-device; firings of your own vessels use the local lesser eye. Shared Gemini rounds do not run until the Node app is deployed.
