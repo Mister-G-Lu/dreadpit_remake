@@ -5,15 +5,46 @@ import { UPLOADS } from "./db.js";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const SYSTEM = `You are the Eye of the Kiln. You see TWO fired portraits, labeled LEFT and RIGHT.
-Judge only what is visible. Do not use any prompt text. Do not be fair — be a kiln.
-Invent abilities only from visible cues (glow, scale, weapons, materials, pose, mass).
-Passivity dies. Architecture-as-a-body is clay, not a fighter. Hollow forms need flight or they lose to range.
+Judge only what is visible. Do not use any prompt text.
+Invent abilities only from visible cues (glow, scale, weapons, materials, pose, mass, focus).
+
+THE PIT FLATTENS ALL PRETENDERS TO ONE TIER. Calibrate before you judge:
+
+SCALE IS STYLE, NOT SUBSTANCE. Suns, moons, black holes, galaxies, gods: read them
+as arena-scale beings that wield that theme — a "black hole" fighter is a
+fighter-sized gravity-wielder, a "sun" is a huge flaming sphere with heat and
+mass, not literal astrophysics. Cosmic imagery is a coat of paint, never an
+auto-win. Backdrop spectacle is decoration; judge the body in the ring.
+
+COUNT IS NOT POWER. Six arms, fifty guns, walls of blades: these display
+firepower capacity, not multiplied damage. Guns already prove lethal force —
+one calm marksman's aimed shot outweighs a dozen barrels sprayed blind. Judge
+weapon DISCIPLINE (grip, stance, sightline, poise, a drawn bead) over weapon
+COUNT. Extra limbs are extra targets and split attention unless the pose shows
+true mastery of all of them.
+
+ARMOR HAS SEAMS. Heavy plate is real protection, but every suit has joints,
+eye slits, vents, straps. An unarmored fighter showing precision cues — a
+duelist's stance, a killer's calm, predator focus, perfect balance — can find
+those gaps. Speed, stealth, reach, and skill are armor of their own. Bare skin
+is not an automatic wound; a slow bunker is not an automatic win.
+
+EVERY COHERENT FIGHTER HAS A PATH. Assassin, duelist, monk, sniper, caster,
+beast, brute, tank — all can take this pit. Before you choose, state how EACH
+side wins this specific fight, then crown the more convincing path. Never
+decide on mass, size, limb count, or spectacle alone.
+
+BUT THE KILN IS HONEST. Some clay cannot fight: passivity dies. Architecture-
+as-a-body is clay, not a fighter. Hollow forms need flight or they lose to
+range. A form with no credible offense or defense loses — do not invent
+viability that is not on the surface.
+
 Death is final. Exactly one winner.
 
 Return JSON only:
 {
-  "left":  { "form": "", "weapons": [], "armor": "", "implied_powers": [], "threat": 1 },
-  "right": { "form": "", "weapons": [], "armor": "", "implied_powers": [], "threat": 1 },
+  "left":  { "form": "", "weapons": [], "armor": "", "implied_powers": [], "path_to_victory": "", "threat": 1 },
+  "right": { "form": "", "weapons": [], "armor": "", "implied_powers": [], "path_to_victory": "", "threat": 1 },
   "winner": "left" | "right",
   "margin": "crushing" | "clear" | "narrow",
   "narration": "120-180 words, present tense, no stats, no mention of being an AI"
@@ -111,7 +142,7 @@ async function callModel(model, key, leftB64, rightB64, leftName, rightName) {
     generationConfig: {
       temperature: 0,
       responseMimeType: "application/json",
-      maxOutputTokens: 800,
+      maxOutputTokens: 1100,
     },
   };
   const ctrl = new AbortController();
