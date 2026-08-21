@@ -23,7 +23,7 @@ export default function Forge() {
       <div className="narrow cinematic">
         <p className="eyebrow">Named clay only</p>
         <h1>The forge is locked</h1>
-        <p className="lede">Take a kiln name, then throw ten sparks. On GitHub Pages this is the gallery — a live flue still takes clay.</p>
+        <p className="lede">Take a kiln name, then throw ten sparks. Choose one portrait to enter the stack.</p>
         <Link className="btn copper" to="/enter">
           Enter
         </Link>

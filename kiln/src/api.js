@@ -49,7 +49,7 @@ function demoApi(path, opts = {}) {
   }
   if (opts.method === "POST") {
     return Promise.reject(
-      Object.assign(new Error("This GitHub Pages cut is the gallery. Throw clay on a live flue."), {
+      Object.assign(new Error("This gallery is read-only. Enter the live kiln to throw new clay."), {
         status: 501,
       })
     );

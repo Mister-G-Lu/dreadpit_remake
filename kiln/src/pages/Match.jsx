@@ -3,6 +3,23 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { getMatch } from "../api.js";
 
+function winnerOf(match) {
+  if (match.winnerId === match.left.id) return match.left;
+  if (match.winnerId === match.right.id) return match.right;
+  return null;
+}
+
+function verdictDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return new Intl.DateTimeFormat(undefined, {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+}
+
 export default function Match() {
   const { id } = useParams();
   const [match, setMatch] = useState(null);
@@ -20,11 +37,17 @@ export default function Match() {
         <p>Opening the mouth</p>
       </div>
     );
+
+  const winner = winnerOf(match);
+  const date = verdictDate(match.judgedAt);
+
   return (
     <div className="duel">
       <p className="eyebrow">
-        Hour {match.batch} · match {match.seq} · {match.status}
+        {match.source === "archived-gemini" ? "Archived Gemini verdict" : "The Eye’s verdict"}
+        {date ? ` · ${date}` : ""}
       </p>
+      <h1 className="verdict-title">{winner ? `${winner.name} wins` : "Awaiting a verdict"}</h1>
       <div className="duel-ports">
         <motion.div initial={{ x: -80, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 80 }}>
           <Link to={`/vessel/${match.left.id}`} className={match.winnerId === match.left.id ? "won" : match.winnerId ? "lost-link" : ""}>
@@ -47,23 +70,18 @@ export default function Match() {
           {match.narration}
         </motion.blockquote>
       )}
-      {match.judge && (
-        <p className="hint">
-          Read by {match.judge}
-          {match.margin ? ` · ${match.margin}` : ""}
-          {match.winnerId
-            ? ` · ${
-                match.winnerId === match.left.id
-                  ? match.left.name === match.right.name
-                    ? `${match.left.name} (left)`
-                    : match.left.name
-                  : match.left.name === match.right.name
-                    ? `${match.right.name} (right)`
-                    : match.right.name
-              } stands`
-            : ""}
-        </p>
+      {match.reasoning && (
+        <motion.section
+          className="verdict-reason"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55 }}
+        >
+          <p className="eyebrow">Why the Eye chose {winner?.name}</p>
+          <p>{match.reasoning}</p>
+        </motion.section>
       )}
+      {winner && <p className="verdict-line">{winner.name} remains in the stack.</p>}
     </div>
   );
 }

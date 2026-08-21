@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { getState } from "../api.js";
-import Clock from "../components/Clock.jsx";
+import Clock, { DAY_MS } from "../components/Clock.jsx";
+
+function winnerOf(match) {
+  if (match.winnerId === match.left.id) return match.left;
+  if (match.winnerId === match.right.id) return match.right;
+  return null;
+}
 
 export default function Firing() {
   const [state, setState] = useState(null);
@@ -28,65 +34,77 @@ export default function Firing() {
   if (!state.round)
     return (
       <div className="narrow cinematic">
-        <h1>No firing yet</h1>
-        <p className="lede">When two vessels stand, the Eye opens. First ten matches fire at once; the rest wait an hour each.</p>
+        <p className="eyebrow">The firing</p>
+        <h1>No verdicts yet</h1>
+        <p className="lede">Once two vessels stand, the Eye will return the first winners after the next daily firing.</p>
       </div>
     );
 
-  const byBatch = new Map();
-  for (const m of state.matches) {
-    if (!byBatch.has(m.batch)) byBatch.set(m.batch, []);
-    byBatch.get(m.batch).push(m);
-  }
+  const reading = state.round.status === "running" || state.round.status === "stalled";
+  if (reading)
+    return (
+      <div className="narrow cinematic results-pending">
+        <p className="eyebrow">Today&apos;s firing</p>
+        <h1>The Eye is judging.</h1>
+        <p className="lede">
+          Every portrait is being read. The complete results—and every winner—will appear here together.
+        </p>
+        <div className="reading-state" role="status">
+          <span className="reading-mark" aria-hidden="true" />
+          <div>
+            <strong>Results are being collected</strong>
+            <small>Return when the firing closes.</small>
+          </div>
+        </div>
+      </div>
+    );
+
+  const matches = state.matches.filter((match) => match.status === "done");
+  const next = state.nextFiringAt ||
+    (state.round.completedAt
+      ? new Date(new Date(state.round.completedAt).getTime() + 24 * 3600 * 1000).toISOString()
+      : null);
 
   return (
-    <div>
-      <p className="eyebrow">Night firing {String(state.round.number).padStart(3, "0")}</p>
-      <h1>
-        {state.round.matchesDone}/{state.round.matchesTotal} mouths fed
-      </h1>
-      <p className="lede">
-        {state.round.status}. {state.batchSize} matches per hour
-        {state.gemini ? " through Gemini Flash" : " with the lesser eye"}
-        . Rate-limits stutter; they do not skip.
-      </p>
-      {(state.round.status === "running" || state.round.status === "stalled") && (
-        <Clock target={state.round.nextBatchAt} label={`Hour ${state.round.batchIndex + 1} · next ten`} />
-      )}
+    <div className="firing-results">
+      <p className="eyebrow">{state.static ? "Gallery results" : "Latest firing"}</p>
+      <h1>{matches.length} {matches.length === 1 ? "verdict" : "verdicts"} returned</h1>
+      <p className="lede">The winners remain in the stack. The defeated enter the ash.</p>
+      <Clock target={next} label="Next results" repeatEveryMs={DAY_MS} />
 
-      {[...byBatch.entries()].map(([batch, matches]) => (
-        <section key={batch} className="batch">
-          <h2>
-            Hour {batch}
-            <small>
-              matches {(batch - 1) * state.batchSize + 1}–
-              {Math.min(batch * state.batchSize, state.round.matchesTotal)}
-            </small>
-          </h2>
-          <div className="match-list">
-            {matches.map((m, i) => (
+      <section className="results-feed">
+        <h2>Winners</h2>
+        <div className="result-list">
+          {matches.map((match, i) => {
+            const winner = winnerOf(match);
+            return (
               <motion.div
-                key={m.id}
-                initial={{ opacity: 0, x: i % 2 ? 24 : -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                key={match.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                transition={{ delay: Math.min(i, 8) * 0.05 }}
               >
-                <Link to={`/match/${m.id}`} className={`match-row ${m.status}`}>
-                  <span className="seq">{m.seq}</span>
-                  <img src={m.left.image} alt={m.left.name} className={m.winnerId === m.left.id ? "won" : m.winnerId ? "lost" : ""} />
-                  <span className="vs">
-                    <strong>{m.left.name}</strong>
-                    <em>vs</em>
-                    <strong>{m.right.name}</strong>
-                  </span>
-                  <img src={m.right.image} alt={m.right.name} className={m.winnerId === m.right.id ? "won" : m.winnerId ? "lost" : ""} />
-                  <span className="st">{m.status === "done" ? m.margin : m.status}</span>
+                <Link to={`/match/${match.id}`} className="result-row">
+                  <div className={`result-fighter ${match.winnerId === match.left.id ? "winner" : "defeated"}`}>
+                    <img src={match.left.image} alt={match.left.name} />
+                    <span>{match.left.name}</span>
+                  </div>
+                  <div className="result-verdict">
+                    {match.source === "archived-gemini" && <small>Real Gemini record</small>}
+                    <span>VS</span>
+                    <strong>{winner ? `${winner.name} wins` : "Verdict pending"}</strong>
+                  </div>
+                  <div className={`result-fighter ${match.winnerId === match.right.id ? "winner" : "defeated"}`}>
+                    <img src={match.right.image} alt={match.right.name} />
+                    <span>{match.right.name}</span>
+                  </div>
                 </Link>
               </motion.div>
-            ))}
-          </div>
-        </section>
-      ))}
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }

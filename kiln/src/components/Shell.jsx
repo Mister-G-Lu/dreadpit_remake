@@ -72,7 +72,7 @@ export default function Shell() {
         <Outlet context={{ me, setMe, pollen }} />
       </motion.main>
       <footer className="foot">
-        <span>Hourly mouths of ten · two hundred fifty-six at the lip</span>
+        <span>One firing every 24 hours · two hundred fifty-six at the lip</span>
         <span>Sight only. The shelf does not argue.</span>
       </footer>
     </div>

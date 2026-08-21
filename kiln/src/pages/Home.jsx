@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { getState } from "../api.js";
-import Clock from "../components/Clock.jsx";
+import Clock, { DAY_MS } from "../components/Clock.jsx";
 import Grid from "../components/Grid.jsx";
 import ForgeFire from "../components/ForgeFire.jsx";
 
@@ -25,14 +25,14 @@ export default function Home() {
       </div>
     );
 
-  const next =
-    state.round?.status === "running" || state.round?.status === "stalled"
-      ? state.round.nextBatchAt
-      : state.round?.completedAt
-        ? new Date(new Date(state.round.completedAt).getTime() + 24 * 3600 * 1000).toISOString()
-        : null;
-
-  const last = [...(state.matches || [])].reverse().find((m) => m.status === "done");
+  const reading = state.round?.status === "running" || state.round?.status === "stalled";
+  const next = state.nextFiringAt ||
+    (state.round?.completedAt
+      ? new Date(new Date(state.round.completedAt).getTime() + 24 * 3600 * 1000).toISOString()
+      : null);
+  const last = !reading
+    ? [...(state.matches || [])].reverse().find((m) => m.status === "done")
+    : null;
 
   return (
     <div className="home">
@@ -57,16 +57,19 @@ export default function Home() {
           transition={{ delay: 0.25 }}
         >
           Import Pollinations. Fire ten portraits a day. Two hundred fifty-six fit the mouth.
-          The Eye reads clay in hourly batches of ten — and stutters rather than skip.
+          Every 24 hours, the Eye returns the winners.
         </motion.p>
-        <Clock
-          target={next}
-          label={
-            state.round?.status === "running"
-              ? `Hour ${state.round.batchIndex + 1} · next ten`
-              : "Next night firing"
-          }
-        />
+        {reading ? (
+          <div className="reading-state" role="status">
+            <span className="reading-mark" aria-hidden="true" />
+            <div>
+              <strong>The Eye is reading today&apos;s portraits</strong>
+              <small>All winners will appear together when the firing closes.</small>
+            </div>
+          </div>
+        ) : (
+          <Clock target={next} label="Next night firing" repeatEveryMs={DAY_MS} />
+        )}
         <div className="cta-row">
           <Link className="btn copper" to="/forge">
             Charge the forge
@@ -75,7 +78,7 @@ export default function Home() {
             Import Pollen
           </Link>
         </div>
-        {state.static && <p className="hint gallery-note">Gallery firing — this GitHub Pages cut is the pit under glass.</p>}
+        {state.static && <p className="hint gallery-note">Gallery preview — browse the stack and its archived verdicts.</p>}
       </section>
 
       <section className="panel pit-panel">
@@ -99,7 +102,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="eyebrow">Last mouth</p>
+          <p className="eyebrow">{state.static ? "Featured Gemini verdict" : "Latest verdict"}</p>
           <Link to={`/match/${last.id}`} className="duel-strip">
             <img src={last.left.image} alt={last.left.name} />
             <span>VS</span>
@@ -114,9 +117,9 @@ export default function Home() {
         <ol>
           {[
             ["I · Ten sparks", "Your Pollinations account throws at most ten portraits a day. Pick one. The rest go cold."],
-            ["II · Two hundred fifty-six", "The stack holds 256. Overflow waits in the mouth. 256 new vessels per UTC day, no more."],
-            ["III · Hourly mouths of ten", "Matches 1–10 fire at once. 11–20 wait an hour. A 429 stutters the Eye; it does not skip a vessel."],
-            ["IV · Sight only", "The Eye never reads the prompt. Losers are ash. Words sealed."],
+            ["II · Two hundred fifty-six", "The stack holds 256 living vessels. If it is full, new challengers wait at the mouth."],
+            ["III · Every 24 hours", "The Eye judges the matchups once a day. Results appear together when the firing is complete."],
+            ["IV · Sight only", "The Eye never reads the prompt. Winners remain. Losers are ash."],
           ].map(([t, b], i) => (
             <motion.li
               key={t}

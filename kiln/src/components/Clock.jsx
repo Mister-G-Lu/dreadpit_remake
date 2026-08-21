@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+export const DAY_MS = 24 * 60 * 60 * 1000;
+
 function Pair({ value }) {
   const digits = String(value).padStart(2, "0").split("");
   return (
@@ -24,28 +26,48 @@ function Pair({ value }) {
   );
 }
 
-export default function Clock({ target, label = "Next mouth" }) {
+function nextOccurrence(target, now, repeatEveryMs) {
+  const parsed = new Date(target).getTime();
+  if (!Number.isFinite(parsed)) return null;
+  if (!repeatEveryMs || parsed > now) return parsed;
+  const elapsedCycles = Math.floor((now - parsed) / repeatEveryMs) + 1;
+  return parsed + elapsedCycles * repeatEveryMs;
+}
+
+export default function Clock({ target, label = "Next firing", repeatEveryMs = 0 }) {
   const [now, setNow] = useState(Date.now());
   useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(t);
   }, []);
+
   if (!target) return <div className="clock muted">No firing scheduled</div>;
-  const ms = new Date(target).getTime() - now;
-  const ended = ms <= 0;
-  const s = Math.max(0, Math.floor(ms / 1000));
+  const targetTime = nextOccurrence(target, now, repeatEveryMs);
+  if (targetTime === null) return <div className="clock muted">No firing scheduled</div>;
+
+  const ms = targetTime - now;
+  if (ms <= 0) {
+    return (
+      <div className="clock clock-ready" role="status">
+        <div className="clock-label">Firing now</div>
+        <strong>Results are arriving</strong>
+      </div>
+    );
+  }
+
+  const s = Math.floor(ms / 1000);
   const hh = Math.floor(s / 3600);
   const mm = Math.floor((s % 3600) / 60);
   const ss = s % 60;
   return (
     <div className="clock">
-      <div className="clock-label">{ended ? "Firing now" : label}</div>
-      <div className="clock-digits" aria-live="polite">
-        <Pair value={ended ? 0 : hh} />
+      <div className="clock-label">{label}</div>
+      <div className="clock-digits" aria-live="polite" aria-atomic="true">
+        <Pair value={hh} />
         <span className="colon">:</span>
-        <Pair value={ended ? 0 : mm} />
+        <Pair value={mm} />
         <span className="colon">:</span>
-        <Pair value={ended ? 0 : ss} />
+        <Pair value={ss} />
       </div>
     </div>
   );
