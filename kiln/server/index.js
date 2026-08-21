@@ -298,21 +298,32 @@ app.get("/api/fighters/:id", (req, res) => {
   if (!row) return res.status(404).json({ error: "No such vessel." });
   const fights = db
     .prepare(
-      `SELECT m.*, r.number AS round_number
-       FROM matches m JOIN rounds r ON r.id = m.round_id
+      `SELECT m.*, rd.number AS round_number,
+              lf.name AS left_name, lf.filename AS left_file,
+              rf.name AS right_name, rf.filename AS right_file
+       FROM matches m
+       JOIN rounds rd ON rd.id = m.round_id
+       JOIN fighters lf ON lf.id = m.left_id
+       JOIN fighters rf ON rf.id = m.right_id
        WHERE m.left_id = ? OR m.right_id = ?
-       ORDER BY m.seq DESC`
+       ORDER BY m.judged_at DESC, rd.number DESC, m.seq DESC`
     )
     .all(row.id, row.id);
   res.json({
     fighter: publicFighter(row),
-    fights: fights.map((m) => ({
-      id: m.id,
-      round: m.round_number,
-      status: m.status,
-      winnerId: m.winner_id,
-      vs: m.left_id === row.id ? m.right_id : m.left_id,
-    })),
+    fights: fights.map((m) => {
+      const opponentIsRight = m.left_id === row.id;
+      return {
+        id: m.id,
+        round: m.round_number,
+        status: m.status,
+        winnerId: m.winner_id,
+        foughtAt: m.judged_at,
+        opponent: opponentIsRight
+          ? { id: m.right_id, name: m.right_name, image: `/uploads/${m.right_file}` }
+          : { id: m.left_id, name: m.left_name, image: `/uploads/${m.left_file}` },
+      };
+    }),
   });
 });
 

@@ -3,6 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { getFighter } from "../api.js";
 
+function fightDate(value) {
+  if (!value) return "Previous fight";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Previous fight";
+  return new Intl.DateTimeFormat(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(date);
+}
+
 export default function Vessel() {
   const { id } = useParams();
   const [data, setData] = useState(null);
@@ -29,7 +40,7 @@ export default function Vessel() {
         animate={{ clipPath: "inset(0% 0% 0% 0%)", filter: "brightness(1)" }}
         transition={{ duration: 0.8 }}
       />
-      <div>
+      <div className="vessel-copy">
         <p className="eyebrow">{f.status}</p>
         <h1>{f.name}</h1>
         <p className="lede">
@@ -38,21 +49,48 @@ export default function Vessel() {
         </p>
         {f.sealed ? (
           <p className="sealed">The summoning words are sealed in the ash.</p>
-        ) : (
+        ) : f.prompt ? (
           <blockquote>{f.prompt}</blockquote>
+        ) : (
+          <p className="sealed">The summoning words were not preserved with this archived vessel.</p>
         )}
-        <h2>Firings</h2>
-        <ul className="plain">
-          {data.fights.map((x) => (
-            <li key={x.id}>
-              <Link to={`/match/${x.id}`}>
-                Round {x.round} · {x.status}
-                {x.winnerId === f.id ? " · held" : x.winnerId ? " · cracked" : ""}
-              </Link>
-            </li>
-          ))}
-          {!data.fights.length && <li className="muted">Not yet called.</li>}
-        </ul>
+        <h2>Fight record</h2>
+        <div className="fight-history">
+          {data.fights.map((fight, i) => {
+            const won = fight.winnerId === f.id;
+            const decided = Boolean(fight.winnerId);
+            const outcome = decided ? (won ? "Victory" : "Defeat") : "Awaiting verdict";
+            return (
+              <motion.div
+                key={fight.id}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.06 }}
+              >
+                <Link
+                  to={`/match/${fight.id}`}
+                  className={`fight-card ${decided ? (won ? "victory" : "defeat") : "pending"}`}
+                  aria-label={`${outcome} against ${fight.opponent?.name || "an unknown opponent"}`}
+                >
+                  <div className="fight-thumb">
+                    {fight.opponent?.image ? (
+                      <img src={fight.opponent.image} alt={fight.opponent.name} />
+                    ) : (
+                      <span className="fight-thumb-missing" aria-hidden="true">?</span>
+                    )}
+                    <span className="fight-outcome">{outcome}</span>
+                  </div>
+                  <div className="fight-card-copy">
+                    <small>{fightDate(fight.foughtAt)}</small>
+                    <strong>{fight.opponent?.name || "Unknown opponent"}</strong>
+                    <span>View the fight →</span>
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
+          {!data.fights.length && <p className="muted empty-record">Not yet called.</p>}
+        </div>
       </div>
     </div>
   );
