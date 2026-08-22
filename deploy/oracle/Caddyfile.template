@@ -1,0 +1,24 @@
+# Kiln reverse proxy.
+#
+# Default block below serves plain HTTP on :80 (fine for a VM without a domain).
+# For HTTPS, point an A record at the VM and replace the :80 block with the
+# {$DOMAIN} block (or edit the host), then reload Caddy — it mints Let's Encrypt
+# certs automatically.
+
+:80 {
+	reverse_proxy 127.0.0.1:3000
+}
+
+# HTTPS version — uncomment and set DOMAIN (export DOMAIN=pit.example.com before
+# running setup.sh, or edit this file and `systemctl reload caddy`):
+#
+# {$DOMAIN} {
+# 	encode gzip
+# 	reverse_proxy 127.0.0.1:3000
+# }
+
+# Basic headers for the static client + API JSON.
+header {
+	X-Content-Type-Options nosniff
+	Referrer-Policy strict-origin-when-cross-origin
+}

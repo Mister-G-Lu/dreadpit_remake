@@ -1,0 +1,13 @@
+[Unit]
+Description=Run the Kiln daily round shortly after the fire mark
+
+[Timer]
+# Fires 5 minutes after the default 00:00 UTC fire mark. Adjust to
+# FIRE_UTC_HOUR+5 if you change FIRE_UTC_HOUR (e.g. 12:05 UTC for hour=12).
+OnCalendar=*-*-* 00:05:00 UTC
+Persistent=true
+AccuracySec=1m
+RandomizedDelaySec=0
+
+[Install]
+WantedBy=timers.target

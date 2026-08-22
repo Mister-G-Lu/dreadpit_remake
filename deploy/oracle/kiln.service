@@ -1,0 +1,23 @@
+[Unit]
+Description=Kiln (Dreadpit-style AI fight ladder) API + daily round poller
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kiln
+Group=kiln
+WorkingDirectory=/opt/dreadpit_remake/kiln
+EnvironmentFile=/etc/kiln.env
+Environment=NODE_ENV=production
+ExecStart=/usr/local/bin/node server/index.js
+Restart=always
+RestartSec=5
+# Keep the data dir and repo readable/writable by the service account.
+UMask=0022
+NoNewPrivileges=true
+# Good enough for this app; loosen if you run heavy builds inside the unit.
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Kiln one-shot daily round driver (cron-style)
+# Only enable this when KILN_POLL=0 in /etc/kiln.env. Running it alongside the
+# 15s in-process poller (KILN_POLL=1) lets two processes race on the same round.
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=kiln
+Group=kiln
+WorkingDirectory=/opt/dreadpit_remake/kiln
+EnvironmentFile=/etc/kiln.env
+Environment=NODE_ENV=production
+ExecStart=/usr/local/bin/node server/job.js
+TimeoutStartSec=0
