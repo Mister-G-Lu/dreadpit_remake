@@ -21,8 +21,9 @@ npm run dev            # http://0.0.0.0:3000
 | `MAX_ROSTER` | `128` | Living stack size **and** new fighters admitted per UTC day. One firing = 64 matches ≈ 6–7h at 10/hour — verdicts still land within the day. |
 | `SPARKS_PER_DAY` | `10` | Image generations per user per UTC day. |
 | `USER_SLOTS` | `15` | Vessels (living + waiting) a single player may hold. The dead hold no slot. |
-| `FIRE_UTC_HOUR` | `0` | UTC hour the nightly firing opens. Never move it once players rely on it. |
+| `FIRE_UTC_HOUR` | `0` | UTC hour the nightly firing opens. Never move it once players rely on it. For DreadPit parity, `12` gives the same noon-GMT judgment. |
 | `SEAL_MINUTES` | `60` | Sealing window before the fire: entries and resurrections pause, gate + bots fill. |
+| `KILN_POLL` | `1` | Set `0` when an external cron (`npm run round` / `node server/job.js`) owns the round, so the in-process 15s poller stays off and only one trigger runs. |
 | `KILN_BOTS` | `1` | Set `0` to disable the founding-dead bot pool. |
 | `BOT_COOLDOWN_DAYS` | `1` | Days a dead bot rests in the pool before it may revive. |
 | `VITE_POLLINATIONS_APP_KEY` | (none) | Optional `pk_…` so the BYOP consent screen names this app. |
@@ -37,6 +38,43 @@ npm run dev            # http://0.0.0.0:3000
 6. A fresh install bootstraps: the first firing ever happens as soon as two vessels stand (bots included), then the nightly clock takes over.
 
 Sight-only judging: the 200-character prompt is **not** sent to Gemini.
+
+## Scheduling it like DreadPit
+
+DreadPit itself fires its daily Gemini round **once per day at 12:00 GMT**, judges
+the whole bracket back-to-back in a couple of minutes, and resolves any missed or
+partially-run round later the same day instead of opening tomorrow's early. Its
+round is idempotent and final — never re-run. (`DREADPIT_SCHEDULING.md` at the repo
+root documents the observed timestamps and API evidence.)
+
+The kiln already has the same state machine. To make the *trigger* behave like a
+real scheduled job rather than relying only on the in-process poller:
+
+```bash
+# parity: noon GMT, fire the whole round at once, and let a cron own the trigger
+FIRE_UTC_HOUR=12
+BATCH_SIZE=64
+BATCH_INTERVAL_MS=15000
+KILN_POLL=0
+```
+
+Then schedule the one-shot job (idempotent, safe to over-fire):
+
+```cron
+# crontab — run 1–2 minutes after the 12:00 UTC mark
+5 12 * * *  cd /path/to/dreadpit_remake/kiln && node server/job.js >> kiln-cron.log 2>&1
+```
+
+or `npm run round`, or a managed scheduler hitting `POST /api/round/tick` with a
+logged-in session. Even if the cron runs while the previous run is still working,
+`tick()` resumes the open round and never double-starts one.
+
+- `KILN_POLL=0` turns the 15s in-process poller off; **or** leave it on and let the
+  cron be a safety net (both are idempotent, but don't run multiple processes unless
+  you add a DB-level lock — see `DREADPIT_SCHEDULING.md`).
+- `BATCH_SIZE`/`BATCH_INTERVAL_MS` are a tradeoff: the defaults (10/hr) are gentler
+  on Gemini's free-tier RPM; the DreadPit-style values above fire the whole round
+  and rely on the existing 429/stalled stutter.
 
 ## Death, career, and resurrection
 

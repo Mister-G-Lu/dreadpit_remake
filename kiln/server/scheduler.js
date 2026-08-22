@@ -323,6 +323,11 @@ export async function tick(db) {
 }
 
 export function startScheduler(db) {
+  // External cron (node server/job.js, a managed scheduler, or a POST to
+  // the authenticated /api/round/tick) can own the round. Set KILN_POLL=0 in a
+  // cron-driven deployment so only one trigger is live; leave it on (default)
+  // for a single self-scheduling process. tick() is idempotent either way.
+  const poll = process.env.KILN_POLL !== "0";
   const t = async () => {
     try {
       await tick(db);
@@ -330,6 +335,11 @@ export function startScheduler(db) {
       console.error(e);
     }
   };
-  setTimeout(t, 2000);
-  setInterval(t, 15 * 1000);
+  if (poll) {
+    setTimeout(t, 2000);
+    setInterval(t, 15 * 1000);
+  }
+  console.log(
+    `[kiln] internal round poller ${poll ? "on (15s)" : "off — external cron drives the round"}`
+  );
 }

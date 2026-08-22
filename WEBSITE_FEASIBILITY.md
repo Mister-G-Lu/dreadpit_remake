@@ -28,7 +28,7 @@ That last line is internally consistent **only if “256 fighters” means the l
 
 **Recommendation:** persistent ladder, one round per 24h, cap 256 living. That is the product people already understand, and it matches the 128-match budget exactly.
 
-DreadPit itself ([dreadpit.com](https://dreadpit.com)) already does a darker version of this: 200-character prompt, two portraits, pick one, adjacent ladder pairing **twice daily at 12:00 GMT**, death is final. This proposal is the same sport with three deliberate diffs: **user-paid image gen**, **once daily**, **hard 256 cap**.
+DreadPit itself ([dreadpit.com](https://dreadpit.com)) already does a darker version of this: 200-character prompt, two portraits, pick one, adjacent ladder pairing **once daily at 12:00 GMT** (observed timestamps; see `DREADPIT_SCHEDULING.md`), death is final. This proposal is the same sport with three deliberate diffs: **user-paid image gen**, **once daily**, **hard 256 cap**.
 
 Do **not** reuse DreadPit’s name, copy, fonts-as-brand, or assets. The *game idea* is not owned. The *site* is.
 
@@ -200,7 +200,7 @@ Shuffle the call order so a mid-round outage does not always kill the same half 
 
 ## 5. Ladder rules that make 256 / 128 feel like single-elim
 
-DreadPit pairs **adjacent** ladder rivals, twice a day. Pure random 128-pair Swiss does not feel like a bracket. Use this:
+DreadPit pairs **adjacent** ladder rivals, once a day at 12:00 GMT (with an idempotent catch-up if a noon round is missed). Pure random 128-pair Swiss does not feel like a bracket. Use this:
 
 1. Living roster, ordered by **wins desc, then id**. Cap 256.
 2. Overflow sits in a **Gate queue** (unranked, not judged).
