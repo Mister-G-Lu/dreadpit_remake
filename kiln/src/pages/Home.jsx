@@ -14,6 +14,15 @@ export default function Home() {
     getState()
       .then(setState)
       .catch((e) => setErr(e.message));
+    // Re-poll so the countdown flips to "the Eye is reading" the moment a
+    // scheduled job opens today's round — especially when the firing is driven
+    // by an external cron rather than the in-process poller.
+    const t = setInterval(() => {
+      getState()
+        .then(setState)
+        .catch(() => {});
+    }, 30000);
+    return () => clearInterval(t);
   }, []);
 
   if (err)
@@ -31,7 +40,10 @@ export default function Home() {
     );
 
   const reading = state.round?.status === "running" || state.round?.status === "stalled";
-  const next = state.nextFiringAt ||
+  // Live /api/state exposes the authoritative clock at state.clock.nextFireAt.
+  // state.nextFiringAt only exists in the browser/demo fallback.
+  const next = state.clock?.nextFireAt ||
+    state.nextFiringAt ||
     (state.round?.completedAt
       ? new Date(new Date(state.round.completedAt).getTime() + 24 * 3600 * 1000).toISOString()
       : null);
